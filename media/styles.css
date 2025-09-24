@@ -1,0 +1,211 @@
+:root {
+    --rosewater: #f5e0dc;
+    --flamingo: #f2cdcd;
+    --pink: #f5c2e7;
+    --mauve: #cba6f7;
+    --red: #f38ba8;
+    --maroon: #eba0ac;
+    --peach: #fab387;
+    --yellow: #f9e2af;
+    --green: #a6e3a1;
+    --teal: #94e2d5;
+    --sky: #89dceb;
+    --sapphire: #74c7ec;
+    --blue: #89b4fa;
+    --lavender: #b4befe;
+    --text: #cdd6f4;
+    --subtext1: #bac2de;
+    --subtext0: #a6adc8;
+    --overlay2: #9399b2;
+    --overlay1: #7f849c;
+    --overlay0: #6c7086;
+    --surface2: #585b70;
+    --surface1: #45475a;
+    --surface0: #313244;
+    --base: #1e1e2e;
+    --mantle: #181825;
+    --crust: #11111b;
+}
+
+html {
+    font-family: 'Fira Code', serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+
+    color: var(--text);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+header {
+    margin-bottom: 25px;
+}
+header::after {
+    content: "";
+    display: block;
+    height: 1px;
+    background-color: var(--surface1);
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+
+.topbar {
+    width: fit-content;
+    min-width: 800px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    z-index: 5;
+}
+
+.topbar > .title {
+    margin: 0;
+    transform: translateX(-60px) translateY(25px) rotateZ(-5deg);
+    font-size: 56px;
+    font-weight: 800;
+    color: var(--pink);
+}
+
+.topbar > .nav {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: end;
+    
+    margin-left: -50px;
+}
+
+.topbar > .nav > a {
+    text-decoration: none;
+    font-size: 24px;
+    min-width: 100px;
+    text-align: center;
+    transition: 0.1s;
+}
+
+.topbar > .nav > a::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin-top: 5px;
+    transition: 0.1s;
+}
+
+.topbar > .nav > a:hover {
+    font-weight: 800;
+}
+.topbar > .nav > a:hover::after {
+    height: 5px;
+}
+
+/* eurgh */
+.topbar > .nav > a[data-color="red"] { color: var(--red); }
+.topbar > .nav > a[data-color="yellow"] { color: var(--yellow); }
+.topbar > .nav > a[data-color="green"] { color: var(--green); }
+.topbar > .nav > a[data-color="blue"] { color: var(--blue); }
+.topbar > .nav > a[data-color="mauve"] { color: var(--mauve); }
+
+.topbar > .nav > a[data-color="red"]::after { background-color: var(--red); }
+.topbar > .nav > a[data-color="yellow"]::after { background-color: var(--yellow); }
+.topbar > .nav > a[data-color="green"]::after { background-color: var(--green); }
+.topbar > .nav > a[data-color="blue"]::after { background-color: var(--blue); }
+.topbar > .nav > a[data-color="mauve"]::after { background-color: var(--mauve); }
+
+.content {
+    background-color: var(--base);
+    border: 1px solid var(--surface0);
+    border-radius: 15px;
+    padding: 15px 1rem 1rem;
+    width: fit-content;
+    min-width: 800px;
+    max-width: 800px;
+    transition: 0.5s;
+    position: relative;
+    z-index: 0;
+}
+
+@media screen and (max-width: 800px) {
+    body {
+        padding: 0;
+    }
+    .content, .header {
+        width: 100%;
+        min-width: 0;
+        border-radius: 0;
+    }
+}
+
+.background {
+    background-color: var(--base);
+    opacity: 1;
+    background-image: radial-gradient(var(--base) 1.85px, var(--mantle) 1.85px);
+    background-size: 37px 37px;
+    
+    animation: forwards 2s background linear infinite;
+    
+    width: 120%;
+    height: 120%;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    z-index: -1;
+}
+
+.card {
+    width: fit-content;
+    padding: 0 15px 5px 15px;
+    border: 1px solid var(--surface0);
+    border-radius: 10px;
+    
+    font-size: 14px;
+}
+
+.card > h1, h2, h3 {
+
+}
+.card > p {
+    
+}
+
+.profile {
+    border-radius: 100%;
+    aspect-ratio: 1;
+}
+
+.tag {
+    width: fit-content;
+    padding: 4px 8px;
+    border: 1px solid var(--pink);
+    border-radius: 100px;
+    color: var(--pink);
+    display: inline-block;
+}
+
+
+@keyframes background {
+    0% {transform: translate(0px);}
+    100% {transform: translateX(-37px) translateY(-37px);}
+}
+
+@font-face {
+    font-family: 'Fira Code';
+    font-style: normal;
+    src: url('/media/fonts/firacode.woff');
+}

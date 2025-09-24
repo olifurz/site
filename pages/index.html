@@ -1,0 +1,28 @@
+--- 
+title: hello
+layout: base.njk
+---
+
+<header>
+    <h1 style="color: var(--red)" id="greeting">${partOfDay}!</h1>
+</header>
+<p>my name's <b>oli!</b> this is a self-hosted portfolio for all my <small>(terrible)</small> work, i personally like the control and customisability that having
+a personal website can bring, which is why you won't really find me on many major social platforms other than the ones i need (discord, youtube, etc)<br/><br/>
+    
+    enjoy your time here :3
+</p>
+
+<script>
+    const hour = new Date().getHours(); // 0–23, based on local system time
+    let partOfDay;
+
+    if (hour < 12) {
+        partOfDay = "morning";
+    } 
+    else {
+        partOfDay = "evening";
+    }
+
+    const greetingEl = document.getElementById("greeting");
+    greetingEl.textContent = greetingEl.textContent.replace("${partOfDay}", partOfDay);
+</script>

@@ -1,0 +1,33 @@
+---
+title: olifurz
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/media/styles.css"/>
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="topbar">
+        <h1 class="title">&lt;olifurz\&gt;</h1>
+        <div class="nav">
+            <a id="a" href="/" data-color="red">home</a>
+            <a id="b" href="/me" data-color="yellow">me</a>
+            <a id="c" href="/work" data-color="green">work</a>
+            <a id="d" href="/blog" data-color="blue">blog</a>
+            <a id="e" href="/talk" data-color="mauve">talk</a>
+        </div>
+    </div>
+    <div class="content">
+        {{ content | safe }}
+    </div>
+    <p style="color: var(--overlay0)">&copy; olifurz 2025</p>
+  </body>
+
+  <script>
+      
+  </script>
+</html>

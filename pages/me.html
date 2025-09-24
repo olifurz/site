@@ -1,0 +1,70 @@
+---
+title: about me
+layout: base.njk
+---
+<style>
+    .cardContainer {
+        display: flex;
+        gap: 1rem;
+        justify-content: start;
+        align-items: flex-start;
+    }
+
+    .column {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        flex: 1;
+    }
+    
+    .profile {
+        margin: 10px;
+        width: calc(100% - 20px - 4px);
+        border: 2px dashed var(--pink);
+    }
+    
+    .tag  {
+        margin-top: 3px;
+        margin-bottom: 3px;
+    }
+</style>
+
+<header>
+    <h1 style="color: var(--yellow)">about me</h1>
+</header>
+<div class="cardContainer">
+    <div class="column">
+        <div class="card">
+            <h3>profile pic</h3>
+            <img class="profile" src="/media/pfp.png" alt="profile picture"/>
+        </div>
+    </div>
+    <div class="column">
+        <div class="card">
+            <h3>interests</h3>
+            <div>
+                <div class="tag" style="border-color: var(--yellow); color: var(--yellow)">linux</div>
+                <div class="tag" style="border-color: var(--peach); color: var(--peach)">tf2</div>
+                <div class="tag" style="border-color: var(--lavender); color: var(--lavender)">homelab</div>
+                <div class="tag" style="border-color: var(--green); color: var(--green)">programming</div>
+                <div class="tag" style="border-color: var(--pink); color: var(--pink)">furry</div>
+                <div class="tag" style="border-color: var(--mauve); color: var(--mauve)">theme parks</div>
+                <div class="tag" style="border-color: var(--blue); color: var(--blue)">portal</div>
+            </div>
+        </div>
+    </div>
+    <div class="column">
+        <div class="card">
+            <h3>specs</h3>
+            <p>
+                <b style="color: var(--pink)">cpu</b>: amd ryzen 5 3600xt @ 4.39ghz<br/>
+                <b style="color: var(--pink)">ram</b>: 32gb<br/>
+                <b style="color: var(--pink)">gpu</b>: gigabyte rtx 3060 12gb<br/>
+                <b style="color: var(--pink)">disk</b>: 1tb m.2 + 2tb hdd<br/>
+                <b style="color: var(--pink)">display</b>: 2560x1440@75 + 1920x1080@60<br/>
+                <b style="color: var(--pink)">os</b>: manjaro linux<br/>
+                <b style="color: var(--pink)">desktop</b>: hyprland<br/>
+            </p>
+        </div>
+    </div>
+</div>
