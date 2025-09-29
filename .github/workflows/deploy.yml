@@ -1,0 +1,22 @@
+name: Deploy Website
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted   # proxmox
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy to web root
+        run: |
+          rm -rf /var/www/html/*
+          cp -r ./* /var/www/html/
+      
+      - name: Reload Nginx
+        run: sudo systemctl reload nginx || true
+

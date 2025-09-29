@@ -1,20 +1,19 @@
 ---
 title: about me
 layout: base.njk
+category: 2
 ---
 <style>
     .cardContainer {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
         gap: 1rem;
-        justify-content: start;
-        align-items: flex-start;
     }
 
     .column {
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        flex: 1;
     }
     
     .profile {
@@ -27,6 +26,50 @@ layout: base.njk
         margin-top: 3px;
         margin-bottom: 3px;
     }
+    
+    .list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+    .card {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    b {
+        color: var(--pink);
+    }
+    .card #music, .card #games {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 0.75rem;
+    }
+    .card #music > img {
+        border-radius: inherit;
+        height: 90px;
+   }
+    .card #games > img {
+        border-radius: inherit;
+        height: 48px;
+    }
+    .card #music > div > .top {
+        color: var(--subtext0);
+        margin-bottom: 4px;
+        font-size: 0.8rem;
+    }
+    .card #music > div > .bottom {
+        color: var(--subtext0);
+        margin-top: 4px;
+        font-size: 0.8rem;
+    }
+    .card #music > div > h3, .card #games > div > h3 {
+        margin: 0;
+    }
+    
+    
 </style>
 
 <header>
@@ -38,6 +81,34 @@ layout: base.njk
             <h3>profile pic</h3>
             <img class="profile" src="/media/pfp.png" alt="profile picture"/>
         </div>
+        <div class="card">
+            <h3>core info</h3>
+            <p>
+                <b>name:</b> oliver<br/>
+                <b>pronouns:</b> he/him<br/>
+                <b>birthday:</b> 2<sup>nd</sup> october<br/>
+                <b>location:</b> united kingdom<br/>
+                <b>gender:</b> male<br/>
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>favourite games</h3>
+            <div class="list">
+                <div class="card" id="games">
+                    <img alt="team fortress 2" src="/media/games/tf2.jpg"/>
+                    <h3>team fortress 2</h3>
+                </div>
+                <div class="card" id="games">
+                    <img alt="portal" src="/media/games/portal.jpg"/>
+                    <h3>portal</h3>
+                </div>
+                <div class="card" id="games">
+                    <img alt="roblox" src="/media/games/roblox.jpg"/>
+                    <h3>roblox</h3>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="column">
         <div class="card">
@@ -45,25 +116,66 @@ layout: base.njk
             <div>
                 <div class="tag" style="border-color: var(--yellow); color: var(--yellow)">linux</div>
                 <div class="tag" style="border-color: var(--peach); color: var(--peach)">tf2</div>
-                <div class="tag" style="border-color: var(--lavender); color: var(--lavender)">homelab</div>
+                <div class="tag" style="border-color: var(--rosewater); color: var(--rosewater)">furry</div>
                 <div class="tag" style="border-color: var(--green); color: var(--green)">programming</div>
-                <div class="tag" style="border-color: var(--pink); color: var(--pink)">furry</div>
+                <div class="tag" style="border-color: var(--lavender); color: var(--lavender)">homelab</div>
                 <div class="tag" style="border-color: var(--mauve); color: var(--mauve)">theme parks</div>
+                <div class="tag" style="border-color: var(--pink); color: var(--pink)">femboy</div>
                 <div class="tag" style="border-color: var(--blue); color: var(--blue)">portal</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>favourite music</h3>
+            <div class="list">
+                <div class="card" id="music">
+                    <img alt="jamiroquai" src="/media/artists/jamiroquai.jpg"/>
+                    <div>
+                        <p class="top">#1</p>
+                        <h3>jamiroquai</h3>
+                        <p class="bottom">acid jazz</p>
+                    </div>
+                </div>
+                <div class="card" id="music">
+                    <img alt="jamiroquai" src="/media/artists/madness.jpg"/>
+                    <div>
+                        <p class="top">#2</p>
+                        <h3>madness</h3>
+                        <p class="bottom">ska & pop</p>
+                    </div>
+                </div>
+                <div class="card" id="music">
+                    <img alt="greenday" src="/media/artists/greenday.png"/>
+                    <div>
+                        <p class="top">#3</p>
+                        <h3>green day</h3>
+                        <p class="bottom">punk rock</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <div class="column">
         <div class="card">
+            <h3>skills</h3>
+            <ul>
+                <li>programming (html, css, c#, lua)</li>
+                <li>ui design</li>
+                <li>photography</li>
+                <li>3d printing</li>
+                <li>laser cutting</li>
+            </ul>
+        </div>
+        <div class="card">
             <h3>specs</h3>
             <p>
-                <b style="color: var(--pink)">cpu</b>: amd ryzen 5 3600xt @ 4.39ghz<br/>
-                <b style="color: var(--pink)">ram</b>: 32gb<br/>
-                <b style="color: var(--pink)">gpu</b>: gigabyte rtx 3060 12gb<br/>
-                <b style="color: var(--pink)">disk</b>: 1tb m.2 + 2tb hdd<br/>
-                <b style="color: var(--pink)">display</b>: 2560x1440@75 + 1920x1080@60<br/>
-                <b style="color: var(--pink)">os</b>: manjaro linux<br/>
-                <b style="color: var(--pink)">desktop</b>: hyprland<br/>
+                <b>cpu</b>: amd ryzen 5 3600xt @ 4.39ghz<br/>
+                <b>ram</b>: 32gb<br/>
+                <b>gpu</b>: gigabyte rtx 3060 12gb<br/>
+                <b>disk</b>: 1tb m.2 + 2tb hdd<br/>
+                <b>display</b>: 2560x1440@75 + 1920x1080@60<br/>
+                <b>os</b>: manjaro linux<br/>
+                <b>desktop</b>: hyprland<br/>
             </p>
         </div>
     </div>

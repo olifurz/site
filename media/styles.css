@@ -27,8 +27,20 @@
     --crust: #11111b;
 }
 
-html {
+* {
     font-family: 'Fira Code', serif;
+}
+.noAnimations * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+
+    animation: none !important;
+}
+
+html {
+
 }
 
 body {
@@ -41,6 +53,7 @@ body {
     padding: 20px;
 
     color: var(--text);
+    background-color: var(--base);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -61,71 +74,16 @@ header::after {
     bottom: 0;
 }
 
-
-.topbar {
-    width: fit-content;
-    min-width: 800px;
-
-    display: flex;
-    flex-direction: row;
-    align-items: end;
-    z-index: 5;
+ul {
+    padding-left: 0;
+    list-style-type: none;
 }
-
-.topbar > .title {
-    margin: 0;
-    transform: translateX(-60px) translateY(25px) rotateZ(-5deg);
-    font-size: 56px;
-    font-weight: 800;
+ul li:before {
+    content: '>';
+    font-weight: bold;
     color: var(--pink);
+    padding-right: 5px;
 }
-
-.topbar > .nav {
-    display: flex;
-    flex-direction: row;
-    align-items: end;
-    justify-content: end;
-    
-    margin-left: -50px;
-}
-
-.topbar > .nav > a {
-    text-decoration: none;
-    font-size: 24px;
-    min-width: 100px;
-    text-align: center;
-    transition: 0.1s;
-}
-
-.topbar > .nav > a::after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 1px;
-    margin-top: 5px;
-    transition: 0.1s;
-}
-
-.topbar > .nav > a:hover {
-    font-weight: 800;
-}
-.topbar > .nav > a:hover::after {
-    height: 5px;
-}
-
-/* eurgh */
-.topbar > .nav > a[data-color="red"] { color: var(--red); }
-.topbar > .nav > a[data-color="yellow"] { color: var(--yellow); }
-.topbar > .nav > a[data-color="green"] { color: var(--green); }
-.topbar > .nav > a[data-color="blue"] { color: var(--blue); }
-.topbar > .nav > a[data-color="mauve"] { color: var(--mauve); }
-
-.topbar > .nav > a[data-color="red"]::after { background-color: var(--red); }
-.topbar > .nav > a[data-color="yellow"]::after { background-color: var(--yellow); }
-.topbar > .nav > a[data-color="green"]::after { background-color: var(--green); }
-.topbar > .nav > a[data-color="blue"]::after { background-color: var(--blue); }
-.topbar > .nav > a[data-color="mauve"]::after { background-color: var(--mauve); }
-
 .content {
     background-color: var(--base);
     border: 1px solid var(--surface0);
@@ -150,12 +108,12 @@ header::after {
     }
 }
 
+
 .background {
-    background-color: var(--base);
-    opacity: 1;
-    background-image: radial-gradient(var(--base) 1.85px, var(--mantle) 1.85px);
-    background-size: 37px 37px;
-    
+    background-image: repeating-linear-gradient(-45deg, transparent, transparent 32px, var(--base) 32px, var(--base) 64px);
+    background-color: var(--mantle);
+    opacity: 0.3;
+
     animation: forwards 2s background linear infinite;
     
     width: 120%;
@@ -168,9 +126,48 @@ header::after {
     z-index: -1;
 }
 
+button {
+    all: unset;
+    cursor: pointer;
+    display: inline-block;
+}
+
+a, button {
+    text-decoration: none;
+    transition: 0.1s;
+}
+
+a::before, button::before {
+    content: "[";
+}
+
+a::after, button::after {
+    content: "]";
+}
+
+a:hover,
+button:hover {
+    background-color: var(--pink);
+    color: var(--base);
+    font-weight: bold;
+}
+
+a:hover::before,
+a:hover::after,
+button:hover::before,
+button:hover::after {
+    color: var(--base);
+}
+
+a[data-color="red"] { color: var(--red); }
+a[data-color="yellow"] { color: var(--yellow); }
+a[data-color="green"] { color: var(--green); }
+a[data-color="blue"] { color: var(--blue); }
+a[data-color="mauve"] { color: var(--mauve); }
+
 .card {
     width: fit-content;
-    padding: 0 15px 5px 15px;
+    padding: 0 15px 15px 15px;
     border: 1px solid var(--surface0);
     border-radius: 10px;
     
@@ -183,6 +180,30 @@ header::after {
 .card > p {
     
 }
+.popup > .card > button, .popup > .card > .button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.popup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(15px);
+    background-color: rgba(17, 17, 27, 0.75);
+    z-index: 99;
+}
+.popup > .card {
+    width: fit-content;
+    background-color: var(--base);
+}
+
 
 .profile {
     border-radius: 100%;
@@ -201,7 +222,7 @@ header::after {
 
 @keyframes background {
     0% {transform: translate(0px);}
-    100% {transform: translateX(-37px) translateY(-37px);}
+    100% {transform: translateX(-46px) translateY(-46px);}
 }
 
 @font-face {
