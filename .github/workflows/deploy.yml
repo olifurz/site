@@ -20,7 +20,7 @@ jobs:
 
       - name: Deploy to web root
         run: |
-          rsync -av --delete ./_site/ /var/www/html/
+          rsync -av --delete ./dist/ /var/www/html/
       
       - name: Reload Nginx
         run: sudo systemctl reload nginx || true
