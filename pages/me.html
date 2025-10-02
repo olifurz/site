@@ -157,6 +157,10 @@ category: 2
     </div>
     <div class="column">
         <div class="card">
+            <h3>local time</h3>
+            <h2 id="clock" style="background-color: var(--mantle); border: 1px solid var(--surface0); border-radius: inherit; padding: 4px 5px 2px 5px; font-family: 'Seven Segment',serif; font-size: 52px; margin-top: 15px; margin-bottom: 0; text-align: center;">00:00 PM</h2>
+        </div>
+        <div class="card">
             <h3>skills</h3>
             <ul>
                 <li>programming (html, css, c#, lua)</li>
@@ -179,4 +183,18 @@ category: 2
             </p>
         </div>
     </div>
+
+
+    <script>
+        (function updateClock(){
+            let clock = new Date();
+            document.getElementById("clock").innerText = clock.toLocaleTimeString('en-GB', {
+                timeZone: 'Europe/London',
+                hour12: true,
+                hour: "2-digit",
+                minute: "2-digit"
+            });
+            setTimeout(updateClock, 60000);
+        })();
+    </script>
 </div>

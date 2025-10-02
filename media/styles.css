@@ -84,18 +84,6 @@ ul li:before {
     color: var(--pink);
     padding-right: 5px;
 }
-.content {
-    background-color: var(--base);
-    border: 1px solid var(--surface0);
-    border-radius: 15px;
-    padding: 15px 1rem 1rem;
-    width: fit-content;
-    min-width: 800px;
-    max-width: 800px;
-    transition: 0.5s;
-    position: relative;
-    z-index: 0;
-}
 
 @media screen and (max-width: 800px) {
     body {
@@ -229,4 +217,9 @@ a[data-color="mauve"] { color: var(--mauve); }
     font-family: 'Fira Code';
     font-style: normal;
     src: url('/media/fonts/firacode.woff');
+}
+@font-face {
+    font-family: 'Seven Segment';
+    font-style: normal;
+    src: url('/media/fonts/sevensegment.woff');
 }

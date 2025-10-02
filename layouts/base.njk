@@ -7,8 +7,9 @@ category: 1
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
+    <title>{{ title }} ~ olifurz :3</title>
     <link rel="stylesheet" href="/media/styles.css"/>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <style>
       .popup {
           display: none;
@@ -30,41 +31,97 @@ category: 1
               transform: scale(0);
           }
       }
+      .content {
+          background-color: var(--base);
+          border: 1px solid var(--surface0);
+          border-radius: 15px;
+          box-sizing: border-box;
+          width: 800px;
+          
+          transition: 0.5s;
+          position: relative;
+          z-index: 0;
+      }
+      
 
       .topbar {
-          width: fit-content;
-          min-width: 800px;
-
+          width: 100%;
+          box-sizing: border-box;
+          border-radius: 15px 15px 0 0;
+          border-bottom: inherit;
           display: flex;
-          flex-direction: row;
-          align-items: end;
+          flex-direction: column;
+          align-items: stretch;
+          justify-content: stretch;
+          
           z-index: 5;
+          background-color: var(--mantle);
+          padding: 0;
+
       }
 
       .title {
-          margin: 0;
-          transform: translateX(-60px) translateY(25px) rotateZ(-5deg);
           font-size: 56px;
           font-weight: 800;
           color: var(--pink);
+          text-align: center;
+      }
+      
+      .marquee-container {
+          background-color: var(--crust);
+          border: inherit;
+          padding: 5px 0 5px 0;
+          overflow: hidden;
+          position: relative;
+          height: 20px;
+      }
+      .marquee-container > div {
+          display: block;
+          position: absolute;
+          overflow: hidden;
+          width: 200%;
+      }
+      .marquee-container > div > span {
+          margin: 0;
+          width: 50%;
+          float: left;
+          text-align: center;
+          position: relative;
+          display: inline-block;
+          color: var(--subtext1);
+      }
+      @keyframes marquee-scroll {
+          0% { left: 100%; }
+          100% { left: -100%; }
+      }
+      @keyframes marquee-fly-down {
+          0% { top: -100%; }
+          100% { top: 0; }
+      }
+      @keyframes marquee-fly-up {
+          0% { top: 100%; }
+          100% { top: 0; }
+      }
+      @keyframes marquee-fade {
+          0% { opacity: 0; }
+          100% { opacity: 1; }
       }
 
       .nav {
           display: flex;
           flex-direction: row;
           align-items: end;
-          justify-content: end;
-
-          margin-left: -50px;
-          position: relative;;
+          justify-content: space-evenly;
+          position: relative;
+          height: 40px;
       }
 
       .nav > a {
           text-decoration: none;
           font-size: 24px;
-          min-width: 100px;
           text-align: center;
           transition: 0.1s;
+          width: 100%;
       }
 
       .nav > a::after {
@@ -137,34 +194,37 @@ category: 1
         </div>
     </div>
     <div class="background"></div>
-    <div class="topbar">
-        <h1 class="title">&lt;olifurz\&gt;</h1>
-        <div class="nav">
-            <a id="a" href="/" data-color="red">home</a>
-            <a id="b" href="/me" data-color="yellow">me</a>
-            <a id="c" href="/work" data-color="green">work</a>
-            <a id="d" href="/blog" data-color="blue">blog</a>
-            <a id="e" href="/talk" data-color="mauve">talk</a>
+    <div class="content">
+        <div class="topbar">
+            <h1 class="title">&lt;olifurz\&gt;</h1>
+            <div class="nav">
+                <a id="a" href="/" data-color="red">home</a>
+                <a id="b" href="/me" data-color="yellow">me</a>
+                <a id="c" href="/work" data-color="green">work</a>
+                <a id="d" href="/blog" data-color="blue">blog</a>
+                <a id="e" href="/talk" data-color="mauve">talk</a>
 
-            {% if category == 1 %} <!-- home -->
+                {% if category == 1 %} <!-- home -->
                 <div class="subnav"></div>
-            {% elif category == 2 %}
+                {% elif category == 2 %}
                 <div class="subnav">
                     <!-- <a data-color="yellow" href="/me/ratings">coaster ratings</a> -->
                 </div>
-            {% elif category == 3 %}
+                {% elif category == 3 %}
                 <div class="subnav"></div>
-            {% elif category == 4 %}
+                {% elif category == 4 %}
                 <div class="subnav"></div>
-            {% elif category == 5 %}
+                {% elif category == 5 %}
                 <div class="subnav"></div>
-            {% else %}
-            {% endif %}
+                {% else %}
+                {% endif %}
 
+            </div>
         </div>
-    </div>
-    <div class="content">
-        {{ content | safe }}
+        
+        <div style="padding: 15px 1rem 1rem;">
+            {{ content | safe }}
+        </div>
     </div>
     <p style="color: var(--overlay0)">&copy; olifurz 2025 - <b style="color: var(--yellow); opacity: 0.6;">site in active wip!</b> - <button id="toggleAnimButton" onclick="toggleAnimations()">disable animations</button></p>
   </body>
@@ -216,6 +276,12 @@ category: 1
                   toggleAnimButton.innerText = "enable animations";
               }
           }
+      });
+  </script>
+
+  <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          
       });
   </script>
 </html>
