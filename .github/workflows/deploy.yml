@@ -20,7 +20,7 @@ jobs:
         run: npm run build
 
       - name: deploy to server
-        run: rsync -av --delete ./ /var/www/nodeapp/
+        run: rsync -av --delete --exclude='.env' ./ /var/www/nodeapp/
 
       - name: restart node app with pm2
         run: pm2 restart /var/www/nodeapp/app.js || pm2 start /var/www/nodeapp/app.js --name "website"
