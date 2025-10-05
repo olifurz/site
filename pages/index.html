@@ -56,11 +56,11 @@ layout: base.liquid
     </div>
     <div>
         <div class="card">
-            <h3 class="cardTitle">site updates</h3>
-            <ul>
-                <li>new tiling layout</li>
-                <li>revamped look</li>
-            </ul>
+            <h3 class="cardTitle">site statistics</h3>
+            <p>
+                <b>visitors</b>: <span id="visitors"></span><br/>
+                <b>unique visitors</b>: <span id="uniqueVisitors"></span>
+            </p>
             
         </div>
     </div>
@@ -95,3 +95,21 @@ layout: base.liquid
         </div>
     </div>
 </div>
+
+<script>
+    fetch('/api/visits', { method: 'POST' })
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("visitors").innerText = data.total;
+            console.log('total visits:', total);
+        })
+        .catch(console.error);
+
+    fetch('/api/uniquevisits', { method: 'POST' })
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("uniqueVisitors").innerText = data.total;
+            console.log('total visits:', total);
+        })
+        .catch(console.error);
+</script>

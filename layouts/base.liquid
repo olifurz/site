@@ -239,27 +239,38 @@ category: 1
                   toggleAnimButton.innerText = "enable animations";
               }
           }
-      });
-  </script>
 
-  <script>
-      document.addEventListener("DOMContentLoaded", function () {
+          // Navbar
           const pathText = document.getElementById("path");
           const paths = window.location.pathname.split("/").filter(Boolean);
           let pathHtml = `/<a href="/">home</a>/`;
           let currentPath = "";
-          
+
           for (let i = 0; i < paths.length; i++) {
               currentPath += "/" + paths[i];
               pathHtml += `<a href="${currentPath}">${paths[i]}</a>/`;
           }
           pathText.innerHTML = pathHtml;
-          
-          
-          
+
+
+
           const detailText = document.getElementById("details");
-          
+
           detailText.innerText = `took ${performance.now()}ms`;
+
+
+
+          // Visit counter
+          const ref = document.referrer;
+          const myDomain = location.hostname;
+          
+          if (!ref || !ref.includes(myDomain)) {
+              fetch('/api/visit', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ url: location.href, referrer: ref || null })
+              }).catch(console.error);
+          }
       });
   </script>
 </html>

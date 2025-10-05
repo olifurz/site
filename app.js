@@ -58,7 +58,7 @@ app.get("/api/uniquevisits", async (req, res) => {
 });
 
 app.use((req, res) => {
-    res.status(404).sendFile(path.join(__dirname, "dist", "404.html"));
+    res.status(404).sendFile(path.join(__dirname, "404"));
 });
 
 app.listen(port, () => {
