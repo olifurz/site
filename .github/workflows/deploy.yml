@@ -18,6 +18,9 @@ jobs:
 
       - name: Build 11ty site
         run: npm run build
+      
+      - name: Deploy to server
+        run: rsync -av --delete ./ /var/www/nodeapp/
 
       - name: Write .env
         run: |
@@ -26,10 +29,6 @@ jobs:
           echo "DB_PASS=${{ secrets.DB_PASS }}" >> /var/www/nodeapp/.env
           echo "DB_NAME=sitedb" >> /var/www/nodeapp/.env
           echo "PORT=3000" >> /var/www/nodeapp/.env
-      
-      
-      - name: Deploy to server
-        run: rsync -av --delete ./ /var/www/nodeapp/
 
       - name: Restart node app with pm2
         run: pm2 restart /var/www/nodeapp/app.js || pm2 start /var/www/nodeapp/app.js --name "website"
