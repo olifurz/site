@@ -10,25 +10,26 @@ jobs:
     runs-on: self-hosted  # your proxmox github runner
 
     steps:
-      - name: checkout code
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: install dependencies
+      - name: Install dependencies
         run: npm ci
 
-      - name: build 11ty site
+      - name: Build 11ty site
         run: npm run build
 
       - name: Write .env
         run: |
-          echo "DB_HOST=localhost" > .env
-          echo "DB_USER=${{ secrets.DB_USER }}" >> .env
-          echo "DB_PASS=${{ secrets.DB_PASS }}" >> .env
-          echo "DB_NAME=sitedb" >> .env
-          echo "PORT=3000" >> .env
+          echo "DB_HOST=localhost" > /var/www/nodeapp/.env
+          echo "DB_USER=${{ secrets.DB_USER }}" >> /var/www/nodeapp/.env
+          echo "DB_PASS=${{ secrets.DB_PASS }}" >> /var/www/nodeapp/.env
+          echo "DB_NAME=sitedb" >> /var/www/nodeapp/.env
+          echo "PORT=3000" >> /var/www/nodeapp/.env
+      
+      
+      - name: Deploy to server
+        run: rsync -av --delete ./ /var/www/nodeapp/
 
-      - name: deploy to server
-        run: rsync -av --delete --exclude='.env' ./ /var/www/nodeapp/
-
-      - name: restart node app with pm2
+      - name: Restart node app with pm2
         run: pm2 restart /var/www/nodeapp/app.js || pm2 start /var/www/nodeapp/app.js --name "website"
