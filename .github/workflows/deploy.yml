@@ -1,4 +1,4 @@
-name: Deploy Website
+name: deploy node site
 
 on:
   push:
@@ -7,20 +7,20 @@ on:
 
 jobs:
   deploy:
-    runs-on: self-hosted   # proxmox runner
+    runs-on: self-hosted  # your proxmox github runner
+
     steps:
-      - name: Checkout code
+      - name: checkout code
         uses: actions/checkout@v3
 
-      - name: Install dependencies
-        run: npm ci   # installs from package-lock.json
+      - name: install dependencies
+        run: npm ci
 
-      - name: Build site
-        run: npm run build   # generate site at /dist/
+      - name: build 11ty site
+        run: npm run build
 
-      - name: Deploy to web root
-        run: |
-          rsync -av --delete ./dist/ /var/www/html/
-      
-      - name: Reload Nginx
-        run: sudo systemctl reload nginx || true
+      - name: deploy to server
+        run: rsync -av --delete ./ /var/www/nodeapp/
+
+      - name: restart node app with pm2
+        run: pm2 restart /var/www/nodeapp/app.js || pm2 start /var/www/nodeapp/app.js --name "website"
