@@ -19,6 +19,14 @@ jobs:
       - name: build 11ty site
         run: npm run build
 
+      - name: Write .env
+        run: |
+          echo "DB_HOST=localhost" > .env
+          echo "DB_USER=${{ secrets.DB_USER }}" >> .env
+          echo "DB_PASS=${{ secrets.DB_PASS }}" >> .env
+          echo "DB_NAME=sitedb" >> .env
+          echo "PORT=3000" >> .env
+
       - name: deploy to server
         run: rsync -av --delete --exclude='.env' ./ /var/www/nodeapp/
 
