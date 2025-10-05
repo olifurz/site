@@ -4,16 +4,10 @@ layout: base.liquid
 category: 2
 ---
 <style>
-    .cardContainer {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
-    }
-
-    .column {
+    .split > div {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        gap: 15px;
     }
     
     .profile {
@@ -72,8 +66,8 @@ category: 2
     
 </style>
 
-<div class="cardContainer">
-    <div class="column">
+<div class="split">
+    <div>
         <div class="card">
             <h3 class="cardTitle">profile pic</h3>
             <img class="profile" src="/media/pfp.png" alt="profile picture"/>
@@ -109,7 +103,7 @@ category: 2
             </div>
         </div>
     </div>
-    <div class="column">
+    <div>
         <div class="card">
             <h3 class="cardTitle">interests</h3>
             <div>
@@ -154,7 +148,7 @@ category: 2
             </div>
         </div>
     </div>
-    <div class="column">
+    <div>
         <div class="card">
             <h3 class="cardTitle">local time</h3>
             <h2 id="clock" style="background-color: var(--mantle); border: 1px solid var(--surface0); border-radius: inherit; padding: 4px 5px 2px 5px; font-family: 'Seven Segment',serif; font-size: 52px; margin-top: 15px; margin-bottom: 0; text-align: center;">00:00 PM</h2>

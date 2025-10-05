@@ -41,9 +41,7 @@
     animation: none !important;
 }
 
-html {
-
-}
+html {}
 
 body {
     display: flex;
@@ -80,9 +78,6 @@ ul {
     padding-left: 0;
     list-style-type: none;
 }
-ul li {
-    margin-bottom: 10px;
-}
 ul li:before {
     content: '>';
     font-weight: bold;
@@ -101,6 +96,18 @@ ul li:before {
     }
 }
 
+.split {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.split > div {
+    flex: 1 1 0;
+    width: 100%;
+    display: flex;
+}
+
 
 .background {
     background-image: repeating-linear-gradient(-45deg, transparent, transparent 32px, var(--base) 32px, var(--base) 64px);
@@ -108,14 +115,14 @@ ul li:before {
     opacity: 0.3;
 
     animation: forwards 2s background linear infinite;
-    
+
     width: 120%;
     height: 120%;
     overflow: hidden;
     position: fixed;
     top: 0;
     left: 0;
-    
+
     z-index: -1;
 }
 
@@ -153,11 +160,21 @@ button:hover::after {
     color: var(--base);
 }
 
-a[data-color="red"] { color: var(--red); }
-a[data-color="yellow"] { color: var(--yellow); }
-a[data-color="green"] { color: var(--green); }
-a[data-color="blue"] { color: var(--blue); }
-a[data-color="mauve"] { color: var(--mauve); }
+a[data-color="red"] {
+    color: var(--red);
+}
+a[data-color="yellow"] {
+    color: var(--yellow);
+}
+a[data-color="green"] {
+    color: var(--green);
+}
+a[data-color="blue"] {
+    color: var(--blue);
+}
+a[data-color="mauve"] {
+    color: var(--mauve);
+}
 
 .card {
     width: 100%;
@@ -165,17 +182,15 @@ a[data-color="mauve"] { color: var(--mauve); }
     border: 1px solid var(--surface0);
     border-radius: 10px;
     background-color: var(--base);
-    
+
     font-size: 14px;
 }
 
-.card > .cardTitle {
+.card>.cardTitle {
     margin-top: 0;
 }
-.card > p {
-    
-}
-.popup > .card > button, .popup > .card > .button {
+.card>p {}
+.popup>.card>button, .popup>.card>.button {
     width: 100%;
     margin-top: 10px;
 }
@@ -184,7 +199,7 @@ a[data-color="mauve"] { color: var(--mauve); }
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     position: absolute;
     top: 0;
     left: 0;
@@ -194,7 +209,7 @@ a[data-color="mauve"] { color: var(--mauve); }
     background-color: rgba(17, 17, 27, 0.75);
     z-index: 99;
 }
-.popup > .card {
+.popup>.card {
     width: fit-content;
     background-color: var(--base);
 }
@@ -220,8 +235,12 @@ hr {
 
 
 @keyframes background {
-    0% {transform: translate(0px);}
-    100% {transform: translateX(-46px) translateY(-46px);}
+    0% {
+        transform: translate(0px);
+    }
+    100% {
+        transform: translateX(-46px) translateY(-46px);
+    }
 }
 
 @font-face {
