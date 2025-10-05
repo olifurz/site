@@ -31,4 +31,4 @@ jobs:
           echo "PORT=3000" >> /var/www/nodeapp/.env
 
       - name: Restart node app with pm2
-        run: pm2 restart /var/www/nodeapp/app.js || pm2 start /var/www/nodeapp/app.js --name "website"
+        run: pm2 restart /var/www/nodeapp/app.js --update-env || pm2 start /var/www/nodeapp/app.js --name "website"
