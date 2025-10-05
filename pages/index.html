@@ -98,18 +98,18 @@ layout: base.liquid
 
 <script>
     fetch('/api/visits', { method: 'POST' })
-        .then(res => res.json())
-        .then(data => {
+        .then(async res => {
+            const text = await res.text();
+            const data = JSON.parse(text);
             document.getElementById("visitors").innerText = data.total;
-            console.log('total visits:', total);
         })
         .catch(console.error);
 
     fetch('/api/uniquevisits', { method: 'POST' })
-        .then(res => res.json())
-        .then(data => {
+        .then(async res => {
+            const text = await res.text();
+            const data = JSON.parse(text);
             document.getElementById("uniqueVisitors").innerText = data.total;
-            console.log('total visits:', total);
         })
         .catch(console.error);
 </script>
