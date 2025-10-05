@@ -1,6 +1,6 @@
 ---
 title: about me
-layout: base.njk
+layout: base.liquid
 category: 2
 ---
 <style>
@@ -72,28 +72,27 @@ category: 2
     
 </style>
 
-<header>
-    <h1 style="color: var(--yellow)">about me</h1>
-</header>
 <div class="cardContainer">
     <div class="column">
         <div class="card">
-            <h3>profile pic</h3>
+            <h3 class="cardTitle">profile pic</h3>
             <img class="profile" src="/media/pfp.png" alt="profile picture"/>
+            <p style="font-size: 12px; color: var(--subtext0); font-style: italic; margin-bottom: 0;">source: mazus by tinysmallman (fursona wip so this is temporary)</p>
         </div>
         <div class="card">
-            <h3>core info</h3>
+            <h3 class="cardTitle">core info</h3>
             <p>
                 <b>name:</b> oliver<br/>
                 <b>pronouns:</b> he/him<br/>
-                <b>birthday:</b> 2<sup>nd</sup> october<br/>
+                <b>age:</b> <span id="age"></span> (2<sup>nd</sup> october)<br/>
                 <b>location:</b> united kingdom<br/>
                 <b>gender:</b> male<br/>
+                <b>sexuality:</b> bisexual
             </p>
         </div>
 
         <div class="card">
-            <h3>favourite games</h3>
+            <h3 class="cardTitle">favourite games</h3>
             <div class="list">
                 <div class="card" id="games">
                     <img alt="team fortress 2" src="/media/games/tf2.jpg"/>
@@ -112,7 +111,7 @@ category: 2
     </div>
     <div class="column">
         <div class="card">
-            <h3>interests</h3>
+            <h3 class="cardTitle">interests</h3>
             <div>
                 <div class="tag" style="border-color: var(--yellow); color: var(--yellow)">linux</div>
                 <div class="tag" style="border-color: var(--peach); color: var(--peach)">tf2</div>
@@ -126,7 +125,7 @@ category: 2
         </div>
 
         <div class="card">
-            <h3>favourite music</h3>
+            <h3 class="cardTitle">favourite music</h3>
             <div class="list">
                 <div class="card" id="music">
                     <img alt="jamiroquai" src="/media/artists/jamiroquai.jpg"/>
@@ -145,11 +144,11 @@ category: 2
                     </div>
                 </div>
                 <div class="card" id="music">
-                    <img alt="greenday" src="/media/artists/greenday.png"/>
+                    <img alt="greenday" src="/media/artists/republica.jpg"/>
                     <div>
                         <p class="top">#3</p>
-                        <h3>green day</h3>
-                        <p class="bottom">punk rock</p>
+                        <h3>republica</h3>
+                        <p class="bottom">alt rock</p>
                     </div>
                 </div>
             </div>
@@ -157,11 +156,11 @@ category: 2
     </div>
     <div class="column">
         <div class="card">
-            <h3>local time</h3>
+            <h3 class="cardTitle">local time</h3>
             <h2 id="clock" style="background-color: var(--mantle); border: 1px solid var(--surface0); border-radius: inherit; padding: 4px 5px 2px 5px; font-family: 'Seven Segment',serif; font-size: 52px; margin-top: 15px; margin-bottom: 0; text-align: center;">00:00 PM</h2>
         </div>
         <div class="card">
-            <h3>skills</h3>
+            <h3 class="cardTitle">skills</h3>
             <ul>
                 <li>programming (html, css, c#, lua)</li>
                 <li>ui design</li>
@@ -171,7 +170,7 @@ category: 2
             </ul>
         </div>
         <div class="card">
-            <h3>specs</h3>
+            <h3 class="cardTitle">specs</h3>
             <p>
                 <b>cpu</b>: amd ryzen 5 3600xt @ 4.39ghz<br/>
                 <b>ram</b>: 32gb<br/>
@@ -196,5 +195,19 @@ category: 2
             });
             setTimeout(updateClock, 60000);
         })();
+
+
+        function getAge(birthday) {
+            const today = new Date();
+            let thisYear = 0;
+            if (today.getMonth() < birthday.getMonth()) {
+                thisYear = 1;
+            } else if ((today.getMonth() === birthday.getMonth()) && today.getDate() < birthday.getDate()) {
+                thisYear = 1;
+            }
+            return today.getFullYear() - birthday.getFullYear() - thisYear;
+        }
+        
+        document.getElementById("age").innerText = getAge(new Date("2009-10-02"));
     </script>
 </div>

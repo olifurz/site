@@ -29,6 +29,8 @@
 
 * {
     font-family: 'Fira Code', serif;
+    box-sizing: border-box;
+    line-height: 1.5;
 }
 .noAnimations * {
     -webkit-transition: none !important;
@@ -78,6 +80,9 @@ ul {
     padding-left: 0;
     list-style-type: none;
 }
+ul li {
+    margin-bottom: 10px;
+}
 ul li:before {
     content: '>';
     font-weight: bold;
@@ -123,6 +128,7 @@ button {
 a, button {
     text-decoration: none;
     transition: 0.1s;
+    color: var(--pink);
 }
 
 a::before, button::before {
@@ -154,16 +160,17 @@ a[data-color="blue"] { color: var(--blue); }
 a[data-color="mauve"] { color: var(--mauve); }
 
 .card {
-    width: fit-content;
-    padding: 0 15px 15px 15px;
+    width: 100%;
+    padding: 15px 15px 15px 15px;
     border: 1px solid var(--surface0);
     border-radius: 10px;
+    background-color: var(--base);
     
     font-size: 14px;
 }
 
-.card > h1, h2, h3 {
-
+.card > .cardTitle {
+    margin-top: 0;
 }
 .card > p {
     
@@ -205,6 +212,10 @@ a[data-color="mauve"] { color: var(--mauve); }
     border-radius: 100px;
     color: var(--pink);
     display: inline-block;
+}
+
+hr {
+    color: var(--surface0);
 }
 
 
