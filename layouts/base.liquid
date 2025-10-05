@@ -260,18 +260,22 @@ category: 1
       });
   </script>
   <script>
-      document.addEventListener("DOMContentLoaded", function () {
-          // Visit counter
-          const ref = document.referrer;
-          const myDomain = location.hostname;
+      const ref = document.referrer;
+      const myDomain = location.hostname;
+      const nav = performance.getEntriesByType('navigation')[0];
 
-          if (!ref || !ref.includes(myDomain)) {
-              fetch('/api/visit', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({ url: location.href, referrer: ref || null })
-              }).catch(console.error);
-          }
-      });
+      const cameFromOutside = ref && !ref.includes(myDomain);
+      const isDirectEntry = !ref && nav?.type === 'navigate';
+
+      if (cameFromOutside || isDirectEntry) {
+          fetch('/api/visit', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                  url: location.href,
+                  referrer: ref || null
+              })
+          }).catch(console.error);
+      }
   </script>
 </html>
