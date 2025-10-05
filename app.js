@@ -2,6 +2,7 @@ import express from "express";
 import rateLimit from "express-rate-limit";
 import mysql from "mysql2/promise";
 import crypto from "crypto";
+import 'dotenv/config';
 import path from "path";
 import { fileURLToPath } from "url";
 
