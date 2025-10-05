@@ -15,8 +15,8 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, "dist")));
 
 const visitLimiter = rateLimit({
-    windowMs: 60 * 1000, // 60 seconds
-    max: 5, // 5 requests per minute
+    windowMs: 120 * 1000,
+    max: 1,
     message: { error: "too many requests" },
     standardHeaders: true,
     legacyHeaders: false,
