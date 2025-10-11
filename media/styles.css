@@ -78,16 +78,26 @@ header::after {
     bottom: 0;
 }
 
-ul {
+ul, summary {
     padding-left: 0;
     list-style-type: none;
-}
+} 
 ul li:before {
     content: '>';
     font-weight: bold;
     color: var(--pink);
     padding-right: 5px;
 }
+summary:before {
+    content: '>';
+    font-weight: bold;
+    color: var(--pink);
+    padding-right: 5px;
+}
+summary:active:before {
+    content: '\/';
+}
+
 
 @media screen and (max-width: 800px) {
     body {

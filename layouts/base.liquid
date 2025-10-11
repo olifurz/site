@@ -57,6 +57,7 @@ category: 1
           z-index: 5;
           background-color: var(--mantle);
           padding: 0;
+          overflow: hidden;
       }
      
       
@@ -83,6 +84,7 @@ category: 1
           align-items: end;
           justify-content: space-evenly;
           height: 40px;
+          background: linear-gradient(to top, var(--base), transparent);
       }
 
       .nav > a {
@@ -111,31 +113,6 @@ category: 1
           border-radius: 3px 3px 0 0;
       }
       
-      .subnav {
-          bottom: -30px;
-          left: 0;
-          height: 28px;
-          
-          display: flex;
-          align-items: center;
-      }
-      .subnav:empty {
-          display: none;
-      }
-      .subnav a {
-          text-decoration: none;
-      }
-      .subnav a:hover {
-          font-weight: bold;
-          background-color: var(--pink);
-          color: var(--base);
-      }
-      
-      .subnav > a[data-color="red"]:hover { background-color: var(--red); }
-      .subnav > a[data-color="yellow"]:hover { background-color: var(--yellow); }
-      .subnav > a[data-color="green"]:hover { background-color: var(--green); }
-      .subnav > a[data-color="blue"]:hover { background-color: var(--blue); }
-      .subnav > a[data-color="mauve"]:hover { background-color: var(--mauve); }
       .nav > a[data-color="red"]::before { content: ""; }
       .nav > a[data-color="yellow"]::before { content: ""; }
       .nav > a[data-color="green"]::before { content: ""; }
@@ -164,8 +141,9 @@ category: 1
     <div class="background"></div>
     <div class="container">
         <div class="card" id="topbar">
-            <div>
-                <h1 style="font-size: 56px; font-weight: 800; color: var(--pink); text-align: center;">
+            <img style="position: absolute; z-index: -1; top: 0; left: 0; opacity: 0.15;" src="/media/art/banner.png" alt="banner">
+            <div style="position: relative;">
+                <h1 style="font-size: 64px; font-weight: 800; color: var(--pink); text-align: center; margin: 30px 0 10px 0;">
                     olifurz<span style="font-size: 50%;">.com
                 </span></h1>
                 <div class="nav">
