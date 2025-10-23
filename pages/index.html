@@ -4,10 +4,10 @@ layout: base.liquid
 ---
 
 <div class="card">
-    <p>my name's <b>oli!</b> this is a self-hosted portfolio for all my <small>(terrible)</small> work, i personally like the control and customisability that having
+    <p>my name's <b>oli</b> (or oliver!). this is a self-hosted portfolio for all my <small>(terrible)</small> work, i personally like the control and customisability that having
         a personal website can bring, which is why you won't really find me on many major social platforms other than the ones i need (discord, youtube, etc)<br/><br/>
 
-        enjoy your time here :3
+        enjoy your time here
     </p>
 </div>
 
@@ -15,41 +15,19 @@ layout: base.liquid
     <div>
         <div class="card">
             <h3 class="cardTitle">latest posts</h3>
-            {% for post in collections.blog | slice(0, 3) %}
             <ul>
+                {% for post in collections.blog | slice(0, 3) %}
                 <li>
                     <a href="{{ post.url }}">{{ post.data.title }}</a> ~ {{ post.date | date: "%d/%m/%Y" }}
                 </li>
+                {% endfor %}
             </ul>
-            {% endfor %}
         </div>
     </div>
     <div>
         <div class="card">
             <h3 class="cardTitle">site statistics</h3>
-            <p>
-                <b>visits</b>: <span id="visits"></span><br/>
-                <b>unique visitors</b>: <span id="uniqueVisitors"></span>
-            </p>
-            
+                <i>site statistics removed because sql makes me wanna die</p>
         </div>
     </div>
 </div>
-
-<script>
-    fetch('/api/visits', { method: 'GET' })
-        .then(async res => {
-            const text = await res.text();
-            const data = JSON.parse(text);
-            document.getElementById("visits").innerText = data.total;
-        })
-        .catch(console.error);
-
-    fetch('/api/uniquevisits', { method: 'GET' })
-        .then(async res => {
-            const text = await res.text();
-            const data = JSON.parse(text);
-            document.getElementById("uniqueVisitors").innerText = data.total;
-        })
-        .catch(console.error);
-</script>
