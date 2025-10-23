@@ -1,4 +1,4 @@
-name: Deploy node site
+name: Deploy site
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: self-hosted  # your proxmox github runner
+    runs-on: self-hosted
 
     steps:
       - name: Checkout code
@@ -20,15 +20,7 @@ jobs:
         run: npm run build
       
       - name: Deploy to server
-        run: rsync -av --delete ./ /var/www/nodeapp/
+        run: rsync -av --delete ./_site/ /var/www/html/
 
-      - name: Write .env
-        run: |
-          echo "DB_HOST=localhost" > /var/www/nodeapp/.env
-          echo "DB_USER=${{ secrets.DB_USER }}" >> /var/www/nodeapp/.env
-          echo "DB_PASS=${{ secrets.DB_PASS }}" >> /var/www/nodeapp/.env
-          echo "DB_NAME=sitedb" >> /var/www/nodeapp/.env
-          echo "PORT=3000" >> /var/www/nodeapp/.env
-
-      - name: Restart node app with pm2
-        run: pm2 restart /var/www/nodeapp/app.js --update-env || pm2 start /var/www/nodeapp/app.js --name "website"
+      - name: Reload Nginx
+        run: sudo systemctl reload nginx
