@@ -20,7 +20,7 @@ jobs:
         run: npm run build
       
       - name: Deploy to server
-        run: rsync -av --delete site/ /var/www/html/
+        run: rsync -av --delete dist/ /var/www/html/
 
       - name: Reload Nginx
         run: sudo systemctl reload nginx
