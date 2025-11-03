@@ -4,6 +4,80 @@ layout: base.liquid
 category: 3
 ---
 
+<style>
+    #workedWith {
+        background-color: var(--surface0);
+        position: relative;
+        overflow: hidden;
+        height: 175px;
+        padding: 0 10px 10px 15px;
+    }
+    #workedWith > h3 {
+        margin-bottom: 0;
+    }
+    #workedWith > h6 {
+        margin-top: 0;
+    }
+
+    .backgroundLogo {
+        height: 115%;
+        position: absolute;
+        top: -10;
+        left: 0;
+        z-index: 0;
+        opacity: 0.1;
+        transform-origin: center;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(6, calc((100% - 50px) / 6));
+        gap: 10px;
+    }
+
+
+</style>
+
 <div class="card">
-    coming soon
+    <h3 class="cardTitle">what i've worked with</h3>
+    <div class="grid">
+        <div class="card" id="workedWith">
+            <h3>linux</h3>
+            <h6>OPERATING SYSTEM</h6>
+            <h5>ubuntu, arch, debian, nano, vim, hyprland</h5>
+            <img class="backgroundLogo" src="/media/logos/tux.svg">
+        </div>
+        <div class="card" id="workedWith">
+            <h3>roblox</h3>
+            <h6>GAME ENGINE</h6>
+            <h5>ui design, scripting, modelling, management</h5>
+            <img class="backgroundLogo" src="/media/logos/roblox.svg">
+        </div>
+        <div class="card" id="workedWith">
+            <h3>c#</h3>
+            <h6>LANGUAGE</h6>
+            <h5>wpf, winforms, unity, godot</h5>
+            <img class="backgroundLogo" src="/media/logos/csharp.svg">
+        </div>
+        <div class="card" id="workedWith">
+            <h3>unity</h3>
+            <h6>GAME ENGINE</h6>
+            <h5>ui design, cloud services</h5>
+            <img class="backgroundLogo" src="/media/logos/unity.svg">
+        </div>
+         <div class="card" id="workedWith">
+            <h3>cosmos</h3>
+            <h6>OS DEV</h6>
+            <h5>ui design, cloud services</h5>
+            <img class="backgroundLogo" src="/media/logos/cosmos.png">
+        </div>
+        <div class="card" id="workedWith">
+            <h3>c++</h3>
+            <h6>LANGUAGE</h6>
+            <h5>raylib</h5>
+            <img class="backgroundLogo" src="/media/logos/cplusplus.svg">
+        </div>
+    </div>
 </div>

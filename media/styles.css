@@ -19,9 +19,10 @@
     --overlay2: #9399b2;
     --overlay1: #7f849c;
     --overlay0: #6c7086;
-    --surface2: #585b70;
-    --surface1: #45475a;
-    --surface0: #313244;
+    --surface3: #585b70;
+    --surface2: #45475a;
+    --surface1: #313244;
+    --surface0: #242535;
     --base: #1e1e2e;
     --mantle: #181825;
     --crust: #11111b;
@@ -40,8 +41,6 @@
 
     animation: none !important;
 }
-
-html {}
 
 body {
     display: flex;
@@ -193,7 +192,7 @@ a[data-color="mauve"] {
 .card {
     width: 100%;
     padding: 15px 15px 15px 15px;
-    border: 1px solid var(--surface0);
+    border: 1px solid var(--surface1);
     border-radius: 10px;
     background-color: var(--base);
 
