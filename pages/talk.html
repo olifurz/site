@@ -1,7 +1,6 @@
 ---
 title: socials
 layout: base.liquid
-category: 5
 ---
 <style>
     #socialCard {
@@ -12,40 +11,44 @@ category: 5
         padding: 5px 8px;
     }
 
-    #socialCard > svg {
+    #socialCard>svg {
         fill: none;
         stroke-width: 1.5px;
         height: 30px;
     }
 
-    #socialCard > div {
+    #socialCard>div {
         display: flex;
         flex-direction: column;
         justify-content: center;
         height: 100%;
     }
 
-    #socialCard > div > h3 {
+    #socialCard>div>h3 {
         margin: 3px 0 0;
     }
 
-    #socialCard > div > p {
+    #socialCard>div>p {
         margin: 5px 0 0;
     }
 </style>
 
-<div class="card">
-    <h3 class="cardTitle">
-        socials
-    </h3>
-    <div class="split">
+<div class="split">
+    <div class="card">
+        <h3 class="cardTitle">socials</h3>
         <ul>
             <li>discord: olifurz</li>
             <li>youtube: olifurz</li>
             <li>steam: olifurz</li>
             <li>bluesky: olifurz.com</li>
-            <li>email: oli@olifurz.com</li>
+            <li>github: olifurz</li>
         </ul>
+        <p style="font-size: 12px; color: var(--subtext0)"><i>look at that consistency</i></small>
     </div>
-
+    <div class="card">
+        <h3 class="cardTitle">contacting me</h3>
+        <p>if you would like to contact me, either add me on discord or send me an email at</p>
+        <p style="text-align: center;"><b>oli@olifurz.com</b></p>
+        <p>i may not reply instantly, so please be patient!</p>
+    </div>
 </div>

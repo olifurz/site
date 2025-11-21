@@ -1,82 +1,92 @@
 ---
 title: about me
 layout: base.liquid
-category: 2
 ---
 <style>
-    .split > div {
+    .split>div {
         display: flex;
         flex-direction: column;
         gap: 15px;
     }
-    
+
     .profile {
         margin: 10px;
         width: calc(100% - 20px - 4px);
         border: 2px dashed var(--pink);
     }
-    
-    .tag  {
+
+    .tag {
         margin-top: 3px;
         margin-bottom: 3px;
     }
-    
+
     .list {
         display: flex;
         flex-direction: column;
         gap: 10px;
         margin-bottom: 10px;
     }
+
     .card {
         width: 100%;
         box-sizing: border-box;
     }
-    .card #music, .card #games {
+
+    .card #music,
+    .card #games {
         width: 100%;
         margin: 0;
         padding: 0;
         display: flex;
         gap: 0.75rem;
     }
-    .card #music > img {
+
+    .card #music>img {
         border-radius: inherit;
         height: 90px;
-   }
-    .card #games > img {
+    }
+
+    .card #games>img {
         border-radius: inherit;
         height: 48px;
     }
-    .card #music > div > .top {
+
+    .card #music>div>.top {
         color: var(--subtext0);
         margin-bottom: 4px;
         font-size: 0.8rem;
     }
-    .card #music > div > .bottom {
+
+    .card #music>div>.bottom {
         color: var(--subtext0);
         margin-top: 4px;
         font-size: 0.8rem;
     }
-    .card #music > div > h3, .card #games > div > h3 {
+
+    .card #music>div>h3,
+    .card #games>div>h3 {
         margin: 0;
     }
-    
-    
 </style>
 
 <div class="split">
     <div>
         <div class="card">
             <h3 class="cardTitle">profile pic</h3>
-            <img class="profile" src="/media/pfp.png" alt="profile picture"/>
+            <img class="profile" src="/media/pfp.png" alt="profile picture" />
         </div>
         <div class="card">
             <h3 class="cardTitle">core info</h3>
             <p>
-                <b>name:</b> oliver<br/>
-                <b>pronouns:</b> he/him<br/>
-                <b>age:</b> <span id="age"></span> (2<sup>nd</sup> october)<br/>
-                <b>location:</b> united kingdom<br/>
-                <b>gender:</b> male<br/>
+                <b>name:</b> oli/oliver<br />
+                <b>pronouns:</b> he/him<br />
+                <b>age:</b> <span id="age"></span> (2<sup>nd</sup> october)<br />
+                <b>location:</b> united kingdom<br />
+                <b>gender:</b> male<br />
+                <b>status:</b> single (<span style="color: var(--red);">g</span><span
+                    style="color: var(--peach);">a</span><span style="color: var(--yellow);">y</span> <span
+                    style="color: var(--green);">a</span><span style="color: var(--blue);">s</span><span
+                    style="color: var(--mauve);">f</span>)<br />
             </p>
         </div>
 
@@ -84,15 +94,15 @@ category: 2
             <h3 class="cardTitle">favourite games</h3>
             <div class="list">
                 <div class="card" id="games">
-                    <img alt="team fortress 2" src="/media/games/tf2.jpg"/>
+                    <img alt="team fortress 2" src="/media/games/tf2.jpg" />
                     <h3>team fortress 2</h3>
                 </div>
                 <div class="card" id="games">
-                    <img alt="portal" src="/media/games/portal.jpg"/>
+                    <img alt="portal" src="/media/games/portal.jpg" />
                     <h3>portal</h3>
                 </div>
                 <div class="card" id="games">
-                    <img alt="roblox" src="/media/games/roblox.jpg"/>
+                    <img alt="roblox" src="/media/games/roblox.jpg" />
                     <h3>roblox</h3>
                 </div>
             </div>
@@ -106,6 +116,7 @@ category: 2
                 <div class="tag" style="border-color: var(--peach); color: var(--peach)">tf2</div>
                 <div class="tag" style="border-color: var(--rosewater); color: var(--rosewater)">furry</div>
                 <div class="tag" style="border-color: var(--green); color: var(--green)">programming</div>
+                <div class="tag" style="border-color: var(--pink); color: var(--pink)">femboy</div>
                 <div class="tag" style="border-color: var(--lavender); color: var(--lavender)">homelab</div>
                 <div class="tag" style="border-color: var(--blue); color: var(--blue)">gmod</div>
                 <div class="tag" style="border-color: var(--mauve); color: var(--mauve)">theme parks</div>
@@ -116,7 +127,7 @@ category: 2
             <h3 class="cardTitle">favourite music</h3>
             <div class="list">
                 <div class="card" id="music">
-                    <img alt="jamiroquai" src="/media/artists/jamiroquai.jpg"/>
+                    <img alt="jamiroquai" src="/media/artists/jamiroquai.jpg" />
                     <div>
                         <p class="top">#1</p>
                         <h3>jamiroquai</h3>
@@ -124,7 +135,7 @@ category: 2
                     </div>
                 </div>
                 <div class="card" id="music">
-                    <img alt="jamiroquai" src="/media/artists/madness.jpg"/>
+                    <img alt="jamiroquai" src="/media/artists/madness.jpg" />
                     <div>
                         <p class="top">#2</p>
                         <h3>madness</h3>
@@ -132,7 +143,7 @@ category: 2
                     </div>
                 </div>
                 <div class="card" id="music">
-                    <img alt="greenday" src="/media/artists/republica.jpg"/>
+                    <img alt="greenday" src="/media/artists/republica.jpg" />
                     <div>
                         <p class="top">#3</p>
                         <h3>republica</h3>
@@ -146,36 +157,37 @@ category: 2
         <div class="card">
             <h3 class="cardTitle">local time</h3>
             <div class="card" style="background-color: var(--mantle); padding: 0;">
-                <h2 id="clock" style="font-family: 'Seven Segment',serif; font-size: 52px; text-align: center; margin: 2px 0 0 0; color: var(--red); text-shadow: 0 0 10px var(--red)">88:88 88</h2>
+                <h2 id="clock"
+                    style="font-family: 'Seven Segment',serif; font-size: 52px; text-align: center; margin: 2px 0 0 0; color: var(--red); text-shadow: 0 0 10px var(--red)">
+                    88:88 88</h2>
             </div>
         </div>
         <div class="card">
             <h3 class="cardTitle">skills</h3>
             <ul>
-                <li>software & web development</li>
+                <li>scripting</li>
                 <li>ui design</li>
                 <li>photography</li>
                 <li>3d printing</li>
-                <li>laser cutting</li>
             </ul>
         </div>
         <div class="card">
             <h3 class="cardTitle">specs</h3>
             <p>
-                <b>cpu:</b> amd ryzen 5 3600xt @ 4.4ghz<br/>
-                <b>ram:</b> 32gb<br/>
-                <b>gpu:</b> gigabyte rtx 3060 12gb<br/>
-                <b>disk:</b> 1tb m.2<br/>
-                <b>display:</b> 2560x1440@75 + 1920x1080@60<br/>
-                <b>os:</b> arch linux<br/>
-                <b>desktop:</b> hyprland<br/>
+                <b>cpu:</b> amd ryzen 5 3600xt @ 4.4ghz<br />
+                <b>ram:</b> 32gb<br />
+                <b>gpu:</b> gigabyte rtx 3060 12gb<br />
+                <b>disk:</b> 1tb m.2<br />
+                <b>display:</b> 2560x1440@75 + 1920x1080@60<br />
+                <b>os:</b> arch linux<br />
+                <b>desktop:</b> hyprland<br />
             </p>
         </div>
     </div>
 
 
     <script>
-        (function updateClock(){
+        (function updateClock() {
             let clock = new Date();
             document.getElementById("clock").innerText = clock.toLocaleTimeString('en-GB', {
                 timeZone: 'Europe/London',
@@ -197,7 +209,7 @@ category: 2
             }
             return today.getFullYear() - birthday.getFullYear() - thisYear;
         }
-        
+
         document.getElementById("age").innerText = getAge(new Date("2009-10-02"));
     </script>
 </div>

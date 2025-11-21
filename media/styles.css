@@ -33,6 +33,7 @@
     box-sizing: border-box;
     line-height: 1.5;
 }
+
 .noAnimations * {
     -webkit-transition: none !important;
     -moz-transition: none !important;
@@ -55,7 +56,12 @@ body {
     background-color: var(--base);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: 500;
     margin-bottom: 10px;
 }
@@ -67,6 +73,7 @@ b {
 header {
     margin-bottom: 25px;
 }
+
 header::after {
     content: "";
     display: block;
@@ -77,22 +84,26 @@ header::after {
     bottom: 0;
 }
 
-ul, summary {
+ul,
+summary {
     padding-left: 0;
     list-style-type: none;
-} 
+}
+
 ul li:before {
     content: '>';
     font-weight: bold;
     color: var(--pink);
     padding-right: 5px;
 }
+
 summary:before {
     content: '>';
     font-weight: bold;
     color: var(--pink);
     padding-right: 5px;
 }
+
 summary:active:before {
     content: '\/';
 }
@@ -102,7 +113,9 @@ summary:active:before {
     body {
         padding: 0;
     }
-    .content, .header {
+
+    .content,
+    .header {
         width: 100%;
         min-width: 0;
         border-radius: 0;
@@ -115,10 +128,9 @@ summary:active:before {
     gap: 15px;
 }
 
-.split > div {
+.split>div {
     flex: 1 1 0;
     width: 100%;
-    display: flex;
 }
 
 
@@ -145,17 +157,20 @@ button {
     display: inline-block;
 }
 
-a, button {
+a,
+button {
     text-decoration: none;
     transition: 0.1s;
     color: var(--pink);
 }
 
-a::before, button::before {
+a::before,
+button::before {
     content: "[";
 }
 
-a::after, button::after {
+a::after,
+button::after {
     content: "]";
 }
 
@@ -173,18 +188,28 @@ button:hover::after {
     color: var(--base);
 }
 
+a:disabled,
+button:disabled {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
 a[data-color="red"] {
     color: var(--red);
 }
+
 a[data-color="yellow"] {
     color: var(--yellow);
 }
+
 a[data-color="green"] {
     color: var(--green);
 }
+
 a[data-color="blue"] {
     color: var(--blue);
 }
+
 a[data-color="mauve"] {
     color: var(--mauve);
 }
@@ -194,7 +219,8 @@ a[data-color="mauve"] {
     padding: 15px 15px 15px 15px;
     border: 1px solid var(--surface1);
     border-radius: 10px;
-    background-color: var(--base);
+    background-color: rgba(var(--base), 0.5);
+    backdrop-filter: blur(15px);
 
     font-size: 14px;
 }
@@ -202,8 +228,11 @@ a[data-color="mauve"] {
 .card>.cardTitle {
     margin-top: 0;
 }
+
 .card>p {}
-.popup>.card>button, .popup>.card>.button {
+
+.popup>.card>button,
+.popup>.card>.button {
     width: 100%;
     margin-top: 10px;
 }
@@ -222,6 +251,7 @@ a[data-color="mauve"] {
     background-color: rgba(17, 17, 27, 0.75);
     z-index: 99;
 }
+
 .popup>.card {
     width: fit-content;
     background-color: var(--base);
@@ -235,7 +265,7 @@ a[data-color="mauve"] {
 
 .tag {
     width: fit-content;
-    padding: 4px 8px;
+    padding: 2px 8px;
     border: 1px solid var(--pink);
     border-radius: 100px;
     color: var(--pink);
@@ -246,11 +276,20 @@ hr {
     color: var(--surface0);
 }
 
+textarea,
+input {
+    all: unset;
+    border: 1px solid var(--surface2);
+    border-radius: 4px;
+    padding: 2px 5px 0px 5px;
+}
+
 
 @keyframes background {
     0% {
         transform: translate(0px);
     }
+
     100% {
         transform: translateX(-46px) translateY(-46px);
     }
@@ -261,6 +300,7 @@ hr {
     font-style: normal;
     src: url('/media/fonts/firacode.woff');
 }
+
 @font-face {
     font-family: 'Seven Segment';
     font-style: normal;

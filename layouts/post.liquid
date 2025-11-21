@@ -3,8 +3,16 @@ layout: base.liquid
 category: 4
 ---
 
-<div class="card">
+<style>
+    #blogpost>img {
+        display: block;
+        margin: 15px auto 15px auto;
+        width: 50%;
+    }
+</style>
+
+<div id="blogpost" class="card">
     {{ content }}
-    <hr/>
+    <hr />
     <i style="color: var(--subtext0)">posted {{ page.date | date: "%d/%m/%Y" }}</i>
 </div>
