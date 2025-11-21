@@ -1,5 +1,3 @@
-import EleventyVitePlugin from "@11ty/eleventy-plugin-vite";
-
 export default async function (eleventyConfig) {
     eleventyConfig.setLayoutsDirectory("../layouts");
     eleventyConfig.setInputDirectory("pages");
@@ -14,6 +12,4 @@ export default async function (eleventyConfig) {
 
     eleventyConfig.addPassthroughCopy("site.webmanifest");
     eleventyConfig.addPassthroughCopy(".htaccess");
-
-    eleventyConfig.addPlugin(EleventyVitePlugin);
 };
