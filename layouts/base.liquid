@@ -3,160 +3,234 @@ title: olifurz
 category: 1
 ---
 
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} ~ olifurz :3</title>
-    <link rel="stylesheet" href="/media/styles.css"/>
+    <title>{{ title }} ~ olifurz.com</title>
+    <link rel="stylesheet" href="/media/styles.css" />
     <link rel="icon" type="image/x-icon" href="/media/favicon.ico">
     <style>
-      .popup {
-          display: none;
-      }
-      @keyframes exit {
-          from {
-              opacity: 1;
-          }
-          to {
-              opacity: 0;
-          }
-      }
-      @keyframes exitCard {
-          from {
-              opacity: 1;
-          }
-          to {
-              opacity: 0;
-              transform: scale(0);
-          }
-      }
-      
-      .container {
-          width: 800px;
-          display: flex;
-          flex-direction: column;
-          gap: 15px;
-      }
-      .content {
-          display: flex;
-          flex-direction: column;
-          gap: 15px;
-      }
-      
+        .popup {
+            display: none;
+            position: fixed;
+        }
 
-      #topbar {
-          border: 1px solid var(--surface0);
-          
-          transition: 0.5s;
-          position: relative;
-          
-          width: 100%;
-          display: block;
-          
-          z-index: 5;
-          background-color: var(--mantle);
-          padding: 0;
-          overflow: hidden;
-      }
-     
-      
-      @keyframes marquee-scroll {
-          0% { left: 100%; }
-          100% { left: -100%; }
-      }
-      @keyframes marquee-fly-down {
-          0% { top: -100%; }
-          100% { top: 0; }
-      }
-      @keyframes marquee-fly-up {
-          0% { top: 100%; }
-          100% { top: 0; }
-      }
-      @keyframes marquee-fade {
-          0% { opacity: 0; }
-          100% { opacity: 1; }
-      }
+        @keyframes exit {
+            from {
+                opacity: 1;
+            }
 
-      .nav {
-          display: flex;
-          flex-direction: row;
-          align-items: end;
-          justify-content: space-evenly;
-          height: 40px;
-          background: linear-gradient(to top, var(--base), transparent);
-      }
+            to {
+                opacity: 0;
+            }
+        }
 
-      .nav > a {
-          text-decoration: none;
-          font-size: 24px;
-          text-align: center;
-          transition: 0.1s;
-          width: 100%;
-      }
+        @keyframes exitCard {
+            from {
+                opacity: 1;
+            }
 
-      .nav > a::after {
-          content: "";
-          display: block;
-          width: 100%;
-          height: 1px;
-          margin-top: 5px;
-          transition: 0.1s;
-      }
+            to {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+        }
 
-      .nav > a:hover {
-          font-weight: 800;
-          background-color: transparent;
-      }
-      .nav > a:hover::after {
-          height: 4px;
-          border-radius: 3px 3px 0 0;
-      }
-      
-      .nav > a[data-color="red"]::before { content: ""; }
-      .nav > a[data-color="yellow"]::before { content: ""; }
-      .nav > a[data-color="green"]::before { content: ""; }
-      .nav > a[data-color="blue"]::before { content: ""; }
-      .nav > a[data-color="mauve"]::before { content: ""; }
-      .nav > a[data-color="red"]::after { background-color: var(--red); }
-      .nav > a[data-color="yellow"]::after { background-color: var(--yellow); }
-      .nav > a[data-color="green"]::after { background-color: var(--green); }
-      .nav > a[data-color="blue"]::after { background-color: var(--blue); }
-      .nav > a[data-color="mauve"]::after { background-color: var(--mauve); }
+        .container {
+            width: 800px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contednt {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+
+        #topbar {
+            border: 1px solid var(--surface0);
+
+            transition: 0.5s;
+            position: relative;
+
+            width: 100%;
+            display: block;
+
+            z-index: 5;
+            background-color: var(--mantle);
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #warningCard {
+            width: 400px;
+        }
+
+
+        @keyframes marquee-scroll {
+            0% {
+                left: 100%;
+            }
+
+            100% {
+                left: -100%;
+            }
+        }
+
+        @keyframes marquee-fly-down {
+            0% {
+                top: -100%;
+            }
+
+            100% {
+                top: 0;
+            }
+        }
+
+        @keyframes marquee-fly-up {
+            0% {
+                top: 100%;
+            }
+
+            100% {
+                top: 0;
+            }
+        }
+
+        @keyframes marquee-fade {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .nav {
+            display: flex;
+            flex-direction: row;
+            align-items: end;
+            justify-content: space-evenly;
+            height: 40px;
+            background: linear-gradient(to top, var(--base), transparent);
+        }
+
+        .nav>a {
+            text-decoration: none;
+            font-size: 24px;
+            text-align: center;
+            transition: 0.1s;
+            width: 100%;
+        }
+
+        .nav>a::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 1px;
+            margin-top: 5px;
+            transition: 0.1s;
+        }
+
+        .nav>a:hover {
+            font-weight: 800;
+            background-color: transparent;
+        }
+
+        .nav>a:hover::after {
+            height: 4px;
+            border-radius: 3px 3px 0 0;
+        }
+
+        .nav>a[data-color="red"]::before {
+            content: "";
+        }
+
+        .nav>a[data-color="yellow"]::before {
+            content: "";
+        }
+
+        .nav>a[data-color="green"]::before {
+            content: "";
+        }
+
+        .nav>a[data-color="blue"]::before {
+            content: "";
+        }
+
+        .nav>a[data-color="mauve"]::before {
+            content: "";
+        }
+
+        .nav>a[data-color="red"]::after {
+            background-color: var(--red);
+        }
+
+        .nav>a[data-color="yellow"]::after {
+            background-color: var(--yellow);
+        }
+
+        .nav>a[data-color="green"]::after {
+            background-color: var(--green);
+        }
+
+        .nav>a[data-color="blue"]::after {
+            background-color: var(--blue);
+        }
+
+        .nav>a[data-color="mauve"]::after {
+            background-color: var(--mauve);
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="popup" id="popup">
         <div class="card" id="warningCard">
-            <h1>warning!</h1>
-            <p>this site contains the following content</p>
+            <h1 style="margin: 0; text-align: center; font-size: 36px; font-weight: bold; color: var(--pink)">welcome
+            </h1>
+            <p>this site contains..
             <ul>
                 <li>cookies</li>
                 <li>un-mobile-friendly pages</li>
                 <li>sexual references/themes</li>
+                <li>gayness</li>
             </ul>
-            <button id="warningConfirm" type="submit">enter</button>
+            <b style="color: var(--peach)">do not proceed</b> if you are under 13
+            </p>
+            <button id="enterButton" type="submit" style="text-align: center;">enter</button>
         </div>
     </div>
     <div class="background"></div>
     <div class="container">
         <div class="card" id="topbar">
-            <img style="position: absolute; z-index: -1; top: 0; left: 0; opacity: 0.15;" src="/media/art/banner.png" alt="banner">
+            <img style="position: absolute; z-index: -1; top: 0; left: 0; opacity: 0.15;" src="/media/art/banner.png"
+                alt="banner">
             <div style="position: relative;">
-                <h1 style="font-size: 64px; font-weight: 800; color: var(--pink); text-align: center; margin: 30px 0 10px 0;">
+                <h1
+                    style="font-size: 64px; font-weight: 800; color: var(--pink); text-align: center; margin: 30px 0 10px 0;">
                     olifurz<span style="font-size: 50%;">.com
-                </span></h1>
+                    </span></h1>
                 <div class="nav">
                     <a id="a" href="/" data-color="red">home</a>
-                    <a id="b" href="/me" data-color="yellow">me</a>
-                    <a id="c" href="/work" data-color="green">work</a>
-                    <a id="d" href="/blog" data-color="blue">blog</a>
-                    <a id="e" href="/talk" data-color="mauve">talk</a>
+                    <a id="b" href="/me/" data-color="yellow">me</a>
+                    <a id="c" href="/work/" data-color="green">work</a>
+                    <a id="d" href="/blog/" data-color="blue">blog</a>
+                    <a id="e" href="/talk/" data-color="mauve">talk</a>
                 </div>
             </div>
-            <div style="background-color: var(--base); padding: 10px 10px; display: flex; justify-content: space-between; align-items: center;">
+            <div
+                style="background-color: var(--base); padding: 10px 10px; display: flex; justify-content: space-between; align-items: center;">
                 <span>
-                  <span style="color: var(--subtext0)" id="path"></span> ~ <span style="color: var(--pink); font-weight: bold;">{{ title }}</span>
+                    <span style="color: var(--subtext0)" id="path"></span> ~ <span
+                        style="color: var(--pink); font-weight: bold;">{{ title }}</span>
                 </span>
                 <span id="details"></span>
             </div>
@@ -167,93 +241,70 @@ category: 1
             {{ content }}
         </div>
     </div>
-    <p style="color: var(--overlay0)">&copy; olifurz 2025 - <b style="color: var(--yellow); opacity: 0.6;">site in active wip!</b> - <button id="toggleAnimButton" onclick="toggleAnimations()">disable animations</button></p>
-  </body>
+    <p style="color: var(--overlay0); font-size: 14px;">&copy; olifurz 2025 - <b
+            style="color: var(--yellow); opacity: 0.6;">site in
+            active wip!</b> - <button id="toggleAnimButton" onclick="toggleAnimations()">disable animations</button></p>
+</body>
 
-  <script>
-      document.addEventListener("DOMContentLoaded", function () {
-          function getCookieByName(name) {
-              const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-              if (match) return decodeURIComponent(match[2]);
-              return null;
-          }
+<script src="/scripts/site.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", async function () {
+        if (site.getCookieByName("hasAccepted") == null) {
+            document.getElementById('popup').style.display = 'flex';
+        }
 
-          let hasAcceptedWarning = getCookieByName("acceptedWarning");
+        const enterButton = document.getElementById("enterButton");
+        enterButton.onclick = async function () {
+            const popup = document.getElementById('popup');
+            popup.style.animation = "exit 0.2s linear";
+            const warningCard = document.getElementById('warningCard');
+            warningCard.style.animation = "exitCard 0.2s ease-in";
+            document.cookie = "hasAccepted = true";
 
-          if (!hasAcceptedWarning) {
-              document.getElementById('popup').style.display = 'flex';
-          }
+            setTimeout(() => {
+                popup.style.display = 'none';
+            }, 200);
+        };
 
-          document.getElementById("warningConfirm").onclick = function () {
-              document.cookie = "acceptedWarning=true";
+        const toggleAnimButton = document.getElementById('toggleAnimButton');
 
-              const popup = document.getElementById('popup');
-              popup.style.animation = "exit 0.2s linear";
-              const warningCard = document.getElementById('warningCard');
-              warningCard.style.animation = "exitCard 0.2s ease-in";
+        if (site.getCookieByName("noAnimations") === "true") {
+            document.body.classList.add("noAnimations");
+            toggleAnimButton.innerText = "enable animations";
+        } else {
+            toggleAnimButton.innerText = "disable animations";
+        }
 
-              setTimeout(() => {
-                  popup.style.display = 'none';
-              }, 200);
-          };
+        window.toggleAnimations = function () {
+            if (document.body.classList.contains("noAnimations")) {
+                document.body.classList.remove("noAnimations");
+                document.cookie = "noAnimations=false";
+                toggleAnimButton.innerText = "disable animations";
+            } else {
+                document.body.classList.add("noAnimations");
+                document.cookie = "noAnimations=true";
+                toggleAnimButton.innerText = "enable animations";
+            }
+        }
 
-          const toggleAnimButton = document.getElementById('toggleAnimButton');
+        // navbar
+        const pathText = document.getElementById("path");
+        const paths = window.location.pathname.split("/").filter(Boolean);
+        let pathHtml = `/<a href="/">home</a>/`;
+        let currentPath = "";
 
-          if (getCookieByName("noAnimations") === "true") {
-              document.body.classList.add("noAnimations");
-              toggleAnimButton.innerText = "enable animations";
-          } else {
-              toggleAnimButton.innerText = "disable animations";
-          }
-
-          window.toggleAnimations = function () {
-              if (document.body.classList.contains("noAnimations")) {
-                  document.body.classList.remove("noAnimations");
-                  document.cookie = "noAnimations=false";
-                  toggleAnimButton.innerText = "disable animations";
-              } else {
-                  document.body.classList.add("noAnimations");
-                  document.cookie = "noAnimations=true";
-                  toggleAnimButton.innerText = "enable animations";
-              }
-          }
-
-          // Navbar
-          const pathText = document.getElementById("path");
-          const paths = window.location.pathname.split("/").filter(Boolean);
-          let pathHtml = `/<a href="/">home</a>/`;
-          let currentPath = "";
-
-          for (let i = 0; i < paths.length; i++) {
-              currentPath += "/" + paths[i];
-              pathHtml += `<a href="${currentPath}">${paths[i]}</a>/`;
-          }
-          pathText.innerHTML = pathHtml;
+        for (let i = 0; i < paths.length; i++) {
+            currentPath += "/" + paths[i];
+            pathHtml += `<a href="${currentPath}">${paths[i]}</a>/`;
+        }
+        pathText.innerHTML = pathHtml;
 
 
 
-          const detailText = document.getElementById("details");
+        const detailText = document.getElementById("details");
 
-          detailText.innerText = `took ${performance.now()}ms`;
-      });
-  </script>
-  <script>
-      const ref = document.referrer;
-      const myDomain = location.hostname;
-      const nav = performance.getEntriesByType('navigation')[0];
+        detailText.innerText = `took ${performance.now()}ms`;
+    });
+</script>
 
-      const cameFromOutside = ref && !ref.includes(myDomain);
-      const isDirectEntry = !ref && nav?.type === 'navigate';
-
-      if (cameFromOutside || isDirectEntry) {
-          fetch('/api/visit', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                  url: location.href,
-                  referrer: ref || null
-              })
-          }).catch(console.error);
-      }
-  </script>
 </html>

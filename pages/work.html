@@ -1,7 +1,6 @@
 ---
 title: my projects
 layout: base.liquid
-category: 3
 ---
 
 <style>
@@ -12,17 +11,25 @@ category: 3
         height: 175px;
         padding: 0 10px 10px 15px;
     }
-    #workedWith > h3 {
+
+    #workedWith>h3 {
         margin-bottom: 0;
-    }
-    #workedWith > h6 {
-        margin-top: 0;
+        z-index: 1;
     }
 
-    .backgroundLogo {
+    #workedWith>h5 {
+        z-index: 1;
+    }
+
+    #workedWith>h6 {
+        margin-top: 0;
+        z-index: 1;
+    }
+
+    #workedWith>img {
         height: 115%;
         position: absolute;
-        top: -10;
+        top: 0;
         left: 0;
         z-index: 0;
         opacity: 0.1;
@@ -36,8 +43,6 @@ category: 3
         grid-template-columns: repeat(6, calc((100% - 50px) / 6));
         gap: 10px;
     }
-
-
 </style>
 
 <div class="card">
@@ -47,37 +52,37 @@ category: 3
             <h3>linux</h3>
             <h6>OPERATING SYSTEM</h6>
             <h5>ubuntu, arch, debian, nano, vim, hyprland</h5>
-            <img class="backgroundLogo" src="/media/logos/tux.svg">
+            <img src="/media/icons/logos/tux.svg">
         </div>
         <div class="card" id="workedWith">
             <h3>roblox</h3>
             <h6>GAME ENGINE</h6>
             <h5>ui design, scripting, modelling, management</h5>
-            <img class="backgroundLogo" src="/media/logos/roblox.svg">
+            <img src="/media/icons/logos/roblox.svg">
         </div>
         <div class="card" id="workedWith">
             <h3>c#</h3>
             <h6>LANGUAGE</h6>
             <h5>wpf, winforms, unity, godot</h5>
-            <img class="backgroundLogo" src="/media/logos/csharp.svg">
+            <img src="/media/icons/logos/csharp.svg">
         </div>
         <div class="card" id="workedWith">
             <h3>unity</h3>
             <h6>GAME ENGINE</h6>
             <h5>ui design, cloud services</h5>
-            <img class="backgroundLogo" src="/media/logos/unity.svg">
+            <img src="/media/icons/logos/unity.svg">
         </div>
-         <div class="card" id="workedWith">
+        <div class="card" id="workedWith">
             <h3>cosmos</h3>
             <h6>OS DEV</h6>
-            <h5>ui design, cloud services</h5>
-            <img class="backgroundLogo" src="/media/logos/cosmos.png">
+            <h5>tui design, graphics</h5>
+            <img src="/media/icons/logos/cosmos.png">
         </div>
         <div class="card" id="workedWith">
             <h3>c++</h3>
             <h6>LANGUAGE</h6>
             <h5>raylib</h5>
-            <img class="backgroundLogo" src="/media/logos/cplusplus.svg">
+            <img src="/media/icons/logos/cplusplus.svg">
         </div>
     </div>
 </div>

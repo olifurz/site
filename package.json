@@ -14,9 +14,12 @@
   "type": "module",
   "dependencies": {
     "@11ty/eleventy": "^3.1.2",
+    "@11ty/eleventy-plugin-vite": "^7.0.0",
+    "@supabase/supabase-js": "^2.79.0",
     "crypto": "^1.0.1",
     "package.json": "^2.0.1",
     "path": "^0.12.7",
+    "supabase": "^2.54.11",
     "timers": "^0.1.1"
   }
 }
