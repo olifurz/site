@@ -192,22 +192,6 @@ category: 1
 </head>
 
 <body>
-    <div class="popup" id="popup">
-        <div class="card" id="warningCard">
-            <h1 style="margin: 0; text-align: center; font-size: 36px; font-weight: bold; color: var(--pink)">welcome
-            </h1>
-            <p>this site contains..
-            <ul>
-                <li>cookies</li>
-                <li>un-mobile-friendly pages</li>
-                <li>sexual references/themes</li>
-                <li>gayness</li>
-            </ul>
-            <b style="color: var(--peach)">do not proceed</b> if you are under 13
-            </p>
-            <button id="enterButton" type="submit" style="text-align: center;">enter</button>
-        </div>
-    </div>
     <div class="background"></div>
     <div class="container">
         <div class="card" id="topbar">
@@ -242,51 +226,12 @@ category: 1
         </div>
     </div>
     <p style="color: var(--overlay0); font-size: 14px;">&copy; olifurz 2025 - <b
-            style="color: var(--yellow); opacity: 0.6;">site in
-            active wip!</b> - <button id="toggleAnimButton" onclick="toggleAnimations()">disable animations</button></p>
+            style="color: var(--yellow); opacity: 0.6;">work in progress</b></p>
 </body>
 
 <script src="/scripts/site.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", async function () {
-        if (site.getCookieByName("hasAccepted") == null) {
-            document.getElementById('popup').style.display = 'flex';
-        }
-
-        const enterButton = document.getElementById("enterButton");
-        enterButton.onclick = async function () {
-            const popup = document.getElementById('popup');
-            popup.style.animation = "exit 0.2s linear";
-            const warningCard = document.getElementById('warningCard');
-            warningCard.style.animation = "exitCard 0.2s ease-in";
-            document.cookie = "hasAccepted = true";
-
-            setTimeout(() => {
-                popup.style.display = 'none';
-            }, 200);
-        };
-
-        const toggleAnimButton = document.getElementById('toggleAnimButton');
-
-        if (site.getCookieByName("noAnimations") === "true") {
-            document.body.classList.add("noAnimations");
-            toggleAnimButton.innerText = "enable animations";
-        } else {
-            toggleAnimButton.innerText = "disable animations";
-        }
-
-        window.toggleAnimations = function () {
-            if (document.body.classList.contains("noAnimations")) {
-                document.body.classList.remove("noAnimations");
-                document.cookie = "noAnimations=false";
-                toggleAnimButton.innerText = "disable animations";
-            } else {
-                document.body.classList.add("noAnimations");
-                document.cookie = "noAnimations=true";
-                toggleAnimButton.innerText = "enable animations";
-            }
-        }
-
         // navbar
         const pathText = document.getElementById("path");
         const paths = window.location.pathname.split("/").filter(Boolean);

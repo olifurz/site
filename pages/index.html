@@ -22,20 +22,18 @@ layout: base.liquid
         a personal website can bring, which is why you won't really find me on many major social platforms other than
         the ones i need<br /><br />
 
-        enjoy your time here :3 </p>
+        enjoy your time here</p>
 </div>
 
 <div class="split">
-    <div>
-        <div class="card">
-            <h3 class="cardTitle">latest posts</h3>
-            <ul>
-                {% for post in collections.blog | slice(0, 6) %}
-                <li>
-                    <a href="{{ post.url }}">{{ post.data.title }}</a> ~ {{ post.date | date: "%d/%m/%Y" }}
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
+    <div class="card">
+        <h3 class="cardTitle">latest posts</h3>
+        <ul>
+            {% for post in collections.blog | slice(0, 6) %}
+            <li>
+                <a href="{{ post.url }}">{{ post.data.title }}</a> ~ {{ post.date | date: "%d/%m/%Y" }}
+            </li>
+            {% endfor %}
+        </ul>
     </div>
 </div>
