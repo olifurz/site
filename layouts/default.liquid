@@ -1,0 +1,67 @@
+---
+layout: base.liquid
+---
+
+<div class="background"></div>
+
+<div class="card" style="padding: 0; line-height: 0; text-align: center; height: 150px;">
+    <img src=" /media/art/banner.png"
+        style="opacity: 0.15; object-fit: cover; width: 100%; height: 100%; position: absolute; top: 0; left: 0;">
+    <h1
+        style="color: var(--pink); position: absolute; bottom: -10px; left: 15px; font-size: 48px; font-weight: 800; letter-spacing: -3px;">
+        olifurz<span style="font-size: 50%; letter-spacing: 0;">.com</span>
+    </h1>
+
+    <h2 style="color: var(--pink); position: absolute; right: 15px; bottom: 0px;">site revamp beta 1</h3>
+
+</div>
+
+<div class="split" style="gap: 0; width: 800px;">
+    <div style="flex: 0 0 200px;">
+        <div class="card" style="height: 100%; border-top: 0;">
+            <div class=" card-title">navigation</div>
+            <div class="card-content">
+                <ul>
+                    <li>core
+                        <ul>
+                            <li><a href="/">home</a></li>
+                            <li><a href="/me/">about me</a></li>
+                            <li><a href="/blog/">blog</a></li>
+                            <li><a href="/contact/">contact</a></li>
+                        </ul>
+                    </li>
+                    <li>meta
+                        <ul>
+                            <li><a href="/resources/">resources</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class=" card-title">my button</div>
+            <div class="card-content" style="text-align: center;">
+                <a href="https://olifurz.com"><img src="/button.gif"></a>
+                <button id="copyButton">copy code</button><br />
+                <p style="margin-top: 10px; margin-bottom: 0; color: var(--subtext0)"><i>(please hotlink!)</i>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="stack" style="margin: 10px; margin-right: 0;">
+            {{ content }}
+        </div>
+    </div>
+</div>
+
+<div class="card" style="text-align: center; padding: 5px;">
+    <p style="margin: 0;">&copy; olifurz 2025 ~ <a href="https://github.com/olifurz/site" target="_blank">source
+            code</a></p>
+</div>
+
+<script src="/scripts/site.js"></script>
+<script>
+    document.getElementById('copyButton').addEventListener('click', () => {
+        const htmlContent = '<a href="https://olifurz.com"><img src="https://olifurz.com/button.gif" alt="olifurz.com"></a>';
+        navigator.clipboard.writeText(htmlContent);
+    });
+</script>

@@ -1,6 +1,5 @@
 ---
-layout: base.liquid
-category: 4
+layout: default.liquid
 ---
 
 <style>
@@ -12,7 +11,12 @@ category: 4
 </style>
 
 <div id="blogpost" class="card">
-    {{ content }}
-    <hr />
-    <i style="color: var(--subtext0)">posted {{ page.date | date: "%d/%m/%Y" }}</i>
+    {% assign page_number = page.url | split: '/' | last %}
+    <div class="card-title">entry #{{ page_number }}</div>
+    <div class="card-content">
+        <h1>{{ title }}</h1>
+        <h4>{{ page.date | date: "%d/%m/%Y" }}</h4>
+        <hr>
+        {{ content }}
+    </div>
 </div>

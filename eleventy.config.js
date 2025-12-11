@@ -11,5 +11,5 @@ export default async function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("scripts");
 
     eleventyConfig.addPassthroughCopy("site.webmanifest");
-    eleventyConfig.addPassthroughCopy(".htaccess");
+    eleventyConfig.addPassthroughCopy("button.gif");
 };

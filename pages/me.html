@@ -1,214 +1,126 @@
 ---
 title: about me
-layout: base.liquid
+layout: default.liquid
 ---
 <style>
-    .split>div {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
-
     .profile {
-        margin: 10px;
-        width: calc(100% - 20px - 4px);
-        border: 2px dashed var(--pink);
-    }
-
-    .tag {
-        margin-top: 3px;
-        margin-bottom: 3px;
-    }
-
-    .list {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        margin-bottom: 10px;
-    }
-
-    .card {
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .card #music,
-    .card #games {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        gap: 0.75rem;
-    }
-
-    .card #music>img {
-        border-radius: inherit;
-        height: 90px;
-    }
-
-    .card #games>img {
-        border-radius: inherit;
-        height: 48px;
-    }
-
-    .card #music>div>.top {
-        color: var(--subtext0);
-        margin-bottom: 4px;
-        font-size: 0.8rem;
-    }
-
-    .card #music>div>.bottom {
-        color: var(--subtext0);
-        margin-top: 4px;
-        font-size: 0.8rem;
-    }
-
-    .card #music>div>h3,
-    .card #games>div>h3 {
-        margin: 0;
+        width: 100px;
+        height: 100px;
     }
 </style>
 
-<div class="split">
-    <div>
-        <div class="card">
-            <h3 class="cardTitle">profile pic</h3>
-            <img class="profile" src="/media/pfp.png" alt="profile picture" />
-        </div>
-        <div class="card">
-            <h3 class="cardTitle">core info</h3>
-            <p>
-                <b>name:</b> oli/oliver<br />
-                <b>pronouns:</b> he/him<br />
-                <b>age:</b> <span id="age"></span> (2<sup>nd</sup> october)<br />
-                <b>location:</b> united kingdom<br />
-                <b>gender:</b> male<br />
-                <b>status:</b> single (<span style="color: var(--red);">g</span><span
-                    style="color: var(--peach);">a</span><span style="color: var(--yellow);">y</span> <span
-                    style="color: var(--green);">a</span><span style="color: var(--blue);">s</span><span
-                    style="color: var(--mauve);">f</span>)<br />
-            </p>
-        </div>
-
-        <div class="card">
-            <h3 class="cardTitle">favourite games</h3>
-            <div class="list">
-                <div class="card" id="games">
-                    <img alt="team fortress 2" src="/media/games/tf2.jpg" />
-                    <h3>team fortress 2</h3>
-                </div>
-                <div class="card" id="games">
-                    <img alt="portal" src="/media/games/portal.jpg" />
-                    <h3>portal</h3>
-                </div>
-                <div class="card" id="games">
-                    <img alt="roblox" src="/media/games/roblox.jpg" />
-                    <h3>roblox</h3>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div>
-        <div class="card">
-            <h3 class="cardTitle">interests</h3>
+<div class="card">
+    <div class="card-title">about me</div>
+    <div class="card-content">
+        <div class="split">
+            <img class="profile" src="/media/art/pfp.png">
             <div>
-                <div class="tag" style="border-color: var(--yellow); color: var(--yellow)">linux</div>
-                <div class="tag" style="border-color: var(--peach); color: var(--peach)">tf2</div>
-                <div class="tag" style="border-color: var(--rosewater); color: var(--rosewater)">furry</div>
-                <div class="tag" style="border-color: var(--green); color: var(--green)">programming</div>
-                <div class="tag" style="border-color: var(--lavender); color: var(--lavender)">homelab</div>
-                <div class="tag" style="border-color: var(--blue); color: var(--blue)">gmod</div>
-                <div class="tag" style="border-color: var(--mauve); color: var(--mauve)">theme parks</div>
+                <h4>core info</h3>
+                    <p>
+                        name: oliver/oli<br />
+                        pronouns: he/him<br />
+                        age: <span id="age"></span><br />
+                        nationality: british<br />
+                    </p>
             </div>
         </div>
+        <p>
+            hio! here's some stuff<br /><br />
 
-        <div class="card">
-            <h3 class="cardTitle">favourite music</h3>
-            <div class="list">
-                <div class="card" id="music">
-                    <img alt="jamiroquai" src="/media/artists/jamiroquai.jpg" />
-                    <div>
-                        <p class="top">#1</p>
-                        <h3>jamiroquai</h3>
-                        <p class="bottom">acid jazz</p>
-                    </div>
-                </div>
-                <div class="card" id="music">
-                    <img alt="jamiroquai" src="/media/artists/madness.jpg" />
-                    <div>
-                        <p class="top">#2</p>
-                        <h3>madness</h3>
-                        <p class="bottom">ska & pop</p>
-                    </div>
-                </div>
-                <div class="card" id="music">
-                    <img alt="greenday" src="/media/artists/republica.jpg" />
-                    <div>
-                        <p class="top">#3</p>
-                        <h3>republica</h3>
-                        <p class="bottom">alt rock</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+            in my free time, i like to work on various projects such as my homelab server, my personal website &
+            more. when i'm not doing that, i usually just play games or spend time breaking my linux installation
+            <i>(accidentally)</i>
+        </p>
     </div>
-    <div>
-        <div class="card">
-            <h3 class="cardTitle">local time</h3>
-            <div class="card" style="background-color: var(--mantle); padding: 0;">
-                <h2 id="clock"
-                    style="font-family: 'Seven Segment',serif; font-size: 52px; text-align: center; margin: 2px 0 0 0; color: var(--red); text-shadow: 0 0 10px var(--red)">
-                    88:88 88</h2>
-            </div>
-        </div>
-        <div class="card">
-            <h3 class="cardTitle">skills</h3>
+</div>
+
+<div class="split">
+    <div class="card">
+        <div class="card-title">favourite music</div>
+        <div class="card-content">
             <ul>
-                <li>scripting</li>
-                <li>ui design</li>
-                <li>photography</li>
-                <li>3d printing</li>
+                <li>jamiroquai</li>
+                <li>freeze the atlantic</li>
+                <li>arctic monkeys</li>
+                <li>garbage</li>
+                <li>madness</li>
+                <li>the prodigy</li>
+                <li>vocaloid (various)</li>
             </ul>
         </div>
-        <div class="card">
-            <h3 class="cardTitle">specs</h3>
-            <p>
-                <b>cpu:</b> amd ryzen 5 3600xt @ 4.4ghz<br />
-                <b>ram:</b> 32gb<br />
-                <b>gpu:</b> gigabyte rtx 3060 12gb<br />
-                <b>disk:</b> 1tb m.2<br />
-                <b>display:</b> 2560x1440@75 + 1920x1080@60<br />
-                <b>os:</b> arch linux<br />
-                <b>desktop:</b> hyprland<br />
-            </p>
+    </div>
+    <div class="card">
+        <div class="card-title">favourite games</div>
+        <div class="card-content">
+            <ul>
+                <li>team fortress 2</li>
+                <li>portal</li>
+                <li>roblox</li>
+                <li>gmod</li>
+                <li>half life</li>
+                <li>beam.ng drive</li>
+                <li>nolimits 2</li>
+            </ul>
         </div>
     </div>
+</div>
 
+<div class="card">
+    <div class="card-title">friends have said..</div>
+    <div class="card-content">
+        <p id="review" style="height: 25px;">
+            <i><span id="reviewText"></span></i>
+            <br /><span id="reviewAuthor"></span>
+        </p>
+    </div>
+</div>
 
-    <script>
-        (function updateClock() {
-            let clock = new Date();
-            document.getElementById("clock").innerText = clock.toLocaleTimeString('en-GB', {
-                timeZone: 'Europe/London',
-                hour12: true,
-                hour: "2-digit",
-                minute: "2-digit"
+<script>
+    window.onload = function () {
+        // calculate age
+        const birthDate = new Date('2009-10-02');
+        const today = new Date();
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        document.getElementById('age').innerText = age;
+
+        // random review
+        const reviews = [
+            { text: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', author: 'x86overflow' },
+            { text: '5 stars i love the personality veyry fuck i give up', author: 'karlos' },
+            { text: 'oli is a cool person who does cool person things. oli = person', author: 'schwntrz' },
+            { text: 'Mr Krabs is my legally wedded husband', author: 'Chevron' }
+        ]
+
+        let lastReview = null;
+
+        const reviewBlock = document.getElementById("review");
+        function changeReview() {
+            let randomReview;
+
+            reviewBlock.classList.add('fadeOut');
+
+            reviewBlock.addEventListener('animationend', function handleAnimationEnd() {
+                reviewBlock.classList.remove('fadeOut');
+
+                do {
+                    randomReview = reviews[Math.floor(Math.random() * reviews.length)];
+                } while (randomReview.text === lastReview);
+
+                lastReview = randomReview.text;
+                document.getElementById('reviewText').innerText = `"` + randomReview.text + `"`;
+                document.getElementById('reviewAuthor').innerText = "- " + randomReview.author;
+
+                reviewBlock.classList.add('fadeIn');
+
+                reviewBlock.removeEventListener('animationend', handleAnimationEnd);
             });
-            setTimeout(updateClock, 60000);
-        })();
-
-
-        function getAge(birthday) {
-            const today = new Date();
-            let thisYear = 0;
-            if (today.getMonth() < birthday.getMonth()) {
-                thisYear = 1;
-            } else if ((today.getMonth() === birthday.getMonth()) && today.getDate() < birthday.getDate()) {
-                thisYear = 1;
-            }
-            return today.getFullYear() - birthday.getFullYear() - thisYear;
         }
 
-        document.getElementById("age").innerText = getAge(new Date("2009-10-02"));
-    </script>
-</div>
+        changeReview();
+        window.setInterval(() => { changeReview() }, 7500);
+    };
+</script>

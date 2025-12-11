@@ -1,12 +1,26 @@
 ---
 title: blog
-layout: base.liquid
+layout: default.liquid
 ---
 
 <div class="card">
-    <ul>
-        {% for post in collections.blog %}
-        <li><a href="{{ post.url }}">{{ post.data.title }}</a> ~ {{ post.date | date: "%d/%m/%Y" }}</li>
-        {% endfor %}
-    </ul>
+    <div class="card-title">blog entries</div>
+    <div class="card-content">
+        <p>my blog isn't updated that often mainly because i don't really know what to talk about</p>
+        <table>
+            <tr>
+                <th>name</th>
+                <th>date</th>
+                <th>action</th>
+            </tr>
+
+            {% for post in collections.blog %}
+            <tr>
+                <td>{{ post.data.title }}</td>
+                <td>{{ post.date | date: "%d/%m/%Y" }}</td>
+                <td><a href="{{ post.url }}">view</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
 </div>
