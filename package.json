@@ -14,8 +14,11 @@
   "type": "module",
   "dependencies": {
     "@11ty/eleventy": "^3.1.2",
+    "@11ty/eleventy-plugin-vite": "^7.0.0",
+    "appwrite": "^21.5.0",
     "package.json": "^2.0.1",
     "path": "^0.12.7",
-    "timers": "^0.1.1"
+    "timers": "^0.1.1",
+    "vue": "^3.5.25"
   }
 }

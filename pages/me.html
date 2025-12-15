@@ -4,8 +4,8 @@ layout: default.liquid
 ---
 <style>
     .profile {
-        width: 100px;
-        height: 100px;
+        width: 90px;
+        height: 90px;
     }
 </style>
 
@@ -76,7 +76,7 @@ layout: default.liquid
 </div>
 
 <script>
-    window.onload = function () {
+    addEventListener("DOMContentLoaded", (event) => {
         // calculate age
         const birthDate = new Date('2009-10-02');
         const today = new Date();
@@ -122,5 +122,5 @@ layout: default.liquid
 
         changeReview();
         window.setInterval(() => { changeReview() }, 7500);
-    };
+    });
 </script>

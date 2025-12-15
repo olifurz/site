@@ -27,12 +27,17 @@
     --base: #1e1e2e;
     --mantle: #181825;
     --crust: #11111b;
+
+    --cursor-default: url('/media/cursors/default.cur');
+    --cursor-link: url('/media/cursors/link.cur')
 }
 
 * {
     font-family: 'Fira Code', serif;
     box-sizing: border-box;
     line-height: 1.5;
+
+    cursor: var(--cursor-default), auto;
 }
 
 .noAnimations * {
@@ -59,8 +64,12 @@ body {
 .center {
     position: absolute;
     top: 50%;
-    left: 50;
+    left: 50%;
     transform: translate(-50%, 50%);
+}
+
+img {
+    image-rendering: pixelated;
 }
 
 h1,
@@ -76,7 +85,7 @@ h6 {
 p,
 a,
 body {
-    font-size: 13px;
+    font-size: 12px;
 }
 
 p {
@@ -189,12 +198,13 @@ a {
 
 a:hover {
     text-decoration: underline;
+    cursor: var(--cursor-link), auto;
 }
 
 button,
 .button {
     all: unset;
-    padding: 4px 8px 4px 8px;
+    padding: 2px 8px 2px 8px;
     min-width: 50px;
     text-align: center;
     background-color: var(--surface2);
@@ -205,7 +215,6 @@ button,
 
 button:hover,
 .button:hover {
-    cursor: default;
     text-decoration: none;
 }
 
@@ -230,27 +239,52 @@ button:active,
     border: 1px solid var(--surface2);
     background-image: linear-gradient(180deg, var(--surface1), var(--surface0));
     position: relative;
-    box-shadow: 4px 4px 4px var(--mantle);
+    box-shadow: 2px 2px 2px var(--mantle);
     z-index: 0;
 }
 
-.card-title {
+.card-title,
+.messagebox-title {
     padding: 1px 5px;
     background-image: linear-gradient(270deg, var(--surface2), var(--surface1));
     font-weight: bold;
     border-bottom: inherit;
 }
 
-.card-content {
+.card-content,
+.messagebox-content {
     padding: 10px;
 }
 
-.card-buttons {
-    padding: 0 10px 10px 10px;
+.card-buttons,
+.messagebox-buttons {
+    padding: 0 7px 7px 5px;
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
     justify-content: right;
+}
+
+.messagebox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    width: 400px;
+    min-height: 100px;
+    box-shadow: 4px 4px 4px var(--mantle);
+    background-color: var(--surface1);
+    border: 2px outset var(--surface2);
+}
+
+.messagebox-title {}
+
+.messagebox-content {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    gap: 10px;
 }
 
 

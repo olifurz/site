@@ -4,7 +4,6 @@ layout: default.liquid
 ---
 
 
-
 <div class="card">
     <marquee scrolldelay="40"><i><b style="color: var(--peach);">WARNING!</b> the site is undergoing an
             overhaul! some
@@ -43,9 +42,40 @@ layout: default.liquid
             </ul>
         </div>
     </div>
+
+    <div class="card">
+        <div class="card-title">statistics</div>
+        <div class="card-content">
+            <table>
+                <tr>
+                    <td>visitors</td>
+                    <td id="visitors">-</td>
+                </tr>
+                <tr>
+                    <td>unique visitors</td>
+                    <td id="uniqueVisitors">-</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>
 
-<script>
-    var $ = require("jquery");
-    require("jquery.marquee");
+<script type="module">
+    import { Client, Query, ID, TablesDB } from "appwrite";
+    import { apiClient } from '/scripts/api.js';
+
+    const tablesDB = new TablesDB(apiClient);
+
+    const uniqueVisitors = await tablesDB.listRows({
+        databaseId: '693f4106001ca02f7f4e',
+        tableId: 'unique-visitors',
+    });
+
+    const visitors = await tablesDB.listRows({
+        databaseId: '693f4106001ca02f7f4e',
+        tableId: 'visitors',
+    });
+
+    document.getElementById('visitors').innerText = visitors.total;
+    document.getElementById('uniqueVisitors').innerText = uniqueVisitors.total;
 </script>

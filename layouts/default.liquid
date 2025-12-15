@@ -12,7 +12,8 @@ layout: base.liquid
         olifurz<span style="font-size: 50%; letter-spacing: 0;">.com</span>
     </h1>
 
-    <h2 style="color: var(--pink); position: absolute; right: 15px; bottom: 0px;">site revamp beta 1</h3>
+    <h2 style="color: var(--pink); position: absolute; right: 15px; bottom: 0px; font-weight: bold;"><i>site revamp beta
+            1</i></h3>
 
 </div>
 
@@ -58,10 +59,36 @@ layout: base.liquid
             code</a></p>
 </div>
 
+<div class="messagebox" id="siteWarning" style="display: none;">
+    <div class="messagebox-title" id="draggable">! WARNING !</div>
+    <div class="messagebox-content">
+        <img src="/media/icons/general/caution.png">
+        this site contains autoplay sound, swearing and has no mobile support<br />
+        do not proceed if you're under 13 years
+        old
+    </div>
+    <div class="messagebox-buttons">
+        <button onclick="acceptWarning()">OK</button>
+    </div>
+</div>
+
 <script src="/scripts/site.js"></script>
 <script>
-    document.getElementById('copyButton').addEventListener('click', () => {
-        const htmlContent = '<a href="https://olifurz.com"><img src="https://olifurz.com/button.gif" alt="olifurz.com"></a>';
-        navigator.clipboard.writeText(htmlContent);
+    document.addEventListener("DOMContentLoaded", (event) => {
+        document.getElementById('copyButton').addEventListener('click', () => {
+            const htmlContent = '<a href="https://olifurz.com"><img src="https://olifurz.com/button.gif" alt="olifurz.com"></a>';
+            navigator.clipboard.writeText(htmlContent);
+        });
+
+        var accepted = site.getCookieByName('hasAcceptedWarning');
+        if (!accepted) {
+            document.getElementById('siteWarning').style.display = 'block';
+        }
     });
+
+    function acceptWarning() {
+        const expires = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString();
+        document.cookie = 'hasAcceptedWarning=true; expires=' + expires + '; path=/; SameSite=Lax';
+        document.getElementById('siteWarning').remove();
+    }
 </script>
