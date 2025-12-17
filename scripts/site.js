@@ -4,19 +4,6 @@ const site = {
         if (match) return decodeURIComponent(match[2]);
         return null;
     },
-
-
-    getIpAddress() {
-        return fetch("https://api.ipify.org/?format=json")
-            .then(response => response.json())
-            .then(data => {
-                return data.ip;
-            })
-            .catch(error => {
-                console.error("Error fetching IP address:", error);
-                throw error;
-            });
-    }
 };
 
 dragElement(document.getElementById("draggable"));
