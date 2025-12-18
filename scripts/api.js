@@ -30,7 +30,7 @@ async function visitCheck() {
             document.cookie = "uniqueVisitorCheck=true";
         }
 
-        // WHAT THE FUCK IS A REGEEEEEEXXXXXXXXXXXXXXX *gun shots*
+        // wtf is regex
         if (document.referrer != null &&
             !document.referrer.match(/^https?:\/\/([^\/]+\.)?olifurz\.com(\/|$)/i)) {
             const ip = await getIpAddress();
