@@ -1,4 +1,4 @@
-import { Client, Query, ID, TablesDB } from "https://jspm.dev/appwrite";
+const { Client, Query, ID, TablesDB } = Appwrite;
 
 export const apiClient = new Client();
 apiClient

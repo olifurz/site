@@ -61,8 +61,8 @@ layout: default.liquid
 </div>
 
 <script type="module">
-    import { Client, Query, ID, TablesDB } from "https://jspm.dev/appwrite";
     import { apiClient } from '/scripts/api.js';
+    const { Client, Query, ID, TablesDB } = Appwrite;
 
     const tablesDB = new TablesDB(apiClient);
 
