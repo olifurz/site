@@ -28,8 +28,8 @@
     --mantle: #181825;
     --crust: #11111b;
 
-    --cursor-default: url('/media/cursors/default.cur');
-    --cursor-link: url('/media/cursors/link.cur')
+    --cursor-default: url('/assets/cursors/default.cur');
+    --cursor-link: url('/assets/cursors/link.cur')
 }
 
 * {
@@ -186,7 +186,7 @@ details[open] summary::marker {
 
     z-index: -1;
 
-    background-image: url("/media/art/background.png");
+    background-image: url("/assets/art/background.png");
     opacity: 1;
 }
 
@@ -297,7 +297,7 @@ button:active,
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("/media/interlace.png");
+    background-image: url("/assets/interlace.png");
     background-size: 2px;
     opacity: 0.04;
     z-index: -1;
@@ -427,13 +427,13 @@ td {
 @font-face {
     font-family: 'Fira Code';
     font-style: normal;
-    src: url('/media/fonts/firacode.woff');
+    src: url('/assets/fonts/firacode.woff');
 }
 
 @font-face {
     font-family: 'Seven Segment';
     font-style: normal;
-    src: url('/media/fonts/sevensegment.woff');
+    src: url('/assets/fonts/sevensegment.woff');
 }
 
 @media screen and (prefers-reduced-motion: reduce) {

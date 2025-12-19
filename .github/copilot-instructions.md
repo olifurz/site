@@ -10,11 +10,11 @@ This repo is a small Eleventy (11ty) static site. Use the notes below to be prod
 
 - **Layouts & templating:** Liquid templates in `layouts/`. `layouts/default.liquid` nests `base.liquid` via frontmatter (`layout: base.liquid`). Use `{{ content }}` to inject page content.
 
-- **Static assets:** `media/` and `scripts/` are passthrough-copied (served at `/media/...` and `/scripts/...`). Example: `layouts/default.liquid` references `/scripts/site.js` and `/media/art/banner.png`.
+- **Static assets:** `assets/` and `scripts/` are passthrough-copied (served at `/assets/...` and `/scripts/...`). Example: `layouts/default.liquid` references `/scripts/site.js` and `/assets/art/banner.png`.
 
 - **Client JS conventions:** `scripts/site.js` exposes a small `site` object on `window` (e.g., `site.getCookieByName`) and implements UI behaviors (dragging, cookie-based warning). Keep global usage minimal and consistent with existing code.
 
-- **Styling:** Global stylesheet is `media/styles.css`. Page-level inline styles are used in layouts — prefer adjusting `media/styles.css` for site-wide changes.
+- **Styling:** Global stylesheet is `assets/styles.css`. Page-level inline styles are used in layouts — prefer adjusting `assets/styles.css` for site-wide changes.
 
 - **Common edits and patterns:**
   - Add a new layout: place it in `layouts/` and reference it from page frontmatter. Remember `eleventyConfig.setLayoutsDirectory("../layouts")` — layouts are looked up relative to `pages/`.
@@ -23,7 +23,7 @@ This repo is a small Eleventy (11ty) static site. Use the notes below to be prod
 
 - **Small but important quirks to preserve:**
   - `eleventy.config.js` sets layouts directory to `../layouts` (relative path). Moving the `pages` or `layouts` folder requires updating that setting.
-  - Assets are assumed to be referenced from site root (`/media/...`, `/scripts/...`).
+  - Assets are assumed to be referenced from site root (`/assets/...`, `/scripts/...`).
   - The repo currently has no tests or CI; rely on `npm start` for local verification.
   - There is a duplicated `eleventyConfig.addPassthroughCopy("scripts")` call — it's harmless but avoid further duplication.
   - `package.json` lists some unusual packages (e.g., a dependency named `package.json`) — do not remove or change deps without verifying build impact.
@@ -39,9 +39,9 @@ tags: blog-post
 ---
 ```
 
-  - Reference an asset in templates: `<img src="/media/art/banner.png">` or `<script src="/scripts/site.js"></script>`.
+  - Reference an asset in templates: `<img src="/assets/art/banner.png">` or `<script src="/scripts/site.js"></script>`.
 
-- **Where to look for changes that affect the whole site:** `layouts/base.liquid`, `layouts/default.liquid`, `media/styles.css`, `eleventy.config.js` and `scripts/site.js`.
+- **Where to look for changes that affect the whole site:** `layouts/base.liquid`, `layouts/default.liquid`, `assets/styles.css`, `eleventy.config.js` and `scripts/site.js`.
 
 - **When in doubt:** Run `npm start` and inspect the generated `dist/` output, or check the `pages/` file that corresponds to the rendered page. Use the GitHub repo link in the footer for upstream history.
 

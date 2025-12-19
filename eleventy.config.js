@@ -5,7 +5,7 @@ export default async function (eleventyConfig) {
     eleventyConfig.setInputDirectory("pages");
     eleventyConfig.setOutputDirectory("dist");
 
-    eleventyConfig.addPassthroughCopy("media");
+    eleventyConfig.addPassthroughCopy("assets");
     eleventyConfig.addPassthroughCopy("scripts");
     eleventyConfig.addCollection("blog", (collection) =>
         collection.getFilteredByTag("blog-post").reverse()
