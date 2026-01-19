@@ -4,61 +4,14 @@ layout: default.liquid
 ---
 
 
-<div class="card">
-    <marquee scrolldelay="40"><i><b style="color: var(--peach);">WARNING!</b> the site is undergoing an
-            overhaul! some
-            pages
-            may be broken or
-            unfinished</i></marquee>
-</div>
-
-<div class="card">
-    <div class="card-title">introduction</div>
-    <div class="card-content">
-        <p>my name's <b>oliver</b> (or oli for short). this is a self-hosted portfolio for all my
-            <small>(terrible)</small>
-            work, i
-            personally like the control and customisability that having
-            a personal website can bring, which is why you won't really find me on many major social platforms other
-            than
-            the ones i need<br /><br />
-
-            enjoy your time here
-        </p>
-    </div>
-</div>
-
-<div class="split">
-    <div class="card">
-        <div class="card-title">latest entry</div>
-        <div class="card-content">
-            <ul>
-                {% assign latest_post = collections.blog | first %}
-                <div>
-                    <h2>{{ latest_post.data.title }}</h2>
-                    <p><i>{{ latest_post.date | date: "%d/%m/%Y" }}</i> - <a href="{{ latest_post.url }}">read more</a>
-                    </p>
-                </div>
-            </ul>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-title">statistics</div>
-        <div class="card-content" style="padding: 0;">
-            <table>
-                <tr>
-                    <td>visitors</td>
-                    <td id="visitors">-</td>
-                </tr>
-                <tr>
-                    <td>unique visitors</td>
-                    <td id="uniqueVisitors">-</td>
-                </tr>
-            </table>
-        </div>
-    </div>
-</div>
+<section>
+    <h3>welcome</h3>
+    <p>
+        hio! my name's oliver (or oli for short) and this is my self-hosted website for all kinds of things! 
+        i personally like the control and customisability that you can get with a personal website, which is
+        why i decided to make this
+    </p>
+</section>
 
 <script type="module">
     import { apiClient } from '/scripts/api.js';

@@ -1,8 +1,6 @@
 ---
 title: olifurz
 ---
-
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,23 +15,6 @@ title: olifurz
     <div class="background"></div>
     {{ content }}
 </body>
-
-<script>
-    document.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', function (event) {
-            event.preventDefault();
-
-            var start = new Audio("/assets/sounds/start.mp3");
-            start.volume = 0.5;
-            start.currentTime = 0;
-            start.play();
-
-            setTimeout(() => {
-                window.location.href = this.href;
-            }, 50);
-        });
-    });
-</script>
 <script src="https://cdn.jsdelivr.net/npm/appwrite@17.0.0"></script>
 <script src="/scripts/api.js" type="module"></script>
 

@@ -1,39 +1,44 @@
 :root {
-    --rosewater: #f5e0dc;
-    --flamingo: #f2cdcd;
-    --pink: #f5c2e7;
-    --mauve: #cba6f7;
-    --red: #f38ba8;
-    --maroon: #eba0ac;
-    --peach: #fab387;
-    --yellow: #f9e2af;
-    --green: #a6e3a1;
-    --teal: #94e2d5;
-    --sky: #89dceb;
-    --sapphire: #74c7ec;
-    --blue: #89b4fa;
-    --lavender: #b4befe;
-    --text: #cdd6f4;
-    --subtext1: #bac2de;
-    --subtext0: #a6adc8;
-    --overlay2: #9399b2;
-    --overlay1: #7f849c;
-    --overlay0: #6c7086;
-    --surface3: #585b70;
-    --surface2: #45475a;
-    --surface1: #313244;
-    --surface0-5: #2c2c3d;
-    --surface0: #242535;
-    --base: #1e1e2e;
-    --mantle: #181825;
-    --crust: #11111b;
+    --rosewater: hsl(10, 56%, 91%);
+    --flamingo: hsl(0, 59%, 88%);
+    --pink: hsl(316, 72%, 86%);
+    --mauve: hsl(267, 84%, 81%);
+    --red: hsl(343, 81%, 75%);
+    --maroon: hsl(350, 65%, 77%);
+    --peach: hsl(23, 92%, 75%);
+    --yellow: hsl(41, 86%, 83%);
+    --green: hsl(115, 54%, 76%);
+    --teal: hsl(170, 57%, 73%);
+    --sky: hsl(189, 71%, 73%);
+    --sapphire: hsl(198, 76%, 69%);
+    --blue: hsl(217, 92%, 76%);
+    --lavender: hsl(232, 97%, 85%);
+    --text: hsl(226, 64%, 88%);
+    --subtext1: hsl(227, 10%, 80%);
+    --subtext0: hsl(228, 10%, 70%);
+    --overlay2: hsl(228, 10%, 65%);
+    --overlay1: hsl(230, 10%, 60%);
+    --overlay0: hsl(231, 10%, 55%);
+    --surface3: hsl(233, 10%, 50%);
+    --surface2: hsl(233, 10%, 45%);
+    --surface1-5: hsl(237, 10%, 40%);
+    --surface1: hsl(237, 10%, 35%);
+    --surface0-5: hsl(240, 10%, 30%);
+    --surface0: hsl(236, 10%, 25%);
+    --base: hsl(240, 10%, 20%);
+    --mantle: hsl(240, 10%, 16%);
+    --crust: hsl(240, 10%, 12%);
+    
+    --el-grad: linear-gradient(var(--surface2) 45%, var(--surface1) 55%);
+    --el-grad-h: linear-gradient(var(--overlay0) 45%, var(--surface2) 55%);
+    --el-grad-a: linear-gradient(#e5f4fc, #c4e5f6 30% 50%, #98d1ef 50%, #68b3db);
 
-    --cursor-default: url('/assets/cursors/default.cur');
-    --cursor-link: url('/assets/cursors/link.cur')
+    --cursor-default: url("/assets/cursors/default.cur");
+    --cursor-link: url("/assets/cursors/link.cur");
 }
 
 * {
-    font-family: 'Fira Code', serif;
+    font-family: "Segoe UI", serif;
     box-sizing: border-box;
     line-height: 1.5;
 
@@ -55,6 +60,7 @@ body {
 
     color: var(--text);
     background-color: var(--crust);
+    text-shadow: 2px 2px 6px var(--base);
 
     width: 800px;
     max-width: 800px;
@@ -67,9 +73,10 @@ body {
     left: 50%;
     transform: translate(-50%, 50%);
 }
-
-img {
-    image-rendering: pixelated;
+h1,
+h2,
+h3 {
+    font-family: "Segoe UI Light", serif;
 }
 
 h1,
@@ -89,29 +96,31 @@ body {
 }
 
 p {
-    margin: 0;
-    margin-bottom: 15px;
+    margin: 0 0 15px;
 }
 
 h1 {
-    font-size: 20px;
+    font-size: 64px;
     margin-bottom: 5px;
 }
 
 h2 {
-    font-size: 16px;
+    font-size: 48px;
     margin-bottom: 5px;
 }
 
 h3 {
-    font-size: 14px;
+    font-size: 36px;
 }
 
 h4 {
-    font-size: 13px;
+    font-size: 24px;
 }
 
 h5 {
+    font-size: 18px;
+}
+h6 {
     font-size: 12px;
 }
 
@@ -130,36 +139,12 @@ header::after {
 }
 
 ul {
-    padding-left: 0;
-    list-style-type: none;
-    margin: 0;
+    padding-left: 15px;
 }
 
 ul ul,
 details details {
     padding-left: 15px;
-}
-
-summary {
-    color: var(--pink);
-}
-
-summary:hover {
-    text-decoration: underline dotted;
-    cursor: pointer;
-}
-
-details summary::marker,
-ul li:before {
-    content: '> ';
-    font-weight: bold;
-    color: var(--pink);
-}
-
-details[open] summary::marker {
-    font-weight: 500;
-    ;
-    content: "v ";
 }
 
 @media screen and (max-width: 800px) {
@@ -175,19 +160,37 @@ details[open] summary::marker {
     }
 }
 
-
 .background {
-    width: 100%;
+    width: 120%;
     height: 100%;
     overflow: hidden;
     position: fixed;
     top: 0;
     left: 0;
-
     z-index: -1;
-
     background-image: url("/assets/art/background.png");
-    opacity: 1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    animation: background 20s ease-in-out infinite alternate;
+}
+
+@keyframes background {
+    0% {
+        filter: blur(7px) contrast(0.7) saturate(1.2) hue-rotate(10deg);
+        transform: translateX(-8%) scale(1.1);
+    }
+    30% {
+        filter: blur(14px) contrast(0.9) saturate(1) hue-rotate(0deg);
+    }
+    60% {
+        filter: blur(9px) contrast(0.7) saturate(1.2) hue-rotate(10deg);
+    }
+    100% {
+        filter: blur(6px) contrast(1) saturate(1.1) hue-rotate(-10deg);
+        transform: translateX(0%) scale(1);
+    }
 }
 
 a {
@@ -207,14 +210,16 @@ button,
     padding: 2px 8px 2px 8px;
     min-width: 50px;
     text-align: center;
-    background-color: var(--surface2);
-    border: 2px outset var(--surface3);
+    background: var(--el-grad);
+    border-radius: 4px;
+    border: 1px solid var(--overlay0);
     pointer-events: auto;
     text-shadow: 1px 1px var(--crust);
 }
 
 button:hover,
 .button:hover {
+    background: var(--el-grad-h);
     text-decoration: none;
 }
 
@@ -225,28 +230,33 @@ button::selection,
 
 button:active,
 .button:active {
-    background-color: var(--surface1);
-    border: 2px inset var(--surface1);
-    color: var(--overlay2);
-    text-shadow: none;
-    ;
 }
 
 .card {
     width: 100%;
-    padding: 0;
-
-    border: 1px solid var(--surface2);
-    background-image: linear-gradient(180deg, var(--surface1), var(--surface0));
+    padding: 0 15px 0 15px;
+    border: 1px outset var(--surface3);
+    border-radius: 7px;
+    background: linear-gradient(
+            color-mix(in srgb, var(--surface1-5), transparent 30%),
+            color-mix(in srgb, var(--surface0), transparent 30%)
+    );
     position: relative;
-    box-shadow: 2px 2px 2px var(--mantle);
+    backdrop-filter: blur(5px);
+    box-shadow: 4px 4px 6px var(--surface0);
     z-index: 0;
 }
 
 .card-title,
 .messagebox-title {
     padding: 1px 5px;
-    background-image: linear-gradient(270deg, var(--surface2), var(--surface1));
+    background-image: linear-gradient(
+            45deg,
+            color-mix(in srgb, var(--surface0), transparent 85%),
+            color-mix(in srgb, var(--text), transparent 85%),
+            color-mix(in srgb, var(--surface0), transparent 85%),
+            color-mix(in srgb, var(--surface3), transparent 85%)
+    );
     font-weight: bold;
     border-bottom: inherit;
 }
@@ -278,7 +288,8 @@ button:active,
     border: 2px outset var(--surface2);
 }
 
-.messagebox-title {}
+.messagebox-title {
+}
 
 .messagebox-content {
     display: flex;
@@ -287,9 +298,7 @@ button:active,
     gap: 10px;
 }
 
-
-
-
+/*
 .card::after {
     content: '';
     position: absolute;
@@ -299,18 +308,19 @@ button:active,
     height: 100%;
     background-image: url("/assets/interlace.png");
     background-size: 2px;
-    opacity: 0.04;
+    opacity: 0.02;
     z-index: -1;
     image-rendering: pixelated;
     pointer-events: none;
 }
+*/
 
-.card>* {
+.card > * {
     z-index: 5;
 }
 
-.popup>.card>button,
-.popup>.card>.button {
+.popup > .card > button,
+.popup > .card > .button {
     width: 100%;
     margin-top: 10px;
 }
@@ -330,11 +340,10 @@ button:active,
     z-index: 99;
 }
 
-.popup>.card {
+.popup > .card {
     width: fit-content;
     background-color: var(--base);
 }
-
 
 .profile {
     aspect-ratio: 1;
@@ -350,6 +359,16 @@ button:active,
     display: inline-block;
 }
 
+table {
+    width: 100%;
+}
+table, th, td {
+    border-collapse: collapse;
+    border: 1px solid var(--surface2);
+    font-size: 12px;
+    padding: 2px 4px;
+}
+
 .stack {
     display: flex;
     flex-direction: column;
@@ -362,39 +381,11 @@ button:active,
     gap: 10px;
 }
 
-.split>div {
+.split > div {
     flex: 1 1 0;
     width: 100%;
 }
 
-hr {
-    color: var(--surface3)
-}
-
-textarea,
-input {
-    all: unset;
-    border: 1px solid var(--surface2);
-    border-radius: 4px;
-    padding: 2px 5px 0px 5px;
-}
-
-
-table {
-    width: 100%;
-    background-color: var(--surface1);
-    border-collapse: collapse;
-}
-
-th {
-    background-color: var(--surface2);
-    border: 3px outset var(--surface3);
-}
-
-td {
-    border: 1px inset var(--surface2);
-    padding-left: 5px;
-}
 
 .fadeIn {
     animation: fadeIn 0.5s steps(6);
@@ -425,15 +416,21 @@ td {
 }
 
 @font-face {
-    font-family: 'Fira Code';
+    font-family: "Segoe UI";
     font-style: normal;
-    src: url('/assets/fonts/firacode.woff');
+    src: url("/assets/fonts/SegoeUI.woff");
 }
 
 @font-face {
-    font-family: 'Seven Segment';
+    font-family: "Segoe UI Light";
     font-style: normal;
-    src: url('/assets/fonts/sevensegment.woff');
+    src: url("/assets/fonts/SegoeUI-Light.woff");
+}
+
+@font-face {
+    font-family: "Seven Segment";
+    font-style: normal;
+    src: url("/assets/fonts/sevensegment.woff");
 }
 
 @media screen and (prefers-reduced-motion: reduce) {
