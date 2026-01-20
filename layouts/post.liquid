@@ -10,13 +10,10 @@ layout: default.liquid
     }
 </style>
 
-<div id="blogpost" class="card">
+<div id="blogpost">
     {% assign page_number = page.url | split: '/' | last %}
-    <div class="card-title">entry #{{ page_number }}</div>
-    <div class="card-content">
-        <h1>{{ title }}</h1>
-        <h4>{{ page.date | date: "%d/%m/%Y" }}</h4>
-        <hr>
-        {{ content }}
-    </div>
+    <h3>{{ title }}</h3>
+    <h5>{{ page.date | date: "%d/%m/%Y" }}</h5>
+    <hr>
+    {{ content }}
 </div>

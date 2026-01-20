@@ -1,0 +1,121 @@
+<style>
+    .album-grid {
+        display: flex;
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: visible;
+        scrollbar-width: none;
+        scroll-behavior: smooth;
+        gap: 15px;
+        padding: 15px 15px 15px 15px;
+    }
+    
+    .album-card {
+        border: 1px outset var(--overlay2);
+        border-radius: 4px;
+        width: 150px;
+        height: 150px;
+        aspect-ratio: 1;
+        position: relative;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        box-shadow: 0 0 12px var(--surface0);
+        transition: 0.25s ease-in-out;
+    }
+    .album-card::after {
+        border-radius: inherit;
+        content: "";
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+
+        background: linear-gradient(120deg,
+        rgba(255, 255, 255, 0.2) 10%,
+        rgba(255, 255, 255, 0.4) 40%,
+        rgba(255, 255, 255, 0.2) 70%,
+        transparent
+        );
+
+        background-size: 120% 100%;
+        background-position: 0 0;
+
+        transition: background-position 0.25s ease-in-out, background-size 0.25s ease-in-out;
+    }
+
+    .album-card:hover::after {
+        background-position: 100% 0;
+        background-size: 120% 100%;
+    }
+
+    .album-card:hover {
+        transform: scale(1.2);
+        z-index: 100;
+    }
+    
+    .album-card img {
+        border-radius: inherit;
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+    
+    .album-card:hover h5, .album-card:hover p {
+        opacity: 1;
+        transition: 0.5s;
+        text-shadow: 0 0 6px var(--crust), 0 0 12px var(--crust), 0 0 12px var(--crust), 0 0 12px var(--crust), 0 0 12px var(--crust), 0 0 12px var(--crust);
+        transform: scale(1);
+    }
+    
+    .album-card h5, .album-card p {
+        transition: 0.5s;
+        opacity: 0;
+        transform: scale(0.9);
+        font-weight: 800;
+    }
+</style>
+
+<div id="album-grid" class="album-grid"></div>
+<p style="text-align: center; opacity: 0.5;">(scroll to navigate)</p>
+<script>
+    const albums = [
+        { artist: "arctic monkeys", favorite: "view from the afternoon", image: "arcticmonkeys.jpg" },
+        { artist: "blur", favorite: "parklife", image: "blur.jpg" },
+        { artist: "deadmau5", favorite: "ghosts n stuff", image: "deadmau5.jpg" },
+        { artist: "fatboy slim", favorite: "right here, right now", image: "fatboyslim.jpg" },
+        { artist: "freeze the atlantic", favorite: "tusen takk", image: "freezetheatlantic.jpg" },
+        { artist: "garbage", favorite: "automatic systematic habit", image: "garbage.jpg" },
+        { artist: "green day", favorite: "welcome to paradise", image: "greenday.jpg" },
+        { artist: "jamiroquai", favorite: "emergency on planet earth", image: "jamiroquai.jpg" },
+        { artist: "no doubt", favorite: "just a girl", image: "nodoubt.jpg" },
+        { artist: "madness", favorite: "house of fun", image: "madness.jpg" },
+        { artist: "republica", favorite: "ready to go", image: "republica.jpg" },
+        { artist: "supergrass", favorite: "i'd like to know", image: "supergrass.jpg" },
+        { artist: "the prodigy", favorite: "your love (remix)", image: "theprodigy.jpg" },
+        { artist: "toby fox", favorite: "another medium", image: "tobyfox.jpg" },
+        { artist: "tyler, the creator", favorite: "treehome95", image: "tylerthecreator.jpg" }
+    ];
+
+    const grid = document.getElementById('album-grid');
+
+    grid.innerHTML = albums.map(album => `
+        <div class="album-card">
+            <img src="/assets/images/albums/${album.image}" alt="${album.artist}">
+            <h5>${album.artist}</h5>
+            <p>song: ${album.favorite}</p>
+        </div>
+    `).join('');
+
+    const scrollContainer = document.getElementById('album-grid');
+
+    scrollContainer.addEventListener('wheel', (evt) => {
+        evt.preventDefault();
+        scrollContainer.scrollLeft += evt.deltaY * 1.5;
+    }, { passive: false });
+</script>

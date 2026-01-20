@@ -1,4 +1,4 @@
-const { Client, Query, ID, TablesDB } = Appwrite;
+const { Client, Query, ID, TablesDB } = window.Appwrite;
 
 export const apiClient = new Client();
 apiClient

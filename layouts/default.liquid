@@ -14,13 +14,21 @@ layout: base.liquid
         transition: none;
         color: var(--text);
         display: inline-block;
-        padding: 4px;
+        padding: 0 0 2px 0;
         flex: 1 1 0;
+        font-size: 14px;
     }
     .navbar>a:hover {
         background: linear-gradient(var(--surface2) 45%, var(--surface0) 55%);
         outline: 1px inset var(--surface1);
         text-decoration: none;
+    }
+    
+    #content {
+        transition: 0.3s ease-in-out;
+        transition-delay: 0.5s;
+        filter: none;
+        transform: none;
     }
 </style>
 
@@ -29,10 +37,10 @@ layout: base.liquid
 
 <div class="split" style="width: 100%;">
     <div style="position: relative;">
-        <h1 style="position: absolute; color: var(--text); bottom: -15px; left: 0; font-size: 84px;">olifurz.com</h1>
+        <h1 style="position: absolute; color: var(--text); bottom: -15px; left: 0; font-size: 84px;">olifurz<span style="font-size: 50%;">.com</span></h1>
     </div>
     <div>
-        <img style="float: right; padding-top: 15px; opacity: 0.8; filter: drop-shadow(4px 4px 6px var(--surface1))" src="/assets/art/konata-wide.png" width="400px" alt="konata">
+        <img style="float: right; padding-top: 15px; filter: drop-shadow(4px 4px 6px var(--surface1)); border: none;" src="/assets/images/konata-wide.png" width="400px" alt="konata">
     </div>
 </div>
 <div class="stack" style="width: 100%;">
@@ -40,51 +48,30 @@ layout: base.liquid
         <a href="/">home</a>
         <a href="/me/">about</a>
         <a href="/blog/">blog</a>
-        <a href="/work/">portfolio</a>
+        <a href="/portfolio/">portfolio</a>
         <a href="/resources/">resources</a>
         <a href="/contact/">contact</a>
     </div>
     
-    <div class="card">
+    <div class="card" id="content">
         {{ content }}
-    </div>
-
-    <div class="card" style="text-align: center; padding: 5px;">
-        <p style="margin: 0;">&copy; olifurz 2025 ~ <a href="https://github.com/olifurz/site" target="_blank">source
-                code</a></p>
-    </div>
-</div>
-
-<div class="messagebox" id="siteWarning" style="display: none;">
-    <div class="messagebox-title" id="draggable">! WARNING !</div>
-    <div class="messagebox-content">
-        <img src="/assets/icons/general/caution.png">
-        this site contains autoplay sound, swearing and has no mobile support<br />
-        do not proceed if you're under 13 years
-        old
-    </div>
-    <div class="messagebox-buttons">
-        <button onclick="acceptWarning()">OK</button>
     </div>
 </div>
 
 <script src="/scripts/site.js"></script>
 <script>
-    document.addEventListener("DOMContentLoaded", (event) => {
-        document.getElementById('copyButton').addEventListener('click', () => {
-            const htmlContent = '<a href="https://olifurz.com"><img src="https://olifurz.com/button.gif" alt="olifurz.com"></a>';
-            navigator.clipboard.writeText(htmlContent);
+    let content = document.getElementById("content");
+    let navbarElements = document.getElementsByClassName("navbar");
+
+    Array.from(navbarElements).forEach(navItem => {
+        navItem.addEventListener("mouseenter", () => {
+            content.style.filter = "blur(3px) brightness(1.1)";
+            content.style.transform = "scale(1.05)";
         });
 
-        var accepted = site.getCookieByName('hasAcceptedWarning');
-        if (!accepted) {
-            document.getElementById('siteWarning').style.display = 'block';
-        }
+        navItem.addEventListener("mouseleave", () => {
+            content.style.filter = "";
+            content.style.transform = "scale(1.0)";
+        });
     });
-
-    function acceptWarning() {
-        const expires = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString();
-        document.cookie = 'hasAcceptedWarning=true; expires=' + expires + '; path=/; SameSite=Lax';
-        document.getElementById('siteWarning').remove();
-    }
 </script>

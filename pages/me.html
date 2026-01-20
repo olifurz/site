@@ -4,29 +4,80 @@ layout: default.liquid
 ---
 <style>
     .profile {
-        width: 90px;
-        height: 90px;
+        position: relative;
+        max-width: 100px;
+        max-height: 100px;
+        margin: 20px 0 0 10px;
+    }
+    .profile img {
+        width: 100%;
+        height: max-content;
+    }
+
+    .profile::after {
+        content: "";
+        background-image: url(/assets/images/frame.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        width: 150px;
+        aspect-ratio: 1;
+        opacity: 0.8;
+        
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-50%, -50%);
+
+        pointer-events: none;
     }
 </style>
 
-<h3>about me</h3>
-
 <section>
-    <p>
-        hio! here's some stuff<br /><br />
-
-        in my free time, i like to work on various projects such as my homelab server, my personal website &
-        more. when i'm not doing that, i usually just play games or spend time breaking my linux installation
-        <i>(accidentally)</i>
+    <div class="split">
+        <div style="width: 130px; flex: none;">
+            <div class="profile">
+                <img src="/assets/images/pfp.png" alt="profile picture">
+            </div>
+        </div>
+        <div style="width: 100%; padding-top: 10px; padding-bottom: 10px;">
+            <h3>about me</h3>
+            <p>
+                hiya, if it wasn't already obvious my name is oliver (or oli)! i'm a <span id="age"></span>yo british software developer addicted to their computer.
+                i also manage my own home server which is currently powering this website and various other personal projects & services. when i'm not working on my computer, i'm usually playing games or taking photos.
+            </p>
+        </div>
+    </div>
+    <p>people generally describe me as chill, intelligent and funny, though personally i find i can be a bit chaotic at times in a good way lol<br/><br/>
+    
+    i have a love for exploring different designs and styles, especially with user interfaces. my personal favourite is frutiger aero (what you see on my site right now) residing from
+        the nostalgia i have for it and just looking a lot more interesting and characteristic compared to corporate flat design.
     </p>
 </section>
-
+<hr>
 <section>
-    <h5>friends have said..</h5>
-    <p id="review" style="height: 25px;">
-        <i><span id="reviewText"></span></i>
-        <br /><span id="reviewAuthor"></span>
-    </p>
+    <h4>music collection</h4>
+    <p>i have an appreciation for a variety of artists, these are mainly the ones i tend to listen to in my collection</p>
+    {% include "music-collection/view.html" %}
+</section>
+<hr>
+<section>
+    <h4>pc specs</h4>
+    <p>i've had my pc for ages, it was in fact originally built from a school computer! now proudly running (arch) linux since 2024</p>
+    <div class="split">
+        <table>
+            <tr><th>component</th><th>model</th></tr>
+            <tr><td>cpu</td><td>amd ryzen 5 3600xt (4.4ghz)</td></tr>
+            <tr><td>gpu</td><td>nvidia rtx 3060 oc (12gb)</td></tr>
+            <tr><td>memory</td><td>32gb ddr4</td></tr>
+            <tr><td>case</td><td>some corsair mid-size one</td></tr>
+            <tr><td>display</td><td>aoc 2560x1440@75 + lg 1920x1080@60</td></tr>
+            <tr><td>keyboard</td><td>razer blackwidow v3</td></tr>
+            <tr><td>mouse</td><td>corsair m65 pro</td></tr>
+        </table>
+        <img src="/assets/images/desktop.jpg" height="210px">
+    </div>
 </section>
 
 <script>

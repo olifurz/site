@@ -2,20 +2,28 @@
 title: olifurz
 ---
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} ~ olifurz.com</title>
-    <link rel="stylesheet" href="/assets/styles.css" />
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <title>{{ title }} - olifurz.com</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="{{ metadata.title }}" href="{{ "/feed.xml" | url }}">
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@17.0.0"></script>
 </head>
 
 <body>
     <div class="background"></div>
     {{ content }}
+    <div style="width: 100%; text-align: center; margin-top: 10px;">
+        <p style="margin: 0;">&copy; olifurz 2025 - <span id="year"></span> &bullet; &#128711; ai crawlers blocked &bullet; <a href="https://github.com/olifurz/site" target="_blank">source
+                code</a></p>
+    </div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/appwrite@17.0.0"></script>
+<script>
+    const d = new Date();
+    let year = d.getFullYear();
+    document.getElementById('year').innerHTML = year.toString();
+</script>
 <script src="/scripts/api.js" type="module"></script>
-
 </html>

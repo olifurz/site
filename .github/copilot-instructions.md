@@ -10,7 +10,7 @@ This repo is a small Eleventy (11ty) static site. Use the notes below to be prod
 
 - **Layouts & templating:** Liquid templates in `layouts/`. `layouts/default.liquid` nests `base.liquid` via frontmatter (`layout: base.liquid`). Use `{{ content }}` to inject page content.
 
-- **Static assets:** `assets/` and `scripts/` are passthrough-copied (served at `/assets/...` and `/scripts/...`). Example: `layouts/default.liquid` references `/scripts/site.js` and `/assets/art/banner.png`.
+- **Static assets:** `assets/` and `scripts/` are passthrough-copied (served at `/assets/...` and `/scripts/...`). Example: `layouts/default.liquid` references `/scripts/site.js` and `/assets/images/banner.png`.
 
 - **Client JS conventions:** `scripts/site.js` exposes a small `site` object on `window` (e.g., `site.getCookieByName`) and implements UI behaviors (dragging, cookie-based warning). Keep global usage minimal and consistent with existing code.
 
@@ -39,7 +39,7 @@ tags: blog-post
 ---
 ```
 
-  - Reference an asset in templates: `<img src="/assets/art/banner.png">` or `<script src="/scripts/site.js"></script>`.
+  - Reference an asset in templates: `<img src="/assets/images/banner.png">` or `<script src="/scripts/site.js"></script>`.
 
 - **Where to look for changes that affect the whole site:** `layouts/base.liquid`, `layouts/default.liquid`, `assets/styles.css`, `eleventy.config.js` and `scripts/site.js`.
 

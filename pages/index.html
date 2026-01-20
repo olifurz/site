@@ -2,33 +2,96 @@
 title: home
 layout: default.liquid
 ---
+<style>
+    .ad {
+        border: 1px solid var(--overlay0);
+        border-radius: 8px;
+        background: linear-gradient(45deg, var(--surface1), var(--surface2));
+        padding-left: 15px;
+        position: relative;
+        overflow: hidden;
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
 
+    .ad::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(120deg, var(--surface0), var(--surface2) 40%, var(--surface1) 60%, transparent 150%);
+        z-index: 1;
+        pointer-events: none;
+    }
 
-<section>
+    .ad > h2, .ad > h5, .ad > a {
+        position: relative;
+        z-index: 2;
+        margin: 0;
+    }
+
+    .ad > img {
+        height: 300px;
+        width: auto;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 0;
+        filter: blur(2px) saturate(0.8) contrast(1.3) brightness(1.2);
+    }
+</style>
+
+<br/>
+<section class="ad">
+    <h2 style="font-weight: 200;">new design</h2>
+    <h5 style="line-height: 1;">i redid the site style again, have a look around!</h5>
+    <a style="font-size: 14px; margin-top: 15px" href="/blog/entries/5/">learn more</a>
+    <img src="/assets/images/preview.png"/>
+</section>
+<hr/>
+<section style="position: relative;">
     <h3>welcome</h3>
+    <p style="padding-right: 160px;">
+        hio! my name's oliver (or oli for short) and this is my personal website! you can find a variety of information about me on here, and
+        stay up to date about what's going on in my life. the site itself has gone under a load of changes, i tend to treat it like a sandbox
+        where i can test out new ideas and styles and see which works best for me!
+    </p>
+    <img style="position: absolute; bottom: -26px; right: -5px; filter: drop-shadow(0 0 14px var(--blue)); border: none;" src="/assets/images/konata-dance.gif">
+</section>
+<hr/>
+<section>
+    <h4>statistics</h4>
     <p>
-        hio! my name's oliver (or oli for short) and this is my self-hosted website for all kinds of things! 
-        i personally like the control and customisability that you can get with a personal website, which is
-        why i decided to make this
+        visitors: <span id="visitors"></span><br/>
+        unique visitors: <span id="unique-visitors"></span>
     </p>
 </section>
 
 <script type="module">
     import { apiClient } from '/scripts/api.js';
-    const { Client, Query, ID, TablesDB } = Appwrite;
+    const { Databases } = window.Appwrite;
 
-    const tablesDB = new TablesDB(apiClient);
+    const databases = new Databases(apiClient);
 
-    const uniqueVisitors = await tablesDB.listRows({
-        databaseId: '693f4106001ca02f7f4e',
-        tableId: 'unique-visitors',
-    });
+    try {
+        const uniqueVisitors = await databases.listDocuments(
+            '693f4106001ca02f7f4e',
+            'unique-visitors'
+        );
 
-    const visitors = await tablesDB.listRows({
-        databaseId: '693f4106001ca02f7f4e',
-        tableId: 'visitors',
-    });
+        const visitors = await databases.listDocuments(
+            '693f4106001ca02f7f4e',
+            'visitors'
+        );
 
-    document.getElementById('visitors').innerText = visitors.total;
-    document.getElementById('uniqueVisitors').innerText = uniqueVisitors.total;
+        document.getElementById('visitors').innerText = visitors.total;
+        document.getElementById('unique-visitors').innerText = uniqueVisitors.total;
+    } catch (error) {
+        console.error("Appwrite error:", error);
+    }
 </script>
