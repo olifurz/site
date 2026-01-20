@@ -1,4 +1,4 @@
-const { Client, Query, ID, TablesDB } = window.Appwrite;
+const { Client, Query, ID, TablesDB, Account } = window.Appwrite;
 
 export const apiClient = new Client();
 apiClient
@@ -46,16 +46,17 @@ async function visitCheck() {
     }
 }
 
+const account = new Account(apiClient);
+
 async function getIpAddress() {
-    return fetch("https://api.ipify.org/?format=json")
-        .then(response => response.json())
-        .then(data => {
-            return data.ip;
-        })
-        .catch(error => {
-            console.error("Error fetching IP address:", error);
-            throw error;
-        });
+    try {
+        const user = await account.get();
+        const sessions = await account.listSessions();
+        return sessions.sessions[0].ip;
+    } catch (error) {
+        const session = await account.createAnonymousSession();
+        return session.ip;
+    }
 }
 
 await visitCheck();
