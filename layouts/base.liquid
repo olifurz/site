@@ -19,14 +19,68 @@ description: personal site for olifurz, also known as oli!
     <div class="background"></div>
     {{ content }}
     <div style="width: 100%; text-align: center; margin-top: 10px;">
-        <p style="margin: 0;">&copy; olifurz 2025 - <span id="year"></span> &bullet; &#128711; ai crawlers blocked &bullet; <a href="https://github.com/olifurz/site" target="_blank">source
-                code</a></p>
+        <p style="text-shadow: 2px 2px 4px var(--crust)">&copy; olifurz 2025 - <span id="year"></span> &bullet;
+            <span style="color: var(--red)">&#128711; ai crawlers blocked</span> &bullet;
+            <a href="https://github.com/olifurz/site" target="_blank">source code</a> &bullet;
+            <a href="/credits">credits</a>
+        </p>
     </div>
 </body>
 <script>
-    const d = new Date();
-    let year = d.getFullYear();
-    document.getElementById('year').innerHTML = year.toString();
+    addEventListener("DOMContentLoaded", (event) => {
+        const d = new Date();
+        let year = d.getFullYear();
+        document.getElementById('year').innerHTML = year.toString();
+    })
+</script>
+<script>
+    let volume = 0;
+    setTimeout(() => { volume = 0.5; }, 200)
+    document.querySelectorAll(".button, button").forEach(button => {
+        if (button.classList.contains("nav-button")) {
+            button.addEventListener('click', () => { playOneShot(sounds.sidebarSelect) });
+            button.addEventListener('mouseenter', () => { playOneShot(sounds.sidebarHover) });
+        } else {
+            button.addEventListener('click', () => { playOneShot(sounds.buttonSelect) });
+            button.addEventListener('mouseenter', () => { playOneShot(sounds.buttonHover) });
+        }
+
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (button.classList.contains("nav-button")) {
+                setTimeout(() => {
+                    window.location.href = button.href;
+                }, 150);
+            }
+        });
+    });
+    document.querySelectorAll("details").forEach(details => {
+        details.addEventListener('toggle', (event) => {
+            if (details.open) {
+                playOneShot(sounds.dropdownOpen);
+            }
+            else {
+                playOneShot(sounds.dropdownClose);
+            }
+        });
+    })
+
+    const sounds = {
+        sidebarSelect: new Audio("/assets/sounds/button-sidebar-select.mp3"),
+        sidebarHover: new Audio("/assets/sounds/button-sidebar-hover.mp3"),
+        buttonSelect: new Audio("/assets/sounds/button-select.mp3"),
+        buttonHover: new Audio("/assets/sounds/button-hover.mp3"),
+        dropdownOpen: new Audio("/assets/sounds/dropdown-open.mp3"),
+        dropdownClose: new Audio("/assets/sounds/dropdown-close.mp3")
+    };
+
+
+    function playOneShot(sound) {
+        sound.currentTime = 0;
+        sound.volume = volume;
+        sound.play();
+    }
+
 </script>
 <script src="/scripts/api.js" type="module"></script>
 </html>

@@ -3,54 +3,34 @@ layout: base.liquid
 ---
 <style>
     .navbar {
-        background: linear-gradient(var(--surface1) 45%, var(--surface0) 55%);
-        padding: 4px;
+        padding: 6px;
         text-align: center;
-        display: flex;
     }
-    .navbar>a {
-        background: inherit;
-        border-radius: 6px;
-        transition: none;
-        color: var(--text);
-        display: inline-block;
-        padding: 0 0 2px 0;
-        flex: 1 1 0;
-        font-size: 14px;
-    }
-    .navbar>a:hover {
-        background: linear-gradient(var(--surface2) 45%, var(--surface0) 55%);
-        outline: 1px inset var(--surface1);
-        text-decoration: none;
-    }
-    
-    #content {
-        transition: 0.3s ease-in-out;
-        transition-delay: 0.5s;
-        filter: none;
-        transform: none;
+    .navbar > a {
+        flex-grow: 1;
+        flex-basis: 0;
     }
 </style>
 
 
 <div class="background"></div>
 
-<div class="split" style="width: 100%;">
+<div class="split" style="width: 100%; height: auto;">
     <div style="position: relative;">
-        <h1 style="position: absolute; color: var(--text); bottom: -15px; left: 0; font-size: 84px;">olifurz<span style="font-size: 50%;">.com</span></h1>
+        <h1 style="position: absolute; color: var(--text); bottom: -15px; left: 0; font-size: 84px; font-weight: bold;">olifurz<span style="font-size: 50%;">.com</span></h1>
     </div>
     <div>
         <img style="float: right; padding-top: 15px; filter: drop-shadow(4px 4px 6px var(--surface1)); border: none;" src="/assets/images/konata-wide.png" width="400px" height="auto" alt="">
     </div>
 </div>
-<div class="stack" style="width: 100%;">
-    <div class="card navbar">
-        <a href="/">home</a>
-        <a href="/me/">about</a>
-        <a href="/blog/">blog</a>
-        <a href="/projects/">projects</a>
-        <a href="/resources/">resources</a>
-        <a href="/contact/">contact</a>
+<div class="stack" style="width: 100%; height: auto;">
+    <div class="card navbar split">
+        <a class="button nav-button" href="/">home</a>
+        <a class="button nav-button" href="/me/">about</a>
+        <a class="button nav-button" href="/blog/">blog</a>
+        <a class="button nav-button" href="/projects/">projects</a>
+        <a class="button nav-button" href="/resources/">resources</a>
+        <a class="button nav-button" href="/contact/">contact</a>
     </div>
     
     <div class="card" id="content">
@@ -59,19 +39,3 @@ layout: base.liquid
 </div>
 
 <script src="/scripts/site.js"></script>
-<script>
-    let content = document.getElementById("content");
-    let navbarElements = document.getElementsByClassName("navbar");
-
-    Array.from(navbarElements).forEach(navItem => {
-        navItem.addEventListener("mouseenter", () => {
-            content.style.filter = "blur(3px) brightness(1.1)";
-            content.style.transform = "scale(1.05)";
-        });
-
-        navItem.addEventListener("mouseleave", () => {
-            content.style.filter = "";
-            content.style.transform = "scale(1.0)";
-        });
-    });
-</script>
