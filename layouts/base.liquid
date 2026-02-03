@@ -25,17 +25,25 @@ description: personal site for olifurz, also known as oli!
             <a href="/credits">credits</a>
         </p>
     </div>
+    <div id="transition" class="transition">
+        <p style="position: absolute; bottom: 0; opacity: 0.1;">if you see this and it doesn't go away - reload the page! javascript is required</p>
+    </div>
 </body>
 <script>
     addEventListener("DOMContentLoaded", (event) => {
         const d = new Date();
         let year = d.getFullYear();
         document.getElementById('year').innerHTML = year.toString();
+
+        const transition = document.getElementById('transition');
+        transition.classList.add('transitionOut');
     })
 </script>
 <script>
     let volume = 0;
     setTimeout(() => { volume = 0.5; }, 200)
+
+    const transition = document.getElementById('transition');
     document.querySelectorAll(".button, button").forEach(button => {
         if (button.classList.contains("nav-button")) {
             button.addEventListener('click', () => { playOneShot(sounds.sidebarSelect) });
@@ -47,7 +55,10 @@ description: personal site for olifurz, also known as oli!
 
         button.addEventListener('click', (e) => {
             e.preventDefault();
-            if (button.classList.contains("nav-button")) {
+            if (button.classList.contains("nav-button"))
+            {
+                transition.classList.remove('transitionOut');
+                transition.classList.add('transitionIn');
                 setTimeout(() => {
                     window.location.href = button.href;
                 }, 150);

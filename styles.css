@@ -163,12 +163,12 @@ summary {
 }
 summary:hover {
     text-decoration: none;
-    padding-left: 8px;
     cursor: pointer;
 }
 details[open] summary {
     color: var(--yellow);
     transition: 0.1s;
+    padding-left: 10px;
 }
 
 @media screen and (max-width: 800px) {
@@ -192,10 +192,37 @@ details[open] summary {
     top: 0;
     left: 0;
     z-index: -1;
-
     background-image: url(/assets/images/background.jpg);
     background-size: cover;
     opacity: 0.2;
+}
+
+.transition {
+    background-color: var(--crust);
+    backface-visibility: hidden;
+
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    pointer-events: none;
+}
+.transition > h1 {
+    line-height: 0;
+    margin-bottom: 25px;
+    font-size: 100px;
+}
+.transitionOut {
+    animation: fadeOut 0.5s ease-out forwards
+}
+.transitionIn {
+    animation: fadeIn 0.2s ease-in backwards;
 }
 
 a {
@@ -292,20 +319,10 @@ td:first-child, th:first-child {
     width: 100%;
 }
 
-
-.fadeIn {
-    animation: fadeIn 0.5s steps(6);
-}
-
-.fadeOut {
-    animation: fadeOut 0.5s steps(6);
-}
-
 @keyframes fadeIn {
     from {
         opacity: 0;
     }
-
     to {
         opacity: 1;
     }
@@ -315,7 +332,6 @@ td:first-child, th:first-child {
     from {
         opacity: 1;
     }
-
     to {
         opacity: 0;
     }

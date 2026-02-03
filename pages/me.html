@@ -5,55 +5,37 @@ description: learn all about who oli (olifurz) is and their interests
 ---
 <style>
     .profile {
+        aspect-ratio: 1 / 1;
+        background-color: var(--base-a);
+        border-radius: 20px;
+        border: 1px solid var(--overlay0);
+
+        margin: 10px;
+        padding: 10px;
         position: relative;
-        max-width: 100px;
-        max-height: 100px;
-        margin: 20px 0 0 10px;
-    }
-    .profile img {
-        width: 100%;
-        height: max-content;
-    }
+        width: 130px;
 
-    .profile::after {
-        content: "";
-        background-image: url(/assets/images/frame.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-
-        width: 150px;
-        aspect-ratio: 1;
-        opacity: 0.8;
-        
-        position: absolute;
-        top: 50%;
-        left: 50%;
-
-        transform: translate(-50%, -50%);
-
-        pointer-events: none;
     }
 </style>
 
 <section>
     <div class="split">
-        <div style="width: 130px; flex: none;">
-            <div class="profile">
-                <img src="/assets/images/pfp.png" alt="profile picture">
-            </div>
+        <div style="width: min-content; flex: none;">
+            <img class="profile" src="/assets/images/pfp.png" alt="profile picture">
         </div>
         <div style="width: 100%; padding-top: 10px; padding-bottom: 10px;">
             <h3>about me</h3>
             <p>
-                hiya, if it wasn't already obvious my name is oliver (or oli)! i'm a <span id="age"></span>yo british software developer addicted to their computer.
-                i also manage my own home server which is currently powering this website and various other personal projects & services. when i'm not working on my computer, i'm usually playing games or taking photos.
+                hiya, if it wasn't already obvious my name is oliver (or oli)! i'm a <span id="age"></span>yo british software developer that spends their time working on various projects on their computer and taking photos.
+                i also manage a home server which powers this website and numerous other projects.
             </p>
         </div>
     </div>
-    <p>people generally describe me as chill, intelligent and funny, my humour tends to be very dry<br/><br/>
-    
-    i have a love for exploring different designs and styles, especially with user interfaces. my personal favourite is frutiger aero (what you see on my site right now) residing from
-        the nostalgia i have for it and just looking a lot more interesting and characteristic compared to corporate flat design.
+    <p>
+        in other aspects of life i'm a self-taught buddhist and i tend to be quite progressive. if you are enjoying yourself without harming others in the process then i have no issues with you!
+        i'm also strongly against the use of generative AI due to the impact it has on the <a href="https://www.bbc.co.uk/news/articles/c1dzdndzlxqo" target="_blank">markets<a/>, <a href="https://www.bbc.co.uk/mediacentre/2025/bbc-research-shows-issues-with-answers-from-artificial-intelligence-assistants" target="_blank">misinformation</a> and <a href="https://en.wikipedia.org/wiki/Artificial_intelligence_and_copyright#:~:text=%22You,use%2E%22" target="_blank">people's rights, as one judge beautifully explained</a>
+        <br/>
+
     </p>
 </section>
 <hr>
