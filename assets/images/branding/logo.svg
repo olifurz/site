@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="188.50865mm"
+   width="188.50867mm"
    height="33.279163mm"
-   viewBox="0 0 188.50865 33.279163"
+   viewBox="0 0 188.50867 33.279163"
    version="1.1"
    id="svg1"
    xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@
      id="defs1" />
   <g
      id="layer1"
-     transform="translate(-7.9333448,-29.925571)">
+     transform="translate(-7.9333446,-29.925571)">
     <path
        style="font-weight:600;font-size:46.6678px;font-family:Torus;-inkscape-font-specification:'Torus, Semi-Bold';font-feature-settings:'ss01';fill:#f5bde6;fill-opacity:1;stroke-width:23.6227;stroke-linecap:round"
        d="m 140.25611,57.791268 h -9.33356 l 10.8736,-13.813669 c 0.84002,-1.07336 0.93336,-2.426726 0.14,-3.360082 -0.70001,-0.84002 -1.26003,-1.120027 -2.52006,-1.120027 h -12.6003 c -1.68004,0 -2.84674,0.980024 -2.84674,2.613397 0,1.586705 1.1667,2.426725 2.84674,2.426725 h 8.30686 l -11.0136,13.626998 c -0.46667,0.65335 -0.70001,1.260031 -0.70001,2.100051 0,1.633373 1.21336,2.566729 2.8934,2.566729 h 13.95367 c 1.68004,0 2.89341,-0.886688 2.89341,-2.520061 0,-1.633373 -1.21337,-2.520061 -2.89341,-2.520061 z"
@@ -54,15 +54,21 @@
        style="font-weight:600;font-size:46.6678px;font-family:Torus;-inkscape-font-specification:'Torus, Semi-Bold';font-feature-settings:'ss01';fill:#f5bde6;fill-opacity:1;stroke-width:23.6227;stroke-linecap:round"
        d="m 20.113641,53.124484 c 1.400034,0 2.380058,-0.980024 2.380058,-2.33339 0,-1.353366 -0.980024,-2.380058 -2.380058,-2.380058 -1.400034,0 -2.33339,1.026692 -2.33339,2.380058 0,1.353366 0.933356,2.33339 2.33339,2.33339 z"
        id="text12-3" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:24.1923px;font-family:Torus;-inkscape-font-specification:'Torus, Semi-Bold';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#f5bde6;fill-opacity:1;stroke:none;stroke-width:12.2458;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
-       x="145.37206"
-       y="62.637867"
-       id="text12-3-4"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:24.1923px;font-family:Torus;-inkscape-font-specification:'Torus, Semi-Bold';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#f5bde6;fill-opacity:1;stroke:none;stroke-width:12.2458"
-         x="145.37206"
-         y="62.637867"
-         id="tspan24-5-5">.com</tspan></text>
+    <path
+       style="font-weight:600;font-size:24.1923px;font-family:Torus;-inkscape-font-specification:'Torus, Semi-Bold';fill:#f5bde6;stroke-width:12.2458;stroke-linecap:round"
+       d="m 192.18418,50.348178 c -1.59669,0 -2.87888,0.580615 -3.67723,1.403154 -0.72577,-0.895116 -1.83861,-1.403154 -2.97565,-1.403154 -1.20962,0 -2.46762,0.749961 -2.90308,1.427346 h -0.12096 v -0.02419 c -0.0726,-0.701577 -0.60481,-1.233808 -1.37896,-1.233808 -0.87092,0 -1.42735,0.653192 -1.42735,1.524115 v 9.096305 c 0,0.870923 0.55643,1.499923 1.42735,1.499923 0.87092,0 1.42734,-0.629 1.42734,-1.499923 v -6.338382 c 0,-1.258 1.13704,-1.887 2.2257,-1.887 1.06446,0 1.8628,0.556423 1.8628,1.911192 v 6.31419 c 0,0.870923 0.55643,1.499923 1.42735,1.499923 0.87092,0 1.42734,-0.629 1.42734,-1.499923 V 54.6786 c 0,-1.258 1.13704,-1.766038 2.2257,-1.766038 1.11284,0 1.8628,0.556423 1.8628,1.911192 v 6.31419 c 0,0.870923 0.55643,1.499923 1.42735,1.499923 0.87092,0 1.42734,-0.629 1.42734,-1.499923 v -6.531921 c 0,-2.685345 -1.93538,-4.257845 -4.25784,-4.257845 z"
+       id="path16" />
+    <path
+       id="path6"
+       style="font-weight:600;font-size:24.1923px;font-family:Torus;-inkscape-font-specification:'Torus, Semi-Bold';fill:#f5bde6;stroke-width:12.2458;stroke-linecap:round"
+       d="m 171.11268,60.170252 c -2.12892,0 -3.4595,-1.548307 -3.4595,-3.58046 0,-2.032153 1.33058,-3.604653 3.4595,-3.604653 2.12892,0 3.4595,1.5725 3.4595,3.604653 0,2.032153 -1.33058,3.58046 -3.4595,3.58046 z m 0,2.661153 c 3.67723,0 6.31419,-2.661153 6.31419,-6.241613 0,-3.604653 -2.63696,-6.241614 -6.31419,-6.241614 -3.67723,0 -6.31419,2.636961 -6.31419,6.241614 0,3.58046 2.63696,6.241613 6.31419,6.241613 z" />
+    <path
+       style="font-weight:600;font-size:24.1923px;font-family:Torus;-inkscape-font-specification:'Torus, Semi-Bold';fill:#f5bde6;stroke-width:12.2458;stroke-linecap:round"
+       d="m 160.58901,54.073792 c 0.55643,0.580616 1.18543,0.556423 1.83862,-0.04838 0.60481,-0.604808 0.74996,-1.330577 0.14515,-1.935384 -1.08865,-1.088654 -2.58857,-1.741846 -4.45138,-1.741846 -3.67723,0 -6.31419,2.636961 -6.31419,6.241614 0,3.58046 2.63696,6.241613 6.31419,6.241613 1.83861,0 3.33854,-0.653192 4.45138,-1.766038 0.6532,-0.628999 0.55643,-1.378961 -0.0242,-1.983768 -0.629,-0.604808 -1.33058,-0.604808 -1.93538,0 -0.6532,0.653192 -1.42735,1.088653 -2.49181,1.088653 -2.05635,0 -3.4595,-1.620884 -3.4595,-3.58046 0,-1.959577 1.40315,-3.604653 3.4595,-3.604653 1.04027,0 1.81442,0.435461 2.46761,1.088653 z"
+       id="path4" />
+    <path
+       style="font-weight:600;font-size:24.1923px;font-family:Torus;-inkscape-font-specification:'Torus, Semi-Bold';fill:#f5bde6;stroke-width:12.2458;stroke-linecap:round"
+       d="m 148.3719,62.637867 c 0.96769,0 1.71765,-0.774154 1.71765,-1.717653 0,-0.9435 -0.74996,-1.717654 -1.71765,-1.717654 -0.9435,0 -1.69346,0.774154 -1.69346,1.717654 0,0.943499 0.74996,1.717653 1.69346,1.717653 z"
+       id="text12-3-4" />
   </g>
 </svg>
