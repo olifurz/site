@@ -13,30 +13,18 @@
     --sapphire: hsl(198, 76%, 69%);
     --blue: hsl(217, 92%, 76%);
     --lavender: hsl(232, 97%, 85%);
-    --text: hsl(226, 64%, 88%);
-    --subtext1: hsl(227, 10%, 80%);
-    --subtext0: hsl(228, 10%, 70%);
-    --overlay2: hsl(228, 10%, 65%);
-    --overlay1: hsl(230, 10%, 60%);
-    --overlay0: hsl(231, 10%, 55%);
-    --surface3: hsl(233, 10%, 50%);
-    --surface2: hsla(232, 10%, 45%);
-    --surface1: hsla(237, 10%, 35%);
-    --surface0: hsla(235, 10%, 25%);
-    --base: hsla(240, 10%, 20%);
-    --mantle: hsla(240, 10%, 16%);
-    --crust: hsla(240, 10%, 12%);
-
-    --surface2-a: hsla(232, 10%, 45%, 0.5);
-    --surface1-a: hsla(237, 10%, 35%, 0.5);
-    --surface0-a: hsla(235, 10%, 25%, 0.5);
-    --base-a: hsla(240, 10%, 20%, 0.5);
-    --mantle-a: hsla(240, 10%, 16%, 0.5);
-    --crust-a: hsla(240, 10%, 12%, 0.5);
-    
-    --el-grad: linear-gradient(var(--surface2) 45%, var(--surface1) 55%);
-    --el-grad-h: linear-gradient(var(--overlay0) 45%, var(--surface2) 55%);
-    --el-grad-a: linear-gradient(#e5f4fc, #c4e5f6 30% 50%, #98d1ef 50%, #68b3db);
+    --text: #cad3f5;
+    --subtext1: #b8c0e0;
+    --subtext0: #a5adcb;
+    --overlay2: #939ab7;
+    --overlay1: #8087a2;
+    --overlay0: #6e738d;
+    --surface2: #5b6078;
+    --surface1: #494d64;
+    --surface0: #363a4f;
+    --base: #24273a;
+    --mantle: #1e2030;
+    --crust: #181926;
 
     --cursor-default: url("/assets/cursors/default.cur");
     --cursor-link: url("/assets/cursors/link.cur");
@@ -90,6 +78,7 @@ h4,
 h5,
 h6 {
     margin: 0;
+    font-weight: normal;
 }
 
 p,
@@ -105,11 +94,13 @@ p {
 h1 {
     font-size: 64px;
     margin-bottom: 5px;
+    font-feature-settings: "rlig" 1,"calt" 1,"ss01" 1;
 }
 
 h2 {
     font-size: 48px;
     margin-bottom: 5px;
+    font-feature-settings: "rlig" 1,"calt" 1,"ss01" 1;
 }
 
 h3 {
@@ -185,16 +176,34 @@ details[open] summary {
 }
 
 .background {
-    width: 100%;
+    width: 110%;
     height: 100%;
     overflow: hidden;
     position: fixed;
     top: 0;
     left: 0;
     z-index: -1;
-    background-image: url(/assets/images/background.jpg);
-    background-size: cover;
-    opacity: 0.2;
+    --s: 60px;
+    --c1: var(--mantle);
+    --c2: var(--base);
+
+    --_g: radial-gradient(25% 25% at 25% 25%,var(--c1) 99%,#0000 101%);
+    background:
+            var(--_g) var(--s) var(--s)/calc(2*var(--s)) calc(2*var(--s)),
+            var(--_g) 0 0/calc(2*var(--s)) calc(2*var(--s)),
+            radial-gradient(50% 50%,var(--c2) 98%,#0000) 0 0/var(--s) var(--s),
+            repeating-conic-gradient(var(--c2) 0 25%,var(--c1) 0 50%)
+            calc(.5*var(--s)) 0/calc(2*var(--s)) var(--s);
+    opacity: 0.8;
+    animation: background 3s linear infinite;
+}
+@keyframes background {
+    from {
+        left: 0;
+    }
+    to {
+        left: -120px;
+    }
 }
 
 .transition {
@@ -212,11 +221,6 @@ details[open] summary {
     justify-content: center;
     opacity: 1;
     pointer-events: none;
-}
-.transition > h1 {
-    line-height: 0;
-    margin-bottom: 25px;
-    font-size: 100px;
 }
 .transitionOut {
     animation: fadeOut 0.5s ease-out forwards
@@ -242,34 +246,28 @@ button,
     padding: 6px 16px 6px 16px;
     min-width: 50px;
     text-align: center;
-    background-color: var(--base-a);
+    background-color: var(--surface0);
     border-radius: 30px;
     pointer-events: auto;
-    transition: 0.25s;
+    transition: 0.2s;
+    overflow: hidden;
+    position: relative;
 }
 
 button:hover,
 .button:hover {
     text-decoration: none;
-    background-color: var(--surface1-a);
-}
-
-button:active,
-.button:active {
-    background: var(--pink);
-    color: black;
-    font-weight: bold;
+    background-color: var(--surface1);
 }
 
 .card {
     width: 100%;
     padding: 10px 20px 20px 20px;
-    border: 2px solid var(--surface1);
+    border: 2px solid var(--surface0);
     border-image: none;
     border-radius: 30px;
-    background-color: var(--base-a);
+    background-color: var(--base);
     position: relative;
-    backdrop-filter: blur(12px) brightness(0.8);
     z-index: 0;
     transition: 0.2s;
 }
@@ -277,17 +275,27 @@ button:active,
     border-color: var(--pink);
 }
 
+.tag {
+    background-color: var(--surface0);
+    border: 2px solid var(--text);
+    border-radius: 30px;
+    color: var(--text);
+    display: inline-block;
+    font-weight: bold;
+    padding: 3px 8px;
+}
+
 table {
     border-collapse: separate;
-    border: 1px solid var(--surface3);
+    border: 1px solid var(--surface2);
     border-radius: 8px;
-    background: color-mix(in srgb, var(--surface0), transparent 40%);
+    background: color-mix(in srgb, var(--base), transparent 40%);
     font-size: 12px;
     width: 100%;
 }
 
 td, th {
-    border-top: 1px solid var(--surface3);
+    border-top: 1px solid var(--surface2);
     font-size: 12px;
     padding: 2px;
 }
@@ -299,7 +307,7 @@ th {
 
 td:first-child, th:first-child {
     border-left: none;
-    
+
 }
 
 .stack {
@@ -317,6 +325,21 @@ td:first-child, th:first-child {
 .split > div {
     flex: 1 1 0;
     width: 100%;
+}
+
+span.ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 0.5s linear;
+    background-color: var(--overlay2);
+    pointer-events: none;
+}
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
 }
 
 @keyframes fadeIn {

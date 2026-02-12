@@ -12,23 +12,23 @@ description: personal blog to keep up to date with the whereabouts of oli!
     }
 </style>
 
-<h3>blog</h3>
-<p>not updated as much as i want it to be, apologies..</p>
-<a class="card-action">
+<div class="card">
+    <h3>blog</h3>
+    <p>not updated as much as i want it to be, apologies..</p>
+    <table>
+        <tr>
+            <th>name</th>
+            <th>date</th>
+            <th>action</th>
+        </tr>
 
-</a>
-<table>
-    <tr>
-        <th>name</th>
-        <th>date</th>
-        <th>action</th>
-    </tr>
-
-    {% for post in collections.blog %}
-    <tr>
-        <td>{{ post.data.title }}</td>
-        <td>{{ post.date | date: "%d/%m/%Y" }}</td>
-        <td><a href="{{ post.url }}">view</a></td>
-    </tr>
-    {% endfor %}
-</table>
+        {% for post in collections.blog %}
+        <tr>
+            <td>{{ post.data.title }}</td>
+            <td>{{ post.date | date: "%d/%m/%Y" }}</td>
+            <td><a href="{{ post.url }}">view</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/feed.xml">rss feed</a>
+</div>

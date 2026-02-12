@@ -46,17 +46,15 @@ layout: default.liquid
     }
 </style>
 
-<section style="position: relative;">
+<div class="card">
     <h3>welcome</h3>
-    <p style="padding-right: 160px;">
+    <p>
         hio! my name's oliver (or oli for short) and this is my personal website! you can find a variety of information about me on here, and
         stay up to date about what's going on in my life. the site itself has gone under a load of changes, i tend to treat it like a sandbox
         where i can test out new ideas and styles and see which works best for me!
     </p>
-    <img style="position: absolute; bottom: -26px; right: -5px; filter: drop-shadow(0 0 14px var(--blue)); border: none;" src="/assets/images/konata-dance.gif" alt="Animated dancing Konata from the anime Lucky Star">
-</section>
-<hr/>
-<section>
+</div>
+<div class="card">
     <h4>site information</h4>
     <p>
         the site currently has been visited <b><span id="visitors"></span></b> times! <i>~ or maybe not! this code is buggy as shit and hasn't updated in ages, will fix soon xx</i>
@@ -80,7 +78,7 @@ layout: default.liquid
         <summary>who is this character i keep seeing?</summary>
         that's konata izumi! they're a character from the anime <a target="_blank" href="https://en.wikipedia.org/wiki/Lucky_Star_(manga)">lucky star</a>, though i primarily see them as a mascot of the old web and myself as a person!
     </details>
-</section>
+</div>
 
 <script type="module">
     import { apiClient } from '/scripts/api.js';

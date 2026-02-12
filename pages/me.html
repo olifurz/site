@@ -6,19 +6,14 @@ description: learn all about who oli (olifurz) is and their interests
 <style>
     .profile {
         aspect-ratio: 1 / 1;
-        background-color: var(--base-a);
-        border-radius: 20px;
-        border: 1px solid var(--overlay0);
-
-        margin: 10px;
-        padding: 10px;
+        border-radius: 30px;
+        margin: 10px 10px 10px 0;
         position: relative;
         width: 130px;
-
     }
 </style>
 
-<section>
+<div class="card">
     <div class="split">
         <div style="width: min-content; flex: none;">
             <img class="profile" src="/assets/images/pfp.png" alt="profile picture">
@@ -33,19 +28,17 @@ description: learn all about who oli (olifurz) is and their interests
     </div>
     <p>
         in other aspects of life i'm a self-taught buddhist and i tend to be quite progressive. if you are enjoying yourself without harming others in the process then i have no issues with you!
-        i'm also strongly against the use of generative AI due to the impact it has on the <a href="https://www.bbc.co.uk/news/articles/c1dzdndzlxqo" target="_blank">markets<a/>, <a href="https://www.bbc.co.uk/mediacentre/2025/bbc-research-shows-issues-with-answers-from-artificial-intelligence-assistants" target="_blank">misinformation</a> and <a href="https://en.wikipedia.org/wiki/Artificial_intelligence_and_copyright#:~:text=%22You,use%2E%22" target="_blank">people's rights, as one judge beautifully explained</a>
-        <br/>
-
+        i'm also strongly against the use of generative AI due to the impact it has on the <a href="https://www.bbc.co.uk/news/articles/c1dzdndzlxqo" target="_blank">markets</a>,
+        <a href="https://www.bbc.co.uk/mediacentre/2025/bbc-research-shows-issues-with-answers-from-artificial-intelligence-assistants" target="_blank">misinformation</a> and
+        <a href="https://en.wikipedia.org/wiki/Artificial_intelligence_and_copyright#:~:text=%22You,use%2E%22" target="_blank">people's rights, as one judge beautifully explained</a>
     </p>
-</section>
-<hr>
-<section>
+</div>
+<div class="card">
     <h4>music collection</h4>
     <p>i have an appreciation for a variety of artists, these are mainly the ones i tend to listen to in my collection</p>
     {% include "music-collection/view.html" %}
-</section>
-<hr>
-<section>
+</div>
+<div class="card">
     <h4>pc specs</h4>
     <p>i've had my pc for ages, it was in fact originally built from a school computer! now proudly running (arch) linux since 2024</p>
     <div class="split">
@@ -61,7 +54,7 @@ description: learn all about who oli (olifurz) is and their interests
         </table>
         <img src="/assets/images/desktop.jpg" height="210px">
     </div>
-</section>
+</div>
 
 <script>
     addEventListener("DOMContentLoaded", (event) => {

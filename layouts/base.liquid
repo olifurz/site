@@ -4,94 +4,35 @@ description: personal site for olifurz, also known as oli!
 ---
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content={{ description }}>
-    <title>{{ title }} - olifurz.com</title>
-    <link rel="stylesheet" href="/styles.css" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="alternate" type="application/atom+xml" title="{{ metadata.title }}" href="{{ "/feed.xml" | url }}">
-    <script src="https://cdn.jsdelivr.net/npm/appwrite@17.0.0"></script>
-</head>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content={{ description }}>
+        <title>{{ title }} - olifurz.com</title>
+        <link rel="stylesheet" href="/styles.css" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico">
+        <link rel="alternate" type="application/atom+xml" title="{{ metadata.title }}" href="{{ "/feed.xml" | url }}">
+        <script src="https://cdn.jsdelivr.net/npm/appwrite@17.0.0"></script>
+        <script src="/scripts/site.js"></script>
+    </head>
 
-<body>
-    <div class="background"></div>
-    {{ content }}
-    <div style="width: 100%; text-align: center; margin-top: 10px;">
-        <p style="text-shadow: 2px 2px 4px var(--crust)">&copy; olifurz 2025 - <span id="year"></span> &bullet;
-            <span style="color: var(--red)">&#128711; ai crawlers blocked</span> &bullet;
-            <a href="https://github.com/olifurz/site" target="_blank">source code</a> &bullet;
-            <a href="/credits">credits</a>
-        </p>
-    </div>
-    <div id="transition" class="transition">
-        <p style="position: absolute; bottom: 0; opacity: 0.1;">if you see this and it doesn't go away - reload the page! javascript is required</p>
-    </div>
-</body>
-<script>
-    addEventListener("DOMContentLoaded", (event) => {
-        const d = new Date();
-        let year = d.getFullYear();
-        document.getElementById('year').innerHTML = year.toString();
+    <body>
+        <div class="background" id="background"></div>
+        {{ content }}
+        <div id="transition" class="transition">
+            <p style="position: absolute; bottom: 0; opacity: 0.1;">if you see this and it doesn't go away - reload the page! javascript is required</p>
+        </div>
+    </body>
+    <script>
+        addEventListener("DOMContentLoaded", (event) => {
+            const d = new Date();
+            let year = d.getFullYear();
+            document.getElementById('year').innerHTML = year.toString();
 
-        const transition = document.getElementById('transition');
-        transition.classList.add('transitionOut');
-    })
-</script>
-<script>
-    let volume = 0;
-    setTimeout(() => { volume = 0.5; }, 200)
-
-    const transition = document.getElementById('transition');
-    document.querySelectorAll(".button, button").forEach(button => {
-        if (button.classList.contains("nav-button")) {
-            button.addEventListener('click', () => { playOneShot(sounds.sidebarSelect) });
-            button.addEventListener('mouseenter', () => { playOneShot(sounds.sidebarHover) });
-        } else {
-            button.addEventListener('click', () => { playOneShot(sounds.buttonSelect) });
-            button.addEventListener('mouseenter', () => { playOneShot(sounds.buttonHover) });
-        }
-
-        button.addEventListener('click', (e) => {
-            e.preventDefault();
-            if (button.classList.contains("nav-button"))
-            {
-                transition.classList.remove('transitionOut');
-                transition.classList.add('transitionIn');
-                setTimeout(() => {
-                    window.location.href = button.href;
-                }, 150);
-            }
-        });
-    });
-    document.querySelectorAll("details").forEach(details => {
-        details.addEventListener('toggle', (event) => {
-            if (details.open) {
-                playOneShot(sounds.dropdownOpen);
-            }
-            else {
-                playOneShot(sounds.dropdownClose);
-            }
-        });
-    })
-
-    const sounds = {
-        sidebarSelect: new Audio("/assets/sounds/button-sidebar-select.mp3"),
-        sidebarHover: new Audio("/assets/sounds/button-sidebar-hover.mp3"),
-        buttonSelect: new Audio("/assets/sounds/button-select.mp3"),
-        buttonHover: new Audio("/assets/sounds/button-hover.mp3"),
-        dropdownOpen: new Audio("/assets/sounds/dropdown-open.mp3"),
-        dropdownClose: new Audio("/assets/sounds/dropdown-close.mp3")
-    };
-
-
-    function playOneShot(sound) {
-        sound.currentTime = 0;
-        sound.volume = volume;
-        sound.play();
-    }
-
-</script>
-<script src="/scripts/api.js" type="module"></script>
+            const transition = document.getElementById('transition');
+            transition.classList.add('transitionOut');
+        })
+    </script>
+    <script src="/scripts/api.js" type="module"></script>
+    <script src="/scripts/ui.js"></script>
 </html>

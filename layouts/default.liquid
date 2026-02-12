@@ -3,7 +3,7 @@ layout: base.liquid
 ---
 <style>
     .navbar {
-        padding: 6px;
+        padding: 8px;
         text-align: center;
     }
     .navbar > a {
@@ -12,30 +12,34 @@ layout: base.liquid
     }
 </style>
 
-
-<div class="background"></div>
-
-<div class="split" style="width: 100%; height: auto;">
-    <div style="position: relative;">
-        <h1 style="position: absolute; color: var(--text); bottom: -15px; left: 0; font-size: 84px; font-weight: bold;">olifurz<span style="font-size: 50%;">.com</span></h1>
-    </div>
+<div class="stack" style="width: 100%; min-height: 100vh">
     <div>
-        <img style="float: right; padding-top: 15px; filter: drop-shadow(4px 4px 6px var(--surface1)); border: none;" src="/assets/images/konata-wide.png" width="400px" height="auto" alt="">
-    </div>
-</div>
-<div class="stack" style="width: 100%; height: auto;">
-    <div class="card navbar split">
-        <a class="button nav-button" href="/">home</a>
-        <a class="button nav-button" href="/me/">about</a>
-        <a class="button nav-button" href="/blog/">blog</a>
-        <a class="button nav-button" href="/projects/">projects</a>
-        <a class="button nav-button" href="/resources/">resources</a>
-        <a class="button nav-button" href="/contact/">contact</a>
-    </div>
-    
-    <div class="card" id="content">
-        {{ content }}
-    </div>
-</div>
+        <div class="split" style="width: 100%; height: auto;">
+            <div style="position: relative;">
+                <img style="border: none; width: 400px; position: absolute; left: 15px; bottom: 10px;" src="/assets/images/branding/logo-pink.svg">
+            </div>
+            <div>
+                <img style="float: right; padding-top: 15px; filter: drop-shadow(4px 4px 6px var(--surface1)); border: none;" src="/assets/images/konata-wide.png" width="400px" height="auto" alt="">
+            </div>
+        </div>
 
-<script src="/scripts/site.js"></script>
+        <div class="card navbar split">
+            <a class="button nav-button" href="/">home<span class="ripple"></span></a>
+            <a class="button nav-button" href="/me/">about</a>
+            <a class="button nav-button" href="/blog/">blog</a>
+            <a class="button nav-button" href="/projects/">projects</a>
+            <a class="button nav-button" href="/resources/">resources</a>
+            <a class="button nav-button" href="/contact/">contact</a>
+        </div>
+    </div>
+
+    {{ content }}
+    
+    <div style="flex-grow: 1;"></div>
+    <div class="card" style="border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom: 0; text-align: center; padding-bottom: 0;">
+        <a href="https://github.com/olifurz/site">source code</a> &bullet;
+        <a href="/credits">credits</a> &bullet;
+        <a href="/contact">contact me</a>
+        <p><b>&copy; olifurz 2025 ~ <span id="year"></span></b></p>
+    </div>
+</div>
