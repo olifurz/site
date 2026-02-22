@@ -1,105 +1,153 @@
 ---
 title: home
-layout: default.liquid
+layout: base.liquid
 ---
+<head>
+    <link rel="stylesheet" href="https://furryring.neocities.org/onionring.css">
+    <link rel="stylesheet" type="text/css" href="https://file.garden/ZrZSgsrYfQXsO7QH/ww/webmasterwebring.css">
+    <link rel="stylesheet" href="https://jack-dawlia.neocities.org/page/shrines/portal/aperturewebring/onionring.css">
+</head>
+
 <style>
-    .ad {
-        border: 1px solid var(--overlay0);
-        border-radius: 8px;
-        background: linear-gradient(45deg, var(--surface1), var(--surface2));
-        padding-left: 15px;
-        position: relative;
-        overflow: hidden;
-        height: 150px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin-bottom: 15px;
+    .pattern {
+        background-color: transparent;
+        border-radius: 30px 0 0 30px;
+        opacity: 0.8;
+        background-image:  linear-gradient(var(--surface0) 1.8px, transparent 1.8px), linear-gradient(to right, var(--surface0) 1.8px, transparent 1.8px);
+        background-size: 36px 36px;
+        background-position: 22px 18px;
+        border-right: 2px solid var(--surface0);
+        animation: pattern 1s infinite linear;
+    }
+    @keyframes pattern {
+        from {
+            background-position: 0px 0px;
+        }
+        to {
+            background-position: 36px 36px;
+        }
     }
 
-    .ad::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
+    /* heavenly class name */
+    .boykisser {
+        border: none;
+        filter: drop-shadow(4px 4px 6px var(--pink)) saturate(150%);
+        width: 300px;
         height: 100%;
-        background: linear-gradient(120deg, var(--surface0), var(--surface2) 40%, var(--surface1) 60%, transparent 150%);
-        z-index: 1;
-        pointer-events: none;
+        image-rendering: pixelated;
+        object-fit: contain;
+        animation: boykisser 1s linear infinite;
+        transition: transform 0.75s cubic-bezier(0.34, 3, 0.64, 1);
+    }
+    .boykisser:hover {
+        transform: rotate(-20deg) scale(1.2);
     }
 
-    .ad > h2, .ad > h5, .ad > a {
-        position: relative;
-        z-index: 2;
-        margin: 0;
+    @keyframes boykisser {
+        from {
+            filter: drop-shadow(4px 4px 6px var(--pink)) saturate(150%);
+        }
+        to {
+            filter: drop-shadow(4px 4px 6px var(--pink)) saturate(150%) hue-rotate(360deg);
+        }
     }
 
-    .ad > img {
-        height: 300px;
-        width: auto;
-        position: absolute;
-        top: 0;
-        right: 0;
-        z-index: 0;
-        filter: blur(2px) saturate(0.8) contrast(1.3) brightness(1.2);
+    @keyframes zoom-in {
+        from {
+            opacity: 0;
+            transform: scale(1.2);
+            filter: blur(4px);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+            filter: blur(0px);
+        }
+    }
+
+    @keyframes slide-in {
+        from {
+            opacity: 0;
+            transform: translateX(10%);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    #webrings {
+        display: none;
     }
 </style>
 
-<div class="card">
-    <h3>welcome</h3>
-    <p>
-        hio! my name's oliver (or oli for short) and this is my personal website! you can find a variety of information about me on here, and
-        stay up to date about what's going on in my life. the site itself has gone under a load of changes, i tend to treat it like a sandbox
-        where i can test out new ideas and styles and see which works best for me!
-    </p>
+<div class="card index-card" style="animation: zoom-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;; padding: 0; opacity: 0;">
+    <div class="split" id="main">
+        <div class="pattern" style="padding: 20px 10px; flex-grow: 0;">
+            <img alt="dancing boykisser cat" class="boykisser" src="/assets/images/boykisser.gif">
+        </div>
+        <div style="animation: 0.5s slide-in ease forwards; animation-delay: 0.5s; padding: 10px 10px 25px; opacity: 0;">
+            <h1 style="color: var(--pink); text-shadow: 0 0 24px var(--pink);">welcome :3</h1>
+            <p style="margin-bottom: 0;">before you enter, please be aware this site <i>may</i> include</p>
+            <ul style="margin: 5px;">
+                <li>swearing</li>
+                <li>sexual themes</li>
+                <li>poor mobile support</li>
+                <li>gayness</li>
+            </ul>
+            <p style="margin-top: 0; margin-bottom: 30px;">do not enter if you're under 13 please!</p>
+            <a class="button mute" href="/me" style="padding: 8px 30px;"><b>enter :3</b></a>
+            <button class="outlined mute" onclick="toggleWebrings()" style="padding: 8px 15px;">webrings</button>
+        </div>
+        <img style="position: absolute; bottom: 20px; right: 25px; width: 200px; opacity: 0.1; filter: saturate(0)" src="/assets/images/branding/logo.svg"/>
+    </div>
+    <div id="webrings" style="padding: 10px 20px;">
+        <button class="outlined mute" onclick="toggleWebrings()" style="padding: 8px 15px;">< back</button>
+        <h3>webrings</h3>
+        <div id='furryring'>
+            <script type="text/javascript" src="https://furryring.neocities.org/onionring-variables.js"></script>
+            <script type="text/javascript" src="https://furryring.neocities.org/onionring-widget.js"></script>
+        </div>
+        <script src="https://silly.possiblyaxolotl.com/ring/webstring.js"></script>
+        <div id="webmasteringbtn"><a href="https://webmasterwebring.netlify.app?olifurz-previous">&lt;</a>
+            <a href="https://webmasterwebring.netlify.app"><img src="https://file.garden/ZrZSgsrYfQXsO7QH/ww/btn.png" width="88" height="31"></a>
+            <a href="https://webmasterwebring.netlify.app?olifurz-random" style="font-size: 1.5rem;">?</a> <a href="https://webmasterwebring.netlify.app?olifurz-next">&gt;</a>
+        </div>
+        <div id='aperturewebring'>
+            <script type="text/javascript" src="https://jack-dawlia.neocities.org/page/shrines/portal/aperturewebring/onionring-variables.js"></script>
+            <script type="text/javascript" src="https://jack-dawlia.neocities.org/page/shrines/portal/aperturewebring/onionring-widget-1.js"></script>
+            <noscript>
+                This site is part of the <a href="https://jack-dawlia.neocities.org/page/shrines/portal/aperturewebring">Aperture Webring</a>!
+            </noscript>
+        </div>
+        <div>
+            <script defer src="https://teethinvitro.neocities.org/webring/linuxring/ring.js" data-icon="tux"></script>
+        </div>
+        <div>
+            <a href="https://ctp-webr.ing/olifurz/previous">&larr;</a
+            ><a href="https://ctp-webr.ing/">Catppuccin webring</a
+        ><a href="https://ctp-webr.ing/olifurz/next">&rarr;</a>
+        </div>
+
+        <div></div>
+    </div>
 </div>
-<div class="card">
-    <h4>site information</h4>
-    <p>
-        the site currently has been visited <b><span id="visitors"></span></b> times! <i>~ or maybe not! this code is buggy as shit and hasn't updated in ages, will fix soon xx</i>
-    </p>
-    <details>
-        <summary>what is the point of this site?</summary>
-        this site is my little corner of the internet that i treat as sorta like an experimental art project! i like to use this to
-        test a variety of different styles and designs, whilst also providing information about who i am. i feel like social media
-        is very limiting in the amount of customisation you can have, you have a lot more possibilities with a website
-    </details>
-    <details>
-        <summary>when did you create this?</summary>
-        i've had many different variations of my personal site in the past, olifurz.com in specific was created on the 29th of september 2025
-    </details>
-    <details>
-        <summary>what does "ai crawlers blocked" mean?</summary>
-        generative ai crawlers (bots responsible for supplying information to chatgpt, copilot, etc) are strictly banned from accessing this site. i personally am against generative ai in most cases
-        and don't enjoy the blatant copyright infringement that they inflict upon artists alike
-    </details>
-    <details>
-        <summary>who is this character i keep seeing?</summary>
-        that's konata izumi! they're a character from the anime <a target="_blank" href="https://en.wikipedia.org/wiki/Lucky_Star_(manga)">lucky star</a>, though i primarily see them as a mascot of the old web and myself as a person!
-    </details>
-</div>
 
-<script type="module">
-    import { apiClient } from '/scripts/api.js';
-    const { Databases } = window.Appwrite;
+<script>
+    var visible = false;
+    function toggleWebrings() {
+        const main = document.getElementById("main");
+        const webrings = document.getElementById("webrings");
 
-    const databases = new Databases(apiClient);
-
-    try {
-        const uniqueVisitors = await databases.listDocuments(
-            '693f4106001ca02f7f4e',
-            'unique-visitors'
-        );
-
-        const visitors = await databases.listDocuments(
-            '693f4106001ca02f7f4e',
-            'visitors'
-        );
-
-        document.getElementById('visitors').innerText = visitors.total;
-        document.getElementById('unique-visitors').innerText = uniqueVisitors.total;
-    } catch (error) {
-        console.error("Appwrite error:", error);
+        if (visible) {
+            main.style.display = "flex";
+            webrings.style.display = "none";
+            visible = false;
+        }
+        else {
+            main.style.display = "none";
+            webrings.style.display = "block";
+            visible = true;
+        }
     }
 </script>

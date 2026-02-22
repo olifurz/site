@@ -18,17 +18,21 @@ description: personal site for olifurz, also known as oli!
 
     <body>
         <div class="background" id="background"></div>
-        {{ content }}
+        <div style="width: 100%; height: 100%;">
+            {{ content }}
+            <div class="split" style="padding: 5px 25px;">
+                <div style="flex-grow: 1;"><b>&copy; olifurz 2025 ~ <span id="year"></span></b></div>
+                <div style="flex-wrap: nowrap; text-align: right;"><a href="https://github.com/olifurz/site">source code</a> &bullet;
+                    <a href="/credits">credits</a> &bullet;
+                    <a href="/contact">contact me</a></div>
+            </div>
+        </div>
         <div id="transition" class="transition">
             <p style="position: absolute; bottom: 0; opacity: 0.1;">if you see this and it doesn't go away - reload the page! javascript is required</p>
         </div>
     </body>
     <script>
         addEventListener("DOMContentLoaded", (event) => {
-            const d = new Date();
-            let year = d.getFullYear();
-            document.getElementById('year').innerHTML = year.toString();
-
             const transition = document.getElementById('transition');
             transition.classList.add('transitionOut');
         })
@@ -36,3 +40,11 @@ description: personal site for olifurz, also known as oli!
     <script src="/scripts/api.js" type="module"></script>
     <script src="/scripts/ui.js"></script>
 </html>
+
+<script>
+    addEventListener("DOMContentLoaded", (event) => {
+        const d = new Date();
+        let year = d.getFullYear();
+        document.getElementById('year').innerHTML = year.toString();
+    })
+</script>

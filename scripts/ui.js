@@ -18,18 +18,20 @@ addEventListener("DOMContentLoaded", (event) => {
 function initButtons() {
     const transition = document.getElementById('transition');
     document.querySelectorAll(".button, button").forEach(button => {
-        if (button.classList.contains("nav-button")) {
-            button.addEventListener('click', () => { playOneShot(sounds.sidebarSelect) });
-            button.addEventListener('mouseenter', () => { playOneShot(sounds.sidebarHover) });
-        } else {
-            button.addEventListener('click', () => { playOneShot(sounds.buttonSelect) });
-            button.addEventListener('mouseenter', () => { playOneShot(sounds.buttonHover) });
+        if (!button.classList.contains("mute")) {
+            if (button.classList.contains("nav-button")) {
+                button.addEventListener('click', () => { playOneShot(sounds.sidebarSelect) });
+                button.addEventListener('mouseenter', () => { playOneShot(sounds.sidebarHover) });
+            } else {
+                button.addEventListener('click', () => { playOneShot(sounds.buttonSelect) });
+                button.addEventListener('mouseenter', () => { playOneShot(sounds.buttonHover) });
+            }
         }
 
         button.addEventListener("mousedown", createRipple);
         button.addEventListener('click', (e) => {
             e.preventDefault();
-            if (button.classList.contains("nav-button"))
+            if (button.href != null)
             {
                 transition.classList.remove('transitionOut');
                 transition.classList.add('transitionIn');
@@ -50,6 +52,7 @@ function initButtons() {
         });
     })
 }
+
 function createRipple(event) {
     const button = event.currentTarget;
     const circle = document.createElement("span");

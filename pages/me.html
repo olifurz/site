@@ -13,6 +13,10 @@ description: learn all about who oli (olifurz) is and their interests
     }
 </style>
 
+<div class="card" style="background-color: var(--yellow); color: var(--base)">
+    redoing the fucking layout again, please give me some time! everything will look hectic in the meantime
+</div>
+
 <div class="card">
     <div class="split">
         <div style="width: min-content; flex: none;">
@@ -26,12 +30,6 @@ description: learn all about who oli (olifurz) is and their interests
             </p>
         </div>
     </div>
-    <p>
-        in other aspects of life i'm a self-taught buddhist and i tend to be quite progressive. if you are enjoying yourself without harming others in the process then i have no issues with you!
-        i'm also strongly against the use of generative AI due to the impact it has on the <a href="https://www.bbc.co.uk/news/articles/c1dzdndzlxqo" target="_blank">markets</a>,
-        <a href="https://www.bbc.co.uk/mediacentre/2025/bbc-research-shows-issues-with-answers-from-artificial-intelligence-assistants" target="_blank">misinformation</a> and
-        <a href="https://en.wikipedia.org/wiki/Artificial_intelligence_and_copyright#:~:text=%22You,use%2E%22" target="_blank">people's rights, as one judge beautifully explained</a>
-    </p>
 </div>
 <div class="card">
     <h4>music collection</h4>
@@ -55,53 +53,3 @@ description: learn all about who oli (olifurz) is and their interests
         <img src="/assets/images/desktop.jpg" height="210px">
     </div>
 </div>
-
-<script>
-    addEventListener("DOMContentLoaded", (event) => {
-        // calculate age
-        const birthDate = new Date('2009-10-02');
-        const today = new Date();
-        let age = today.getFullYear() - birthDate.getFullYear();
-        const m = today.getMonth() - birthDate.getMonth();
-        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-            age--;
-        }
-        document.getElementById('age').innerText = age;
-
-        // random review
-        const reviews = [
-            { text: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', author: 'x86overflow' },
-            { text: '5 stars i love the personality veyry fuck i give up', author: 'karlos' },
-            { text: 'oli is a cool person who does cool person things. oli = person', author: 'schwntrz' },
-            { text: 'Mr Krabs is my legally wedded husband', author: 'Chevron' }
-        ]
-
-        let lastReview = null;
-
-        const reviewBlock = document.getElementById("review");
-        function changeReview() {
-            let randomReview;
-
-            reviewBlock.classList.add('fadeOut');
-
-            reviewBlock.addEventListener('animationend', function handleAnimationEnd() {
-                reviewBlock.classList.remove('fadeOut');
-
-                do {
-                    randomReview = reviews[Math.floor(Math.random() * reviews.length)];
-                } while (randomReview.text === lastReview);
-
-                lastReview = randomReview.text;
-                document.getElementById('reviewText').innerText = `"` + randomReview.text + `"`;
-                document.getElementById('reviewAuthor').innerText = "- " + randomReview.author;
-
-                reviewBlock.classList.add('fadeIn');
-
-                reviewBlock.removeEventListener('animationend', handleAnimationEnd);
-            });
-        }
-
-        changeReview();
-        window.setInterval(() => { changeReview() }, 7500);
-    });
-</script>
