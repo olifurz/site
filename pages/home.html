@@ -1,0 +1,118 @@
+---
+title: home
+layout: default.liquid
+description: information for contacting oli (olifurz)
+---
+<style>
+    .welcome-container {
+        background: repeating-linear-gradient( -45deg, var(--surface0), var(--surface0) 2px, var(--base) 2px, var(--base) 10px );
+        padding: 25px 0 15px 0;
+        text-align: center;
+    }
+    .welcome-container > img {
+        height: 60px;
+    }
+
+    .marquee {
+        border-top: 2px solid var(--surface0);
+        border-bottom: 2px solid var(--surface0);
+        position: relative;
+        min-height: 30px;
+    }
+
+    .marquee p {
+        position: absolute;
+        color: var(--subtext1);
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        line-height: 23px;
+        text-align: left;
+        transform: translateX(100%);
+        animation: scroll-left 20s linear infinite;
+        text-wrap: nowrap;
+    }
+
+    .boykisser-type {
+        animation: boykisser-type 1s cubic-bezier(0.37, 0, 0.63, 1) infinite alternate;
+        transition: filter 0.2s ease-out;
+        filter: brightness(1) saturate(1);
+    }
+    .boykisser-type:hover {
+        animation: boykisser-type 0.02s steps(2) infinite alternate;
+        filter: brightness(1.2) saturate(1.5) drop-shadow(4px 4px 8px var(--text));
+    }
+    @keyframes boykisser-type {
+        from {
+            transform: rotate(-5deg);
+        }
+        to {
+            transform: rotate(0deg);
+        }
+    }
+
+    @keyframes scroll-left {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    .web-button {
+        width: 88px;
+        height: 31px;
+    }
+</style>
+
+{% assign mostRecent = collections.blog | first %}
+
+<div class="card stack" style="aspect-ratio: 16 / 9; padding: 0; gap: 0; overflow-x: hidden;">
+    <div class="welcome-container">
+        <img src="/assets/images/branding/logo.svg">
+    </div>
+    <div class="marquee">
+        <p><i>welcome ! please <a href="/guestbook">sign the guestbook</a> if you haven't already, you can let me know your thoughts about the site there</i></p>
+    </div>
+    <div class="split" style="padding: 10px; flex-grow: 1; position: relative; overflow: hidden;">
+        <div style="flex-grow: 0;"><img class="boykisser-type" src="/assets/images/boykisser-type.gif"></div>
+        <div style="overflow: scroll; padding-right: 4px;">
+            <p>hiyaa ! i'm oli/oliver and this is my personal website where you can learn stuff about me & acts as a place for me to experiment with various styles and layouts !!
+            as a result, i often tend to revamp the site a lot <span style="font-size: 75%; color: var(--subtext0)">(which is starting to become a habit..)</span><br/>
+            <br/>
+            right now you can learn all <a href="/me">about me</a>, sign the <a href="/guestbook">guestbook</a> <b><i>(do it)</i></b>, read
+            the latest blog post <i><a href="{{mostRecent.url}}">(last posted {{mostRecent.data.title}})</a></i> and some other stuff
+            </p>
+            <div>
+                <h5>my button</h5>
+                <p>
+                    if you'd like to link to this site, please copy the code below & paste it on your site!
+                </p>
+                <a href="https://olifurz.com/">
+                    <img class="web-button" src="https://olifurz.com/button.gif">
+                </a>
+                <p style="font-size: 10pt;">
+                    <code>
+                        &#x3C;a href=&#x22;https://olifurz.com/&#x22;&#x3E;
+                        &#x3C;img src=&#x22;https://olifurz.com/button.gif&#x22;&#x3E;
+                        &#x3C;/a&#x3E;
+                    </code>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div style="border-top: 2px solid var(--surface0); padding: 10px 30px 5px 30px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+        <a href="https://jigsaw.w3.org/css-validator/check/referer">
+            <img class="web-button"
+                 src="https://jigsaw.w3.org/css-validator/images/vcss-blue"
+                 alt="Valid CSS!" />
+        </a>
+        <a href="https://www.mabsland.com/Adoption.html">
+            <img class="web-button" src="/assets/images/buttons/web14.gif">
+        </a>
+        <a href="https://en.wikipedia.org/wiki/Linux">
+            <img class="web-button" src="/assets/images/buttons/linux.gif">
+        </a>
+    </div>
+</div>

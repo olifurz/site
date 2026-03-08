@@ -1,5 +1,5 @@
 ---
-title: home
+title: index
 layout: base.liquid
 ---
 <head>
@@ -9,6 +9,9 @@ layout: base.liquid
 </head>
 
 <style>
+    body {
+        overflow: hidden;
+    }
     .pattern {
         background-color: transparent;
         border-radius: 30px 0 0 30px;
@@ -79,7 +82,45 @@ layout: base.liquid
     #webrings {
         display: none;
     }
+
+    #logo {
+        position: absolute;
+        bottom: 50%;
+        right: 50%;
+        opacity: 0.1;
+        filter: saturate(0);
+        z-index: 1000000;
+        visibility: hidden;
+    }
+
+    @keyframes logo {
+        from {
+            visibility: visible;
+            filter: saturate(0);
+            opacity: 0;
+            transform: translate(200%, 50%) scale(0.8) rotateX(-85deg);
+        }
+        10% {
+            transform: translate(50%, 50%) scale(0.8) rotateX(-85deg);
+        }
+        20% {
+            transform: translate(50%, 50%) scale(0.85) rotateX(0deg);
+        }
+        90% {
+            filter: saturate(1) drop-shadow(0 0 12px var(--pink)) saturate(150%);
+            opacity: 1;
+            bottom: 50%;
+            right: 50%;
+            transform: translate(50%, 50%) scale(1);
+        }
+        to {
+            opacity: 0;
+            transform: translate(50%, 50%) rotateX(90deg);
+        }
+    }
 </style>
+
+<img id="logo" src="/assets/images/branding/logo.svg"/>
 
 <div class="card index-card" style="animation: zoom-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;; padding: 0; opacity: 0;">
     <div class="split" id="main">
@@ -87,22 +128,24 @@ layout: base.liquid
             <img alt="dancing boykisser cat" class="boykisser" src="/assets/images/boykisser.gif">
         </div>
         <div style="animation: 0.5s slide-in ease forwards; animation-delay: 0.5s; padding: 10px 10px 25px; opacity: 0;">
-            <h1 style="color: var(--pink); text-shadow: 0 0 24px var(--pink);">welcome :3</h1>
+            <h1 style="color: var(--pink); text-shadow: 0 0 24px var(--pink);">welcome</h1>
             <p style="margin-bottom: 0;">before you enter, please be aware this site <i>may</i> include</p>
             <ul style="margin: 5px;">
                 <li>swearing</li>
-                <li>sexual themes</li>
+                <li>music <span style="color: var(--subtext0)">(right click tab to disable)</span></li>
                 <li>poor mobile support</li>
                 <li>gayness</li>
             </ul>
             <p style="margin-top: 0; margin-bottom: 30px;">do not enter if you're under 13 please!</p>
-            <a class="button mute" href="/me" style="padding: 8px 30px;"><b>enter :3</b></a>
-            <button class="outlined mute" onclick="toggleWebrings()" style="padding: 8px 15px;">webrings</button>
+            <button class="mute" onclick="enter()">enter</button>
+            <button class="outlined" onclick="toggleWebrings()" style="padding: 8px 15px;">webrings</button>
         </div>
-        <img style="position: absolute; bottom: 20px; right: 25px; width: 200px; opacity: 0.1; filter: saturate(0)" src="/assets/images/branding/logo.svg"/>
+        <img style="position: absolute; bottom: 20px; right: 25px; width: 200px; opacity: 0.1; filter: saturate(0);" src="/assets/images/branding/logo.svg"/>
     </div>
+
+
     <div id="webrings" style="padding: 10px 20px;">
-        <button class="outlined mute" onclick="toggleWebrings()" style="padding: 8px 15px;">< back</button>
+        <button class="outlined" onclick="toggleWebrings()" style="padding: 8px 15px;">< back</button>
         <h3>webrings</h3>
         <div id='furryring'>
             <script type="text/javascript" src="https://furryring.neocities.org/onionring-variables.js"></script>
@@ -125,16 +168,14 @@ layout: base.liquid
         </div>
         <div>
             <a href="https://ctp-webr.ing/olifurz/previous">&larr;</a
-            ><a href="https://ctp-webr.ing/">Catppuccin webring</a
-        ><a href="https://ctp-webr.ing/olifurz/next">&rarr;</a>
+            ><a href="https://ctp-webr.ing/">Catppuccin webring</a>
+            <a href="https://ctp-webr.ing/olifurz/next">&rarr;</a>
         </div>
-
-        <div></div>
     </div>
 </div>
 
 <script>
-    var visible = false;
+    let visible = false;
     function toggleWebrings() {
         const main = document.getElementById("main");
         const webrings = document.getElementById("webrings");
@@ -149,5 +190,19 @@ layout: base.liquid
             webrings.style.display = "block";
             visible = true;
         }
+    }
+
+    function enter() {
+        const logo = document.getElementById("logo");
+        logo.style.animation = "logo 2s forwards linear";
+
+        const transition = document.getElementById('transition');
+        transition.classList.add('transitionIn');
+        playOneShot(sounds.buttonSelect)
+        playOneShot(sounds.welcome)
+
+        setTimeout(() => {
+            window.location.href = "/home/";
+        }, 2100)
     }
 </script>

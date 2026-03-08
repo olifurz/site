@@ -5,7 +5,8 @@ const sounds = {
     buttonSelect: new Audio("/assets/sounds/button-select.mp3"),
     buttonHover: new Audio("/assets/sounds/button-hover.mp3"),
     dropdownOpen: new Audio("/assets/sounds/dropdown-open.mp3"),
-    dropdownClose: new Audio("/assets/sounds/dropdown-close.mp3")
+    dropdownClose: new Audio("/assets/sounds/dropdown-close.mp3"),
+    welcome: new Audio("/assets/sounds/welcome.mp3"),
 };
 
 addEventListener("DOMContentLoaded", (event) => {
@@ -16,8 +17,9 @@ addEventListener("DOMContentLoaded", (event) => {
 
 //////// Button ////////
 function initButtons() {
+    const transitionEvent = new Event("transition");
     const transition = document.getElementById('transition');
-    document.querySelectorAll(".button, button").forEach(button => {
+    document.querySelectorAll(".button, button, .icon-button").forEach(button => {
         if (!button.classList.contains("mute")) {
             if (button.classList.contains("nav-button")) {
                 button.addEventListener('click', () => { playOneShot(sounds.sidebarSelect) });
@@ -35,6 +37,7 @@ function initButtons() {
             {
                 transition.classList.remove('transitionOut');
                 transition.classList.add('transitionIn');
+                dispatchEvent(transitionEvent);
                 setTimeout(() => {
                     window.location.href = button.href;
                 }, 150);

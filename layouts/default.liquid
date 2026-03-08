@@ -3,6 +3,7 @@ layout: base.liquid
 ---
 <style>
     .navbar {
+        position: relative;
         padding: 8px;
         text-align: center;
     }
@@ -10,17 +11,66 @@ layout: base.liquid
         flex-grow: 1;
         flex-basis: 0;
     }
+    .nav-icon {
+        max-height: 36px;
+        max-width: 40px;
+        margin: 0 16px 0 12px;
+    }
+    .nav-icon > img {
+        width: 100%;
+        height: 100%;
+        transition: transform .15s ease-in-out;
+    }
+    .nav-icon > img:hover {
+        cursor: pointer;
+        transform: scale(1.2);
+    }
+    .nav-button {
+        color: var(--subtext0);
+    }
+    .nav-button:hover {
+        color: var(--text);
+    }
+
+    .a:hover {
+        border-color: var(--red) !important;
+    }
+    .b:hover {
+        border-color: var(--peach) !important;
+    }
+    .c:hover {
+        border-color: var(--yellow) !important;
+    }
+    .d:hover {
+        border-color: var(--green) !important;
+    }
+    .e:hover {
+        border-color: var(--blue) !important;
+    }
+    .e:hover {
+        border-color: var(--blue) !important;
+    }
 </style>
 
 <div class="stack">
     <div class="card navbar split">
-        <a class="button nav-button outlined" href="/" style="flex-grow: 0; min-width: 40px;">index</a>
-        <a class="button nav-button" href="/me/">about</a>
-        <a class="button nav-button" href="/blog/">blog</a>
-        <a class="button nav-button" href="/guestbook/">guestbook</a>
-        <a class="button nav-button" href="/resources/">resources</a>
-        <a class="button nav-button" href="/contact/">contact</a>
+        <a id="nav-icon" class="nav-icon icon-button nav-button" href="/home"><img src="/assets/images/branding/icon-navbar.svg"></a>
+        <a class="button nav-button outlined a" href="/me/">about</a>
+        <a class="button nav-button outlined b" href="/blog/">blog</a>
+        <a class="button nav-button outlined c" href="/guestbook/">guestbook</a>
+        <a class="button nav-button outlined d" href="/resources/">resources</a>
+        <a class="button nav-button outlined e" href="/contact/">contact</a>
     </div>
+
 
     {{ content }}
 </div>
+<script>
+    const navIcon = document.getElementById("nav-icon");
+    navIcon.addEventListener("mouseover", () => {
+        navIcon.getElementsByTagName("img")[0].src = "/assets/images/branding/icon.svg";
+    })
+    navIcon.addEventListener("mouseleave", () => {
+        navIcon.getElementsByTagName("img")[0].src = "/assets/images/branding/icon-navbar.svg";
+    })
+</script>

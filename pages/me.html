@@ -4,52 +4,80 @@ layout: default.liquid
 description: learn all about who oli (olifurz) is and their interests
 ---
 <style>
-    .profile {
-        aspect-ratio: 1 / 1;
-        border-radius: 30px;
-        margin: 10px 10px 10px 0;
+    .profile-backdrop {
+        border-right: 2px solid var(--surface0);
+        background-color: var(--base);
+        background-image:  repeating-linear-gradient(45deg, var(--base) 25%, transparent 25%, transparent 75%, var(--surface0) 75%, var(--surface0)), repeating-linear-gradient(45deg, var(--surface0) 25%, var(--base) 25%, var(--base) 75%, var(--surface0) 75%, var(--surface0));
+        background-position: 0 0, 20px 20px;
+        background-size: 40px 40px;
+        flex-grow: 0 !important;
+        min-width: 220px;
         position: relative;
-        width: 130px;
+        animation: profile-backdrop 2s linear infinite;
+        padding: 10px;
+    }
+    @keyframes profile-backdrop {
+        0% { background-position: 0 0, 20px 20px; }
+        100% { background-position: 0 40px, 20px 60px; }
+    }
+    .profile-backdrop > h1 {
+        color: var(--pink);
+        text-align: justify;
+        text-justify: inter-character;
+        line-height: 80%;
+        margin-top: 50px;
+    }
+    .profile-backdrop > img {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-52%, 50px);
+        transition: 0.5s bottom cubic-bezier(0.34, 2, 0.64, 1), 0.5s opacity cubic-bezier(0.34, 2, 0.64, 1);
+        opacity: 0.6;
+    }
+    .profile-backdrop > img:hover {
+        bottom: 15px;
+        opacity: 1;
+    }
+
+    .about {
+        background-image: url('/assets/images/colonthree.png');
+        background-size: 40px 40px;
+        flex-grow: 1;
+        padding: 10px 15px 15px 15px;
+        position: relative;
     }
 </style>
 
-<div class="card" style="background-color: var(--yellow); color: var(--base)">
-    redoing the fucking layout again, please give me some time! everything will look hectic in the meantime
-</div>
-
-<div class="card">
-    <div class="split">
-        <div style="width: min-content; flex: none;">
-            <img class="profile" src="/assets/images/pfp.png" alt="profile picture">
-        </div>
-        <div style="width: 100%; padding-top: 10px; padding-bottom: 10px;">
-            <h3>about me</h3>
-            <p>
-                hiya, if it wasn't already obvious my name is oliver (or oli)! i'm a <span id="age"></span>yo british software developer that spends their time working on various projects on their computer and taking photos.
-                i also manage a home server which powers this website and numerous other projects.
-            </p>
-        </div>
+<div class="card split" style="aspect-ratio: 16 / 9; padding: 0; gap: 0; overflow: hidden;">
+    <div class="profile-backdrop">
+        <h1>about me</h1>
+        <img src="/assets/images/boykisser-wag.gif">
     </div>
-</div>
-<div class="card">
-    <h4>music collection</h4>
-    <p>i have an appreciation for a variety of artists, these are mainly the ones i tend to listen to in my collection</p>
-    {% include "music-collection/view.html" %}
-</div>
-<div class="card">
-    <h4>pc specs</h4>
-    <p>i've had my pc for ages, it was in fact originally built from a school computer! now proudly running (arch) linux since 2024</p>
-    <div class="split">
-        <table>
-            <tr><th>component</th><th>model</th></tr>
-            <tr><td>cpu</td><td>amd ryzen 5 3600xt (4.4ghz)</td></tr>
-            <tr><td>gpu</td><td>nvidia rtx 3060 oc (12gb)</td></tr>
-            <tr><td>memory</td><td>32gb ddr4</td></tr>
-            <tr><td>case</td><td>some corsair mid-size one</td></tr>
-            <tr><td>display</td><td>aoc 2560x1440@75 + lg 1920x1080@60</td></tr>
-            <tr><td>keyboard</td><td>razer blackwidow v3</td></tr>
-            <tr><td>mouse</td><td>corsair m65 pro</td></tr>
+    <div class="about">
+        <h4>who are you?</h4>
+        <p>
+            i'm <b>oli/oliver</b> :3 !! i'm a 16yo <span class="gay">gay</span> software developer from the uk who spends most of their time
+            on the computer creating random stuff & chatting with others !! <br/><br/>
+        </p>
+        <h4>interests</h4>
+        <table style="table-layout: fixed">
+            <tr>
+                <th>hobbies</th>
+                <th>shows/movies</th>
+                <th>music</th>
+            </tr>
+            <tr>
+                <td>programming, ui design, 3d printing, photography, nature,
+                    drinking monster energy, cuddling blahaj, sleeping
+                </td>
+                <td>the it crowd, friday night dinner, the office, have i got news for you,
+                    8/10 cats does countdown, blackadder, spitting image
+                </td>
+                <td>
+                    jamiroquai, inabakumori, hatsune miku, kasane teto, garbage, toby fox, the prodigy, valve (portal/tf2), nintendo (botw), persona 5 ost
+                </td>
+            </tr>
         </table>
-        <img src="/assets/images/desktop.jpg" height="210px">
     </div>
 </div>

@@ -22,9 +22,9 @@ description: personal site for olifurz, also known as oli!
             {{ content }}
             <div class="split" style="padding: 5px 25px;">
                 <div style="flex-grow: 1;"><b>&copy; olifurz 2025 ~ <span id="year"></span></b></div>
-                <div style="flex-wrap: nowrap; text-align: right;"><a href="https://github.com/olifurz/site">source code</a> &bullet;
-                    <a href="/credits">credits</a> &bullet;
-                    <a href="/contact">contact me</a></div>
+                <div style="flex-wrap: nowrap; text-align: right;">
+                    <a href="https://github.com/olifurz/site">source code</a> &bullet;
+                    <a href="/credits">credits</a>
             </div>
         </div>
         <div id="transition" class="transition">
@@ -35,6 +35,28 @@ description: personal site for olifurz, also known as oli!
         addEventListener("DOMContentLoaded", (event) => {
             const transition = document.getElementById('transition');
             transition.classList.add('transitionOut');
+
+            {% if music != null %}
+            let path = "/assets/music/" + "{{ music }}";
+            const audio = new Audio(path);
+            audio.play();
+            audio.volume = 0.5;
+            audio.loop = true;
+
+            addEventListener("transition", (e) => {
+                var fadeout = setInterval(
+                    function() {
+                        if (audio.volume > 0) {
+                            audio.volume -= 0.1;
+                            console.log(audio.volume);
+                        }
+                        else {
+                            clearInterval(fadeout);
+                        }
+                    }, 30);
+            });
+
+            {% endif %}
         })
     </script>
     <script src="/scripts/api.js" type="module"></script>

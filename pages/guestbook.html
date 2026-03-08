@@ -3,10 +3,41 @@ title: projects
 layout: default.liquid
 ---
 
-<div class="card">
-    <h2 style="text-align: center;">guestbook</h2>
-    <div style="position: relative; min-height: 500px;">
-        <iframe style="border: none; width: 100%; height: 100%; position: absolute; top: -50px;" src="https://olifurz.atabook.org/">
+<style>
+    .guestbook-title {
+        border-radius: inherit;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        background-color: var(--base);
+        background: repeating-linear-gradient( 45deg, var(--surface0), var(--surface0) 2px, var(--base) 2px, var(--base) 10px );
+        z-index: 10;
+        border-bottom: 1px solid var(--surface0);
+        text-align: center;
+    }
+    .guestbook {
+        position: relative;
+    }
+    .guestbook::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, var(--base) 1%, transparent 15%);
+        pointer-events: none;
+
+    }
+</style>
+
+<div class="card" style="padding: 0;">
+    <div class="guestbook-title">
+        <h2>guestbook</h2>
+        <p style="line-height: 5px; margin-bottom: 25px;">please be kind, i will try to reply to all messages when i can !</p>
+    </div>
+    <div class="guestbook">
+        <iframe style="border: none; width: 100%; height: 500px;" src="https://olifurz.atabook.org/">
 
         </iframe>
     </div>

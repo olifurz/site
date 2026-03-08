@@ -189,9 +189,7 @@ details[open] summary {
             repeating-conic-gradient(var(--c2) 0 25%,var(--c1) 0 50%)
             calc(.5*var(--s)) 0/calc(2*var(--s)) var(--s);
     opacity: 0.8;
-    animation: background 3s linear infinite;
-
-    filter: blur(4px);
+    animation: background 4s linear infinite;
 }
 @keyframes background {
     from {
@@ -239,30 +237,39 @@ a:hover {
 button,
 .button {
     all: unset;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 6px 16px 6px 16px;
     min-width: 50px;
-    min-height: 16px;
+    min-height: 18px;
     text-align: center;
-    background-color: var(--surface0);
+    background: linear-gradient(180deg, var(--surface2), var(--surface0));
+    box-shadow: 0 2px 4px var(--crust);
     border-radius: 30px;
     pointer-events: auto;
-    transition: 0.2s;
     overflow: hidden;
     position: relative;
-    line-height: 16px;
+    line-height: 0;
+    transition: transform 0.1s ease-in-out, filter 0.3s ease-in-out;
 }
 
 button:hover,
 .button:hover {
+    cursor: var(--cursor-link), auto;
+    filter: brightness(1.5);
     text-decoration: none;
-    background-color: var(--surface1);
+    transform: scale(1.1);
+    z-index: 1000;
 }
 *:is(.button, button).outlined {
-    background-color: transparent;
+    background: transparent;
     border: 2px solid var(--surface1);
+    box-shadow: none;
 }
 *:is(.button, button).outlined:hover {
     border-color: var(--pink);
+    filter: none;
 }
 
 
@@ -277,6 +284,20 @@ button:hover,
     z-index: 0;
     transition: 0.2s;
 }
+code {
+    background-color: var(--surface0);
+    font-family: monospace;
+    padding: 2px 4px 2px 12px;
+    display: block;
+}
+
+/* godly class */
+.gay {
+    background-clip: text;
+    background-image: linear-gradient(90deg, var(--red), var(--peach), var(--yellow), var(--green), var(--blue), var(--mauve));
+    color: transparent;
+    font-weight: bold;
+}
 
 .tag {
     background-color: var(--surface0);
@@ -289,23 +310,25 @@ button:hover,
 }
 
 table {
-    border-collapse: separate;
-    border: 1px solid var(--surface2);
-    border-radius: 8px;
-    background: color-mix(in srgb, var(--base), transparent 40%);
+    border-collapse: collapse;
+    border: 1px solid var(--surface1);
+    background: var(--base);
     font-size: 12px;
     width: 100%;
+    margin: 8px 0;
 }
 
 td, th {
-    border-top: 1px solid var(--surface2);
-    font-size: 12px;
-    padding: 2px;
+    border: 1px solid var(--surface1);
+    font-size: 14px;
+    padding: 4px 8px;
+}
+td {
 }
 
 th {
     border-radius: 6px 6px 0 0;
-    border-top: none;
+    border-top: none !important;
 }
 
 td:first-child, th:first-child {
