@@ -413,12 +413,6 @@ span.ripple {
     src: url("/assets/fonts/sevensegment.woff");
 }
 
-@media screen and (prefers-reduced-motion: reduce) {
-    * {
-        transition: none !important;
-        animation: none !important;
-    }
-}
 @media (max-width: 600px) {
     .split {
         flex-direction: column;
